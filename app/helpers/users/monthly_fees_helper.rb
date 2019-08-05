@@ -1,0 +1,2 @@
+module Users::MonthlyFeesHelper
+end
