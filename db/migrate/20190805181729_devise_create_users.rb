@@ -31,24 +31,27 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :name, null: false, default:""
+      t.string :name, unique: true
       t.text :profile
       t.integer :grade, null: false, default:0
-      t.string :provider, null: false, default:""
-      t.string :uid, null: false, default:""
+      t.string :provider, null: false, default:"" #github認証に使用
+      t.string :uid, null: false, default:"" #github認証に使用
       t.integer :is_member, null: false, default:0
       t.integer :holding_point, null: false, default:0
       t.integer :is_delivery, null: false, default:1
       t.integer :fee_category, null: false, default:0
-      t.integer :phone_number, null: false
+      t.integer :phone_number#, null: false
       t.integer :is_deleted, null: false, default:0
 
-      t.timestamps null: false
+      t.timestamps
     end
 
+    add_index :users, :name,                 unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, [:uid, :provider], unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
+
 end

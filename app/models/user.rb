@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: %i(github) #この一行はgithub認証のために記載
 
   #以下全て基本的にはuserは退会フラグで退会状況を確認するので物理論理削除はほとんどない？
 
@@ -22,6 +23,31 @@ class User < ApplicationRecord
 
   has_many :points
   #再登録があるので保持or再登録したら買い直させる=>dependent: :delete_all
+
+
+  #以下github認証に使用
+  def self.create_unique_string #ランダムにuid作成
+    SecureRandom.uuid
+  end
+
+  def self.find_for_github_oauth(auth, signed_in_resource=nil)
+    user = User.find_by(provider: auth.provider, uid: auth.uid)
+
+    unless user
+      user = User.new(provider: auth.provider,
+                      uid:      auth.uid,
+                      name:     auth.info.name,
+                      email:    User.dummy_email(auth),
+                      password: Devise.friendly_token[0, 20]
+                      )
+    end
+    user.save
+    user
+  end
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
+  end
 
 
 end
