@@ -1,0 +1,2 @@
+class MonthlyFee < ApplicationRecord
+end
