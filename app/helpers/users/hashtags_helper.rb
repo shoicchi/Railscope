@@ -1,0 +1,2 @@
+module Users::HashtagsHelper
+end

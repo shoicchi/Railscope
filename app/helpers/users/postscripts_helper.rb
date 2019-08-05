@@ -1,0 +1,2 @@
+module Users::PostscriptsHelper
+end
