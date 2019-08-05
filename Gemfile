@@ -67,7 +67,7 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem "cocoon"
-gem 'paranoia'
+gem 'paranoia', '~>2.2'
 gem 'kaminari', '~> 1.1.1'
 gem 'omniauth'
 gem 'omniauth-github'
