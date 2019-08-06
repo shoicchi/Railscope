@@ -1,9 +1,11 @@
 class Users::NotesController < ApplicationController
 
 	def index
+		@note = Note.all #一旦ALL、検索なしには表示しない
 	end
 
 	def show
+		@note = Note.find(params[:id])
 	end
 
 	def new

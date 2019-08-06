@@ -3,8 +3,26 @@ notes
 index
 
 <body>
-	<h1>ノート検索</h1>
-	
+	<h1>Serch Notes</h1>
+
+	<% @note.each do |note| %>
+		<%= link_to note_path(note) do %>
+			<div>
+				<p><%= note.is_browsable_guest %></p><br>
+
+				<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
+					<p><%= note.view_point %></p><br>
+				<% end %>
+
+				<p><%= note.title %></p><br>
+
+				<p><%= note.overview %></p><br>
+
+				<p><%= note.user.name %></p>
+			</div>
+		<% end %>
+	<% end %>
+
 
 
 </body>
