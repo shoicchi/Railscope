@@ -27,9 +27,18 @@ class Users::NotesController < ApplicationController
 
 
 	def edit
+		@note = Note.find(params[:id])
 	end
 
 	def update
+		@note = Note.find(params[:id])
+		if @note.update(note_params)
+			flash[:notice] = "この Note を編集しました。"
+			redirect_to note_path(@note)
+		else
+			flash[:notice] = "編集に失敗しました。やり直してください。"
+			render :edit
+		end
 	end
 
 	def destroy
