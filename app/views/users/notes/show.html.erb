@@ -3,6 +3,12 @@ note
 show
 
 <body>
+	<% if @note.user = current_user %>
+		これはあなたが投稿したNoteです。
+		<%= link_to 'Noteを編集する', edit_note_path(@note) %>
+		<%= link_to 'Noteを削除する', notes_path, method: :delete, data: { confirm: 'Are you sure?' } %><!--論理削除-->
+	<% end %>
+
 	<div>
 		<p><%= @note.is_browsable_guest %></p><br><!--左上にオシャレに表示、無料＝青、有料＝黄色、ポイント＝金 -->
 
@@ -12,7 +18,10 @@ show
 		<p><%= @note.title %></p><br>
 		<p><%= @note.overview %></p><br>
 
-<!--これはモデルに書くべき？　モデルで定義=>本文タグ内をモザイク画像に置き換え＆リンクを貼る　ビューで定義=>JSでモザイク加工あるはず
+
+		<!--- 選択したハッシュタグを表示 -->
+
+<!--以下モデルに書くべき？　モデルで定義=>本文タグ内をモザイク画像に置き換え＆リンクを貼る　ビューで定義=>JSでモザイク加工あるはず
 そもそも考え方としてNoteの性質（モデル）？それとも表示条件（ビュー）？
 
 	if 有料記事
