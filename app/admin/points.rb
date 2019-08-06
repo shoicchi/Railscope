@@ -1,5 +1,5 @@
 ActiveAdmin.register Point do
-  permit_params :user_id, :reason, :point
+  permit_params :user_id, :reason, :point #activeadminのdashboardから登録編集削除するためのおストロングパラメーター
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

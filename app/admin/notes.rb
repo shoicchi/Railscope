@@ -1,5 +1,5 @@
 ActiveAdmin.register Note do
-  permit_params :user_id, :title, :overview, :content, :is_browsable_guest, :view_point
+  permit_params :user_id, :title, :overview, :content, :is_browsable_guest, :view_point #activeadminのdashboardから登録編集削除するためのおストロングパラメーター
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -1,5 +1,5 @@
 ActiveAdmin.register Hashtag do
-  permit_params :tag_name
+  permit_params :tag_name #activeadminのdashboardから登録編集削除するためのおストロングパラメーター
 
 
   # See permitted parameters documentation:

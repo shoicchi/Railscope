@@ -1,5 +1,5 @@
 ActiveAdmin.register Review do
-  permit_params :user_id, :note_id, :quality, :review, :is_appending
+  permit_params :user_id, :note_id, :quality, :review, :is_appending #activeadminのdashboardから登録編集削除するためのおストロングパラメーター
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
