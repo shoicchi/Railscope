@@ -1363,3 +1363,27 @@ Processing by Users::NotesController#edit as HTML
 Completed 200 OK in 665ms (Views: 640.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/notes/1/edit" for 10.0.2.2 at 2019-08-06 21:28:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (1.2ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:30
+  Rendering users/notes/edit.html.erb within layouts/application
+  Rendered users/notes/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 2996ms (Views: 2964.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/notes/1/edit" for 10.0.2.2 at 2019-08-06 21:28:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:30
+  Rendering users/notes/edit.html.erb within layouts/application
+  Rendered users/notes/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 674ms (Views: 661.0ms | ActiveRecord: 0.5ms)
+
+

@@ -27,6 +27,7 @@ class Users::NotesController < ApplicationController
 
 
 	def edit
+		@note = Note.find(params[:id])
 	end
 
 	def update
