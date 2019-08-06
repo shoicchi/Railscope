@@ -11,10 +11,10 @@ class Note < ApplicationRecord
 	has_many :reviews
 	#bookmarksと同様の理由でいいか？
 
-	has_many :postscripts dependent: :delete_all
+	has_many :postscripts, dependent: :delete_all
 	#postscriptsはあくまでnoteの一部であるから消す。noteが論理削除→postscriptsも論理削除にしたい
 
-	has_many :note_hashtags dependent: :delete_all
+	has_many :note_hashtags, dependent: :delete_all
 	#noteが論理削除→note_hashtagsも論理削除にしたい
 	#もちろんhashtagsは消えない。
 
