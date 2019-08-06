@@ -23,8 +23,9 @@ new
 
 	<div>
 		<label>閲覧設定</label>
-		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
-	</div>
+		<%= f.radio_button :is_browsable_guest, :"無料記事" %> 無料記事
+  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
+  	</div>
 
 	<div>
 		<label>閲覧ポイント設定</label><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->

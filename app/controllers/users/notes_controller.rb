@@ -13,7 +13,8 @@ class Users::NotesController < ApplicationController
 
 	def create
 		@note = Note.new(note_params)
-		if @item.save
+		@note.user_id = current_user.id
+		if @note.save
 			flash[:notice] = "この Note を投稿しました。"
 			redirect_to note_path(@note)
 		else

@@ -1048,3 +1048,145 @@ ActionView::Template::Error (undefined method `is_browsable_guest' for #<Class:0
   
 app/views/users/notes/new.html.erb:26:in `block in _app_views_users_notes_new_html_erb___1173678904445487925_47078948541560'
 app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___1173678904445487925_47078948541560'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:24:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `is_browsable_guest' for #<Class:0x0000561beefc9ff8>):
+    23: 
+    24: 	<div>
+    25: 		<label>閲覧設定</label>
+    26: 		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
+    27: 	</div>
+    28: 
+    29: 	<div>
+  
+app/views/users/notes/new.html.erb:26:in `block in _app_views_users_notes_new_html_erb__1646739283178368450_70160204836760'
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb__1646739283178368450_70160204836760'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:31:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 2966ms (Views: 2940.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:32:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 749ms (Views: 733.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notes" for 10.0.2.2 at 2019-08-06 19:33:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7s4BA+kIjAqCaLiSTEG3QY8szXFi/JIYMyH4Zf33GalVX8VfYr+z0q2F8g/Q+7lmjeiFRtrRz32wYnEEuLAgzQ==", "note"=>{"title"=>"test1", "overview"=>"test1", "content"=>"test1", "is_browsable_guest"=>"無料記事", "view_point"=>"0"}, "commit"=>"投稿する"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/users/notes_controller.rb:16:in `create'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:35:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 2848ms (Views: 2817.1ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/notes" for 10.0.2.2 at 2019-08-06 19:35:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gt6tB2gneEoHNapprRD4d3I2IXufzf+RpNmAheY5eQChT2lb45BHkijY4PQxqvZQcPJpTCfgovQnmgnko35AZA==", "note"=>{"title"=>"test1", "overview"=>"test1", "content"=>"test1", "is_browsable_guest"=>"無料記事", "view_point"=>"0"}, "commit"=>"投稿する"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 7.6ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/users/notes_controller.rb:17:in `create'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:36:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 2684ms (Views: 2656.5ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/notes" for 10.0.2.2 at 2019-08-06 19:36:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Lale1CSfN88mG7mYrcv5sBa+95oyisSTnFOvhgtrEauWOJqIrygIFwn28wUxcfeXFHq/rYqnmfYfECbnTiwozw==", "note"=>{"title"=>"test1", "overview"=>"test1", "content"=>"test1", "is_browsable_guest"=>"無料記事", "view_point"=>"0"}, "commit"=>"投稿する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/notes_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/notes_controller.rb:17
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 686ms (Views: 676.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/notes" for 10.0.2.2 at 2019-08-06 19:37:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  Rendered users/notes/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2640ms (Views: 2614.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 19:37:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 757ms (Views: 726.8ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/notes" for 10.0.2.2 at 2019-08-06 19:37:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+0cuJUYtz0XNufArK71Foos63WJ19tpEaZHZLYrhUIpA1up5zZrwneJUura3B0uFif6VVc3bhyHq0lBMz6Zp7g==", "note"=>{"title"=>"test1", "overview"=>"test1", "content"=>"test1", "is_browsable_guest"=>"無料記事", "view_point"=>"0"}, "commit"=>"投稿する"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/notes_controller.rb:17
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:17
+  [1m[36mNote Create (3.2ms)[0m  [1m[32mINSERT INTO "notes" ("user_id", "title", "overview", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["title", "test1"], ["overview", "test1"], ["content", "test1"], ["created_at", "2019-08-06 19:37:28.980625"], ["updated_at", "2019-08-06 19:37:28.980625"]]
+  ↳ app/controllers/users/notes_controller.rb:17
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/notes_controller.rb:17
+Redirected to http://localhost:3000/notes/1
+Completed 302 Found in 54ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/notes/1" for 10.0.2.2 at 2019-08-06 19:37:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/notes/show.html.erb within layouts/application
+  Rendered users/notes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 688ms (Views: 674.3ms | ActiveRecord: 0.0ms)
+
+
