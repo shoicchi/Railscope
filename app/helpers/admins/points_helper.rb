@@ -1,0 +1,2 @@
+module Admins::PointsHelper
+end

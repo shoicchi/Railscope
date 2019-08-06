@@ -73,4 +73,5 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails' #.envに記載した環境変数を認識させるために必要
 gem 'payjp' #checkout使用予定
+gem 'activeadmin'
 
