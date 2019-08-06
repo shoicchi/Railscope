@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_095425) do
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "note_id", null: false
-    t.float "quantity", null: false
+    t.float "quality", null: false
     t.text "review"
     t.integer "is_appending", default: 0, null: false
     t.datetime "created_at", null: false

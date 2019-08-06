@@ -21,4 +21,9 @@ class Users::BookmarksController < ApplicationController
 	def destroy
 	end
 
+	private
+	def bookmark_params
+		params.require(:bookmark).permit(:user_id, :note_id)
+	end
+
 end

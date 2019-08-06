@@ -21,4 +21,9 @@ class Users::NoteHashtagsController < ApplicationController
 	def destroy
 	end
 
+	private
+	def note_hashtag_params
+		params.require(:note_hashtag).permit(:note_id, :hashtag_id)
+	end
+
 end

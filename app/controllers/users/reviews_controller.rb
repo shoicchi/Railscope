@@ -21,4 +21,9 @@ class Users::ReviewsController < ApplicationController
 	def destroy
 	end
 
+	private
+	def review_params
+		params.require(:review).permit(:user_id, :note_id, :quality, :review, :is_appending)
+	end
+
 end

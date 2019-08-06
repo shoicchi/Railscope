@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
 
     	t.integer :user_id, null:false
     	t.integer :note_id, null:false
-    	t.float :quantity, null:false
+    	t.float :quality, null:false
     	t.text :review
     	t.integer :is_appending, null:false, default:0
 

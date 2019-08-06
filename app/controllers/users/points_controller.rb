@@ -21,4 +21,9 @@ class Users::PointsController < ApplicationController
 	def destroy
 	end
 
+	private
+	def point_params
+		params.require(:point).permit(:user_id, :reason, :point)
+	end
+
 end

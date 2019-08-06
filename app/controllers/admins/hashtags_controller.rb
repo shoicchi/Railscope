@@ -22,4 +22,5 @@ class Admins::HashtagsController < ApplicationController
 	def destroy
 	end
 
+
 end

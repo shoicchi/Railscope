@@ -1,5 +1,5 @@
 class Hashtag < ApplicationRecord
 
-	has_many :hash_tags
+	has_many :note_hashtags
 
 end
