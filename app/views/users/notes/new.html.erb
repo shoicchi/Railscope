@@ -1,1 +1,39 @@
+user
+note
 new
+
+<body>
+	<div>新規投稿</div>
+	<%= form_for(@note) do |f| %>
+
+	<div>
+		<label>タイトル</label>
+		<%= f.text_field :title %>
+	</div>
+
+	<dir>
+		<label>概要</label>
+		<%= f.text_field :overview %>
+	</dir>
+
+	<div>
+		<label>内容</label>
+		<%= f.text_field :content %>
+	</div>
+
+	<div>
+		<label>閲覧設定</label>
+		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
+	</div>
+
+	<div>
+		<label>閲覧ポイント設定</label><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
+		<%= f.number_field :view_point %>
+	</div>
+
+	<%= f.submit '投稿する' %>
+	<% end %>
+
+
+</body>
+

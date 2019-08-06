@@ -75,3 +75,4 @@ gem 'dotenv-rails' #.envに記載した環境変数を認識させるために�
 gem 'payjp' #checkout使用予定
 gem 'activeadmin'
 
+

@@ -18,4 +18,9 @@ class Note < ApplicationRecord
 	#noteが論理削除→note_hashtagsも論理削除にしたい
 	#もちろんhashtagsは消えない。
 
+	enum is_browsable_guest:{
+		有料会員限定記事: 0,
+		無料記事: 1
+	}
+
 end

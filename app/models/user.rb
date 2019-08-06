@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i(github) #この一行はgithub認証のために記載
 
-  #以下全て基本的にはuserは退会フラグで退会状況を確認するので物理論理削除はほとんどない？
+  #以下全て基本的にはuserは退会フラグで退会状況を確認するので論理削除はほとんどない？
 
   has_many :review
   #userが退会した場合はreviewの取り扱いを確認する。

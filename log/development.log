@@ -798,3 +798,253 @@ Migrating to CreateActiveAdminComments (20190806095425)
   ↳ db/seeds.rb:8
   [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
   ↳ db/seeds.rb:8
+Started GET "/" for 10.0.2.2 at 2019-08-06 11:25:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by OauthTestController#index as HTML
+  Rendering oauth_test/index.html.erb within layouts/application
+  Rendered oauth_test/index.html.erb within layouts/application (3.6ms)
+Started GET "/" for 10.0.2.2 at 2019-08-06 11:25:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OauthTestController#index as HTML
+  Rendering oauth_test/index.html.erb within layouts/application
+  Rendered oauth_test/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 19546ms (Views: 19525.3ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 16024ms (Views: 16001.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/github" for 10.0.2.2 at 2019-08-06 11:26:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/auth/github" for 10.0.2.2 at 2019-08-06 11:26:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/auth/github/callback?code=8b64f4380606e0ce1fda&state=9ccd7c39adb8d38ee284c65a20b852e583fcba4c81df3aa4" for 10.0.2.2 at 2019-08-06 11:26:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"8b64f4380606e0ce1fda", "state"=>"9ccd7c39adb8d38ee284c65a20b852e583fcba4c81df3aa4"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? LIMIT ?[0m  [["provider", "github"], ["uid", "51253545"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:9
+  [1m[36mUser Update (3.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 3], ["current_sign_in_at", "2019-08-06 11:26:06.273424"], ["last_sign_in_at", "2019-08-05 21:26:16.124033"], ["updated_at", "2019-08-06 11:26:06.274952"], ["id", 1]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:9
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2019-08-06 11:26:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OauthTestController#index as HTML
+  Rendering oauth_test/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/oauth_test/index.html.erb:5
+  Rendered oauth_test/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 648ms (Views: 635.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/top" for 10.0.2.2 at 2019-08-06 11:26:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (uninitialized constant TopController):
+  
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notes" for 10.0.2.2 at 2019-08-06 11:29:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  Rendered users/notes/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2816ms (Views: 2781.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notes" for 10.0.2.2 at 2019-08-06 11:29:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  Rendered users/notes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 782ms (Views: 757.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notes" for 10.0.2.2 at 2019-08-06 12:49:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  Rendered users/notes/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3045ms (Views: 3024.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 12:49:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: 
+    5: <body>
+    6: 	<div>新規投稿</div>
+    7: 	<%= form_for(@Note) do |f| %>
+    8: 
+    9: 	<div>
+   10: 		<label>タイトル</label>
+  
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___603229871898826862_70125289009020'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 12:50:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `Overview' for #<Note:0x00007f8ea31f5ea8>):
+    13: 
+    14: 	<dir>
+    15: 		<label>概要</label>
+    16: 		<%= f.text_field :Overview %>
+    17: 	</dir>
+    18: 
+    19: 	<div>
+  
+app/views/users/notes/new.html.erb:16:in `block in _app_views_users_notes_new_html_erb___603229871898826862_70125299409780'
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___603229871898826862_70125299409780'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 12:50:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (17.4ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `is_browsable_guest' for #<Class:0x000055fa434a2f98>):
+    23: 
+    24: 	<div>
+    25: 		<label>閲覧設定</label>
+    26: 		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
+    27: 	</div>
+    28: 
+    29: 	<div>
+  
+app/views/users/notes/new.html.erb:26:in `block in _app_views_users_notes_new_html_erb___603229871898826862_70125283064400'
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___603229871898826862_70125283064400'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 12:54:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 4.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `is_browsable_guest' for #<Class:0x0000560782ca0c30>):
+    23: 
+    24: 	<div>
+    25: 		<label>閲覧設定</label>
+    26: 		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
+    27: 	</div>
+    28: 
+    29: 	<div>
+  
+app/views/users/notes/new.html.erb:26:in `block in _app_views_users_notes_new_html_erb___3843354507714851429_70287510355140'
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___3843354507714851429_70287510355140'
+Started GET "/notes/new" for 10.0.2.2 at 2019-08-06 12:56:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::NotesController#new as HTML
+  Rendering users/notes/new.html.erb within layouts/application
+  Rendered users/notes/new.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 4.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `is_browsable_guest' for #<Class:0x000055a2d803c778>):
+    23: 
+    24: 	<div>
+    25: 		<label>閲覧設定</label>
+    26: 		<%= f.select :is_browsable_guest, Note.is_browsable_guest.keys.to_a, {} %><!-- 1(true)の場合無料記事 --><!--include blank?-->
+    27: 	</div>
+    28: 
+    29: 	<div>
+  
+app/views/users/notes/new.html.erb:26:in `block in _app_views_users_notes_new_html_erb___1173678904445487925_47078948541560'
+app/views/users/notes/new.html.erb:7:in `_app_views_users_notes_new_html_erb___1173678904445487925_47078948541560'

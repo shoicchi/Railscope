@@ -4,6 +4,6 @@ class NoteHashtag < ApplicationRecord
 	#note_hashtagsを消すことはない。noteが削除されたときには削除される。
 
 	belongs_to :hashtag
-	#note_hashtagsを消すことはない。hashtagsを消すこともない。
+	#note_hashtagsを消すことはない。hashtagsもほとんど消すこともない。
 
 end
