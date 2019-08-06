@@ -1,4 +1,5 @@
 ActiveAdmin.register Note do
+  permit_params :user_id, :title, :overview, :content, :is_browsable_guest, :view_point
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

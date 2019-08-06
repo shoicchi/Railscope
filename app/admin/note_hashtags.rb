@@ -1,4 +1,5 @@
 ActiveAdmin.register NoteHashtag do
+  permit_params :note_id, :hashtag_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
