@@ -21,4 +21,9 @@ class Users::PostscriptsController < ApplicationController
 	def destroy
 	end
 
+	private
+	def postscript_params
+		params.require(:postscript).permit(:review_id, :note_id, :postscript)
+	end
+
 end

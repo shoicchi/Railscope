@@ -21,4 +21,9 @@ class Users::MonthlyFeesController < ApplicationController
 	def destroy
 	end
 
+	private
+	def monthly_fee_params
+		params.require(:monthly_fee).permit(:fee_category, :add_point)
+	end
+
 end
