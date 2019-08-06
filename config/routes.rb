@@ -17,4 +17,9 @@ Rails.application.routes.draw do
   	scope module: :users do
   		resources :bookmarks, :hashtags, :monthly_fees, :my_notes, :note_hashtags, :notes, :points, :postscripts, :reviews, :users
   	end
+
+  	namespace :admins do
+  		resources :bookmarks, :hashtags, :monthly_fees, :my_notes, :note_hashtags, :notes, :points, :postscripts, :reviews, :users
+  	end
+
 end
