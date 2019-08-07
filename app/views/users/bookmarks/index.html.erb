@@ -5,3 +5,23 @@ index
 <!--ブックマークはログイン必須-->
 
 
+<body>
+	<h1>Bookmarked Notes</h1>
+
+	<% @bookmarks.each do |bookmark| %>
+	<%= link_to note_path(bookmark.note_id) do %>
+		<div>
+			<p><%= bookmark.note.title %></p><br>
+
+			<p><%= bookmark.note.overview %></p><br>
+
+			<p><%= bookmark.note.user.name %></p><br>
+
+			<p><%= bookmark.created_at %></p>
+
+		</div>
+	<% end %>
+	<% end %>
+
+
+</body>
