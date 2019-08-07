@@ -1,7 +1,7 @@
 class Users::BookmarksController < ApplicationController
 
 	def index
-		@bookmark =
+		@bookmarks = Bookmark.all
 	end
 
 	def show
