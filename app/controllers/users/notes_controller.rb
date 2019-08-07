@@ -7,6 +7,9 @@ class Users::NotesController < ApplicationController
 	def show
 		@note = Note.find(params[:id])
 		@bookmark = Bookmark.new
+
+		#以下はブックマーク追加しいているかどうか判断で使用中
+		@bookmarks = Bookmark.where(user_id: current_user.id)
 	end
 
 	def new
