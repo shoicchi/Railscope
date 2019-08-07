@@ -3,7 +3,7 @@ note
 show
 
 <body>
-	<% if @note.user = current_user %>
+	<% if @note.user == current_user %>
 		これはあなたが投稿したNoteです。
 		<%= link_to 'Noteを編集する', edit_note_path(@note) %>
 		<%= link_to 'Noteを削除する', notes_path, method: :delete, data: { confirm: 'Are you sure?' } %><!--論理削除-->
