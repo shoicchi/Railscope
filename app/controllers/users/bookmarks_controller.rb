@@ -1,6 +1,7 @@
 class Users::BookmarksController < ApplicationController
 
 	def index
+		@bookmark =
 	end
 
 	def show
@@ -10,7 +11,7 @@ class Users::BookmarksController < ApplicationController
 	end
 
 	def create
-		@bookmark = @bookmark.new(bookmark_params) #users/note/showから
+		@bookmark = Bookmark.new(bookmark_params) #users/note/showから
 		@bookmark.save
 		redirect_to bookmarks_path
 	end
