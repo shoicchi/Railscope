@@ -1,7 +1,7 @@
 class Users::BookmarksController < ApplicationController
 
 	def index
-		@bookmarks = Bookmark.all
+		@bookmarks = Bookmark.where(user_id: current_user.id)
 	end
 
 	def show
@@ -23,6 +23,14 @@ class Users::BookmarksController < ApplicationController
 	end
 
 	def destroy
+		@bookmark = Bookmark.find(params[:id])
+  		if @bookmark.destroy
+  			flash[:notice] = "Bookmarkを一つ削除しました。"
+  			redirect_to bookmarks_path
+  		else
+			@bookmark = Bookmark.where(user_id: current_user.id)
+  			render :index
+  		end
 	end
 
 	private

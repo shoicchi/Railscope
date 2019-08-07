@@ -3,7 +3,7 @@ bookmark
 index
 
 <!--ブックマークはログイン必須-->
-
+<%= flash[:notice] %>
 
 <body>
 	<h1>Bookmarked Notes</h1>
@@ -18,6 +18,8 @@ index
 			<p><%= bookmark.note.user.name %></p><br>
 
 			<p><%= bookmark.created_at %></p>
+
+			<p><%= link_to 'Bookmarkから削除', bookmark_path(bookmark), method: :delete, data: { confirm: '本当に削除しますか?' } %></p>
 
 		</div>
 	<% end %>
