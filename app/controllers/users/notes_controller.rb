@@ -6,6 +6,7 @@ class Users::NotesController < ApplicationController
 
 	def show
 		@note = Note.find(params[:id])
+		@bookmark = Bookmark.new
 	end
 
 	def new
