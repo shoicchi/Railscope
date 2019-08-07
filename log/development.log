@@ -7222,3 +7222,48 @@ Processing by Users::NotesController#show as HTML
 Completed 200 OK in 691ms (Views: 673.9ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/notes" for 10.0.2.2 at 2019-08-07 17:33:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ app/views/users/notes/index.html.erb:8
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  Rendered users/notes/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 870ms (Views: 847.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/notes/1" for 10.0.2.2 at 2019-08-07 17:33:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (1.8ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:8
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  Rendered users/notes/show.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 654ms (Views: 631.8ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/bookmarks" for 10.0.2.2 at 2019-08-07 17:33:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::BookmarksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s+iHgMKIztNL/PRVHN454YcrmcW10OXynpIcL1Ij3C+lP1MiXDmKmkAO80rlrhHEHvtt96BYD54XrUxRD0pEEg==", "bookmark"=>{"note_id"=>"1", "user_id"=>"1"}, "commit"=>"Bookmarkに追加"}
+No template found for Users::BookmarksController#create, rendering head :no_content
+Completed 204 No Content in 768ms (ActiveRecord: 0.0ms)
+
+
