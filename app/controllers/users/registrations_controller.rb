@@ -2,7 +2,8 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  skip_before_action :verify_authenticity_token, only: :create#InvalidAuthenticityTokenのCSRFトークンをスルー
+  skip_before_action :verify_authenticity_token, only: :create
+  #InvalidAuthenticityTokenのCSRFトークンをスルー。omniauth導入でサインアップはgithub経由になっていたため？無理矢理外部からの認証をOKにした。
 
 
   # before_action :configure_sign_up_params, only: [:create]

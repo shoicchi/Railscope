@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+ 	devise_for :admin_users, ActiveAdmin::Devise.config
+ 	ActiveAdmin.routes(self)
+
  	get 'oauth_test/index'
 	get 'top' => 'top#top'
 	root :to => 'oauth_test#index'

@@ -42,4 +42,36 @@ show
 	</div>
 
 
+	<div>
+
+						<!--ログインの確認=> 投稿者の確認=> ブックマーク追加済みか否かの確認-->
+	<!--ユーザーがログインしているかの確認-->
+	<% if user_signed_in? %>
+
+		<!--投稿者の確認-->
+		<% if @note.user != current_user %><!--通常処理(閲覧中のNoteが他人の投稿である場合)-->
+
+			<!--ユーザーがブックマーク追加済みかどうかわかるようにする-->
+			<% if @note.user != current_user %><!--通常処理（ブックマーク追加していないNoteの場合)-->
+				<%= form_for(@bookmark) do |f| %>
+					<%= f.hidden_field :note_id, value: @note.id %>
+					<%= f.hidden_field :user_id, value: current_user.id %>
+					<%= f.submit "Bookmarkに追加" %>
+				<% end %>
+
+			<% else %><!--ブックマーク追加済みの場合の処理-->
+				<p>Bookmark済みのNoteです</p>
+				<%= link_to "Bookmarkを確認する", bookmarks_path %>
+
+			<% end %>
+
+		<% end %>
+
+	<% else %><!--ログインしていないユーザーの処理-->
+		<%= link_to "Bookmarkに追加", new_user_session_path %><!--routing確認新規登録が望ましい-->
+
+	<% end %>
+	</div>
+
+
 </body>
