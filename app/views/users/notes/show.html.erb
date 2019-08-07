@@ -51,18 +51,16 @@ show
 		<!--投稿者の確認-->
 		<% if @note.user != current_user %><!--通常処理(閲覧中のNoteが他人の投稿である場合)-->
 
-			<!--ユーザーがブックマーク追加済みかどうかわかるようにする-->
-			<% if @note.user != current_user %><!--通常処理（ブックマーク追加していないNoteの場合)-->
+			<!--ユーザーがブックマーク追加済みか否かの判断--><!--書き方センスない、他を探す＋これだと追加済の場合の処理（lindk_to bookmarks_path）ができない、コントローラーも修正-->
+			<% @bookmarks.each do |bookmark| %>
+			<% if @note == bookmark.note %><!--通常処理（ブックマーク追加しているNoteの場合 => スルー)-->
+			<% else %><!--ブックマークに追加していない（全てのブックマーク追加済みNoteを参照して、一致しなければ）場合の処理-->
 				<%= form_for(@bookmark) do |f| %>
 					<%= f.hidden_field :note_id, value: @note.id %>
 					<%= f.hidden_field :user_id, value: current_user.id %>
 					<%= f.submit "Bookmarkに追加" %>
 				<% end %>
-
-			<% else %><!--ブックマーク追加済みの場合の処理-->
-				<p>Bookmark済みのNoteです</p>
-				<%= link_to "Bookmarkを確認する", bookmarks_path %>
-
+			<% end %>
 			<% end %>
 
 		<% end %>
