@@ -23,4 +23,26 @@ class Note < ApplicationRecord
 		無料記事: 1
 	}
 
+	#DBへのコミット直前に実施する
+ 	after_create do
+    	note = Note.find_by(id: self.id)
+    	hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    	hashtags.uniq.map do |hashtag|
+    	  #ハッシュタグは先頭の'#'を外した上で保存
+    		tag = Hashtag.find_or_create_by(tag_name: hashtag.downcase.delete('#'))
+   			note.hashtags << tag#追加してる
+    	end
+	end
+
+	before_update do
+    	note = Note.find_by(id: self.id)
+    	note.hashtags.clear
+    	hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    	hashtags.uniq.map do |hashtag|
+    		tag = Hashtag.find_or_create_by(tag_name: hashtag.downcase.delete('#'))
+     	note.hashtags << tag
+    	end
+ 	end
+
+
 end

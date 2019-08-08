@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  	get 'oauth_test/index'
 	get 'top' => 'top#top'
 	root :to => 'oauth_test#index'
+	get '/post/hashtag/:name', to: "notes#hashtag"
 
 	#github認証のため以下記載
 	devise_for :users, controllers: {
