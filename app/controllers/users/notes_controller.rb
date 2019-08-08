@@ -1,12 +1,16 @@
 class Users::NotesController < ApplicationController
 
 	def index
-		@note = Note.all #一旦ALL、検索なしには表示しない
+		@notes = Note.all #一旦ALL、検索なしには表示しない
+
 	end
 
 	def show
 		@note = Note.find(params[:id])
 		@bookmark = Bookmark.new
+
+		@note_hashtags = Note_hashtag.find(params[:book_id])
+		@hashtags = @note_hashtags.hashtag.all
 
 		#以下はブックマーク追加しいているかどうか判断で使用中
 		@bookmarks = Bookmark.where(user_id: current_user.id)
@@ -14,6 +18,7 @@ class Users::NotesController < ApplicationController
 
 	def new
 		@note = Note.new
+		@note_hashtag = NoteHashtag.new
 	end
 
 
@@ -47,6 +52,15 @@ class Users::NotesController < ApplicationController
 
 	def destroy
 	end
+
+	def hashtag
+    	@user = current_user
+    	@tag = Hashtag.find_by(tag_name: params[:tag_name])
+    	@notes = @tag.notes.build
+    	@note = @tag.notes#.page(params[:page])
+    	#@comment = Comment.new
+    	#@comments = @microposts.comments
+  	end
 
 
 	private

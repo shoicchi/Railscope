@@ -5,7 +5,7 @@ index
 <body>
 	<h1>Serch Notes</h1>
 
-	<% @note.each do |note| %>
+	<% @notes.each do |note| %>
 		<%= link_to note_path(note) do %>
 			<div>
 				<p><%= note.is_browsable_guest %></p><br>

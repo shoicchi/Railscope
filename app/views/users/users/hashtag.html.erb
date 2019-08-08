@@ -1,0 +1,31 @@
+<% provide(:title, @tag.tag_name) %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="block1_hash">
+       <%= image_tag("hashtag.png") %>
+         <div class="block2_hash">
+            <div class="name_hash">
+               <%= @tag.tag_name %>
+            </div>
+         <div class="edit_hash">
+            <%= render 'users/follow_form' %>
+         </div>
+        <div class="fllw_hash">
+          <%= render 'shared/user_info_default' %>
+          <span style="margin-right:15px;"></span>
+          <%= render 'shared/stats_default' %>
+        </div>
+       </div>
+     </div>
+  </div>
+</div>
+
+ <div class="row">
+   <div class="posted_content">
+     <div class="col-md-8">
+       <div class="picture_hash">
+         <%= render @note %>
+       </div><!-- .picture -->
+     </div>
+   </div>
+</div>
