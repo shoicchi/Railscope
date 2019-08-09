@@ -16,14 +16,12 @@ show
 	</div>
 	<div>
 		<p><%= @note.title %></p><br>
-		<p><%= @note.overview %></p><br>
+		<p><%= render_with_hashtags(@note.overview) %></p><br>
 
 
-		<!--- 選択したハッシュタグを表示 -->
+		<!--- 選択したハッシュタグを表示-->
 
-			<% @hashtags.each do |hashtag| %>
-			<p><%= hashtag.tag_name %></p>
-			<% end %>
+
 
 <!--以下モデルに書くべき？　モデルで定義=>本文タグ内をモザイク画像に置き換え＆リンクを貼る　ビューで定義=>JSでモザイク加工あるはず
 そもそも考え方としてNoteの性質（モデル）？それとも表示条件（ビュー）？

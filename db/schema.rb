@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_095425) do
+ActiveRecord::Schema.define(version: 2019_08_09_163056) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 2019_08_06_095425) do
   end
 
   create_table "hashtags", force: :cascade do |t|
-    t.string "tag_name", null: false
+    t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tag_name"], name: "index_hashtags_on_tag_name", unique: true
   end
 
   create_table "monthly_fees", force: :cascade do |t|
@@ -66,10 +67,12 @@ ActiveRecord::Schema.define(version: 2019_08_06_095425) do
   end
 
   create_table "note_hashtags", force: :cascade do |t|
-    t.integer "note_id", null: false
-    t.integer "hashtag_id", null: false
+    t.integer "note_id"
+    t.integer "hashtag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_note_hashtags_on_hashtag_id"
+    t.index ["note_id"], name: "index_note_hashtags_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|
