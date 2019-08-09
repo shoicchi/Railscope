@@ -66,11 +66,11 @@ show
 				<%= f.hidden_field :user_id, value: current_user.id %>
 				<%= f.submit "Bookmarkに追加" %>
 			<% end %>
-			<!--ユーザーがブックマーク追加済みか否かの判断
-			<!--書き方センスない、他を探す＋これだと追加済の場合の処理（追加済の告知＆bookmark削除）ができない、コントローラーも修正--
+			<!--ユーザーがブックマーク追加済みか否かの判断-->
+			<!--書き方センスない、他を探す＋これだと追加済の場合の処理（追加済の告知＆bookmark削除）ができない、コントローラーも修正-->
 			<% @bookmarks.each do |bookmark| %>
-			<% if @note == bookmark.note %><!--通常処理（ブックマーク追加しているNoteの場合 => スルー)--
-			<% else %><!--ブックマークに追加していない（全てのブックマーク追加済みNoteを参照して、一致しなければ）場合の処理--
+			<% if @note == bookmark.note %><!--通常処理（ブックマーク追加しているNoteの場合 => スルー)-->
+			<% else %><!--ブックマークに追加していない（全てのブックマーク追加済みNoteを参照して、一致しなければ）場合の処理-->
 				<%= form_for(@bookmark) do |f| %>
 					<%= f.hidden_field :note_id, value: @note.id %>
 					<%= f.hidden_field :user_id, value: current_user.id %>

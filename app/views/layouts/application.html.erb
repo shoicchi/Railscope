@@ -4,20 +4,41 @@
     <title>Railscope</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <body>
+      <header class="nav navbar-inverse row">
+        <div><h1><%= link_to 'Railscope', notes_path %></h1></div>
+        <div>
+          <div>
+            <div class="links col-md-7">
+              <% if admin_user_signed_in? %>
+                <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %></button>
 
-  <body>
-
-    <% if notice %>
-     <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-     <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-
+              <% elsif user_signed_in? %>
+                <%= link_to current_user.name, user_path(current_user),class: "btn btn-primary" %></button>
+                <%= link_to 'Notes', notes_path, class: "btn btn-primary" %></button>
+                <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %></button>
+                <%= link_to 'Bookmarks', bookmarks_path, class: "btn btn-primary" %></button>
+                <%= link_to 'My Notes', my_notes_path, class: "btn btn-primary" %></button>
+              <% else %>
+                <%= link_to "sign in", new_user_session_path, class: "btn btn-primary" %></button>
+                <%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %></button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer style="margin-top:5em;">
+      <div class='container1'>
+        <div class='row'>
+          <div class='col-xs-3 col-xs-offset-9'>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

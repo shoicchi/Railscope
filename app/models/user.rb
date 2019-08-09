@@ -16,10 +16,12 @@ class User < ApplicationRecord
   has_many :bookmarks
   #再登録があるので保持？再登録したら買い直させる？
   #noteの評価の一つにされるbookmark数への影響は？
+  has_many :notes, through: :bookmarks
 
   has_many :my_notes
   #再登録があるので保持？再登録したら買い直させる？
   #noteの評価の一つにされる閲覧（購入）数への影響は？
+  has_many :notes, through: :my_notes
 
   has_many :points
   #再登録があるので保持or再登録したら買い直させる=>dependent: :delete_all
