@@ -18,6 +18,8 @@ class Note < ApplicationRecord
 	#noteが論理削除→note_hashtagsも論理削除にしたい
 	#もちろんhashtagsは消えない。
 
+	has_many :hashtags, through: :note_hashtags#中間テーブルを通して紐づいたhashtagsを取り出せるようにする
+
 	enum is_browsable_guest:{
 		有料会員限定記事: 0,
 		無料記事: 1
@@ -26,7 +28,7 @@ class Note < ApplicationRecord
 	#DBへのコミット直前に実施する
  	after_create do
     	note = Note.find_by(id: self.id)
-    	hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    	hashtags  = self.overview.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     	hashtags.uniq.map do |hashtag|
     	  #ハッシュタグは先頭の'#'を外した上で保存
     		tag = Hashtag.find_or_create_by(tag_name: hashtag.downcase.delete('#'))
@@ -37,7 +39,7 @@ class Note < ApplicationRecord
 	before_update do
     	note = Note.find_by(id: self.id)
     	note.hashtags.clear
-    	hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    	hashtags = self.overview.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     	hashtags.uniq.map do |hashtag|
     		tag = Hashtag.find_or_create_by(tag_name: hashtag.downcase.delete('#'))
      	note.hashtags << tag

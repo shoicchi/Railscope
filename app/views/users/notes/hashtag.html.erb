@@ -1,0 +1,29 @@
+user
+notes
+hashtag
+tag_name
+
+<body>
+  <h1>Serch Notes</h1>
+
+  <% @notes.each do |note| %>
+    <%= link_to note_path(note) do %>
+      <div>
+        <p><%= note.is_browsable_guest %></p><br>
+
+        <% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
+          <p><%= note.view_point %></p><br>
+        <% end %>
+
+        <p><%= note.title %></p><br>
+
+        <p><%= render_with_hashtags(note.overview) %></p><br>
+
+        <p><%= note.user.name %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+</body>

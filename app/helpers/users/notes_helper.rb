@@ -1,5 +1,5 @@
 module Users::NotesHelper
-	def render_with_hashtags(content)
-    	content.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|word| link_to word, "/post/hashtag/#{word.delete("#")}"}.html_safe
+	def render_with_hashtags(overview)#ハッシュタグに基づいたurlを作る
+    	overview.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|tag_name| link_to tag_name, "/notes/hashtag/#{tag_name.delete("#")}"}.html_safe
 	end
 end

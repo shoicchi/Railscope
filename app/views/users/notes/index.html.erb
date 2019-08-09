@@ -16,7 +16,7 @@ index
 
 				<p><%= note.title %></p><br>
 
-				<p><%= note.overview %></p><br>
+				<p><%= render_with_hashtags(note.overview) %></p><br>
 
 				<p><%= note.user.name %></p>
 			</div>

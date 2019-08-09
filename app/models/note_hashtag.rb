@@ -6,4 +6,7 @@ class NoteHashtag < ApplicationRecord
 	belongs_to :hashtag
 	#note_hashtagsを消すことはない。hashtagsもほとんど消すこともない。
 
+	#以下要確認
+	validates  :note_id, presence: true
+	validates  :hashtag_id,   presence: true
 end

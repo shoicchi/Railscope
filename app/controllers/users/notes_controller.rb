@@ -9,8 +9,8 @@ class Users::NotesController < ApplicationController
 		@note = Note.find(params[:id])
 		@bookmark = Bookmark.new
 
-		@note_hashtags = Note_hashtag.find(params[:book_id])
-		@hashtags = @note_hashtags.hashtag.all
+		#@note_hashtags = Note_hashtag.find(params[:id])
+		#@hashtags = @note_hashtags.hashtag.all
 
 		#以下はブックマーク追加しいているかどうか判断で使用中
 		@bookmarks = Bookmark.where(user_id: current_user.id)
@@ -18,7 +18,8 @@ class Users::NotesController < ApplicationController
 
 	def new
 		@note = Note.new
-		@note_hashtag = NoteHashtag.new
+		#@note_hashtag = NoteHashtag.new
+		#@hashtag = Hashtag.new
 	end
 
 
@@ -54,12 +55,9 @@ class Users::NotesController < ApplicationController
 	end
 
 	def hashtag
-    	@user = current_user
-    	@tag = Hashtag.find_by(tag_name: params[:tag_name])
-    	@notes = @tag.notes.build
-    	@note = @tag.notes#.page(params[:page])
-    	#@comment = Comment.new
-    	#@comments = @microposts.comments
+    	tag = Hashtag.find_by(tag_name: params[:tag_name])#選択したハッシュタグのtag_nameを取り出して
+    	@notes = tag.notes.all#tag_nameに基づいたnoteを変数で渡す
+    	@note = tag.notes.page(params[:page])
   	end
 
 
