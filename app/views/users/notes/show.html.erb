@@ -52,6 +52,20 @@ show
 
 	</div>
 
+	<div>
+		レビュー<br>
+		<% @reviews.each do |review| %>
+			<%= link_to review.user.name, user_path(review.user) %>
+			<%= review.review %>
+		<% end %>
+
+		<%= form_for (@review) do |f| %>
+			<%= f.hidden_field :note_id, value: @note.id, require: true %>
+			<%= f.text_field :review %><br>
+			<%= f.submit 'レビューする' %>
+		<% end %>
+	</div>
+
 
 	<div>
 
@@ -77,7 +91,7 @@ show
 					<%= f.submit "Bookmarkに追加" %>
 				<% end %>
 			<% end %>
-			<% end %>-->
+			<% end %>
 
 		<% end %>
 
