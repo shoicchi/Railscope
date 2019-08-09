@@ -10,6 +10,14 @@ class Users::ReviewsController < ApplicationController
 	end
 
 	def create
+		#@note = Note.find(params[:note_id])
+		#@review = @note.review.build(review_params)
+		@review = Review.new(review_params)
+		@review.quality = 3
+		@review.user_id = current_user.id
+		if @review.save
+			render :index
+		end
 	end
 
 	def edit

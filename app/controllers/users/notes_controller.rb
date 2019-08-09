@@ -8,9 +8,10 @@ class Users::NotesController < ApplicationController
 	def show
 		@note = Note.find(params[:id])
 		@bookmark = Bookmark.new
+		@reviews = @note.reviews
+		@review = Review.new
 
-		#@note_hashtags = Note_hashtag.find(params[:id])
-		#@hashtags = @note_hashtags.hashtag.all
+
 
 		#以下はブックマーク追加しいているかどうか判断で使用中
 		@bookmarks = Bookmark.where(user_id: current_user.id)

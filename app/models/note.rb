@@ -10,6 +10,7 @@ class Note < ApplicationRecord
 
 	has_many :reviews
 	#bookmarksと同様の理由でいいか？
+	accepts_nested_attributes_for :reviews
 
 	has_many :postscripts, dependent: :delete_all
 	#postscriptsはあくまでnoteの一部であるから消す。noteが論理削除→postscriptsも論理削除にしたい
