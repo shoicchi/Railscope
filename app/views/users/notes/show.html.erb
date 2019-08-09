@@ -55,14 +55,17 @@ show
 	<div>
 		レビュー<br>
 		<% @reviews.each do |review| %>
-			<%= link_to review.user.name, user_path(review.user) %>
-			<%= review.review %>
+			<%= link_to review.user.name, user_path(review.user) %><br>
+			<%= review.quality %><br>
+			<%= review.review %><br><br>
 		<% end %>
 
 		<%= form_for (@review) do |f| %>
 			<%= f.hidden_field :note_id, value: @note.id, require: true %>
+			<%= f.number_field :quality %><br>
 			<%= f.text_field :review %><br>
-			<%= f.submit 'レビューする' %>
+			<%= f.select(:is_appending, {追記を希望しない: '追記を希望しない', 追記を希望する: '追記を希望する'}) %><br>
+ 			<%= f.submit 'レビューする' %>
 		<% end %>
 	</div>
 
