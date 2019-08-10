@@ -19,7 +19,7 @@ index
 
 			<p><%= bookmark.created_at %></p>
 
-			<p><%= link_to 'Bookmarkから削除', bookmark_path(bookmark), method: :delete, data: { confirm: '本当に削除しますか?' } %></p>
+			<p><%= link_to 'Bookmarkから削除', bookmarks_path, method: :delete, data: { confirm: '本当に削除しますか?' } %></p>
 
 		</div>
 	<% end %>
