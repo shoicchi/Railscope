@@ -56,17 +56,21 @@ show
 		レビュー<br>
 		<% @reviews.each do |review| %>
 			<%= link_to review.user.name, user_path(review.user) %><br>
-			<%= review.quality %><br>
-			<%= review.review %><br><br>
+			<%= link_to review_path (review) do %>
+				<%= review.quality %><br>
+				<%= review.review %><br>
+			<% end %>
+
+			<% if review.is_appending == "追記を希望する" %>
+			このレビューは追記を希望しています。<br>
+			<% elsif review.is_appending == "希望した追記にリアクション済み" %>
+			このレビューの追記希望にリアクション済みです。<br>
+			<% else %>
+			<% end %>
+			<br>
+
 		<% end %>
 
-		<%= form_for (@review) do |f| %>
-			<%= f.hidden_field :note_id, value: @note.id, require: true %>
-			<%= f.number_field :quality %><br>
-			<%= f.text_field :review %><br>
-			<%= f.select(:is_appending, {追記を希望しない: '追記を希望しない', 追記を希望する: '追記を希望する'}) %><br>
- 			<%= f.submit 'レビューする' %>
-		<% end %>
 	</div>
 
 
@@ -77,23 +81,29 @@ show
 	<% if user_signed_in? %>
 
 		<!--投稿者の確認-->
-		<% if @note.user != current_user %><!--通常処理(閲覧中のNoteが他人の投稿である場合)-->
-			<%= form_for(@bookmark) do |f| %>
-				<%= f.hidden_field :note_id, value: @note.id %>
-				<%= f.hidden_field :user_id, value: current_user.id %>
-				<%= f.submit "Bookmarkに追加" %>
+		<% if @note.user == current_user %><!--閲覧中のNoteが自分の投稿である場合)-->
+			<%= link_to 'Noteを編集する', edit_note_path(@note) %>
+			<%= link_to 'Noteを削除する', notes_path, method: :delete, data: { confirm: 'Are you sure?' } %><!--論理削除-->
+		<% else %><!--閲覧中のNoteが他人の投稿である場合-->
+
+			<%= form_for (@review) do |f| %>
+				<%= f.hidden_field :note_id, value: @note.id, require: true %>
+				<%= f.number_field :quality %><br>
+				<%= f.text_field :review %><br>
+				<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
+  				<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する<br>
+  	 			<%= f.submit 'レビューする' %><!--create前にログイン促す-->
 			<% end %>
-			<!--ユーザーがブックマーク追加済みか否かの判断-->
-			<!--書き方センスない、他を探す＋これだと追加済の場合の処理（追加済の告知＆bookmark削除）ができない、コントローラーも修正-->
-			<% @bookmarks.each do |bookmark| %>
-			<% if @note == bookmark.note %><!--通常処理（ブックマーク追加しているNoteの場合 => スルー)-->
-			<% else %><!--ブックマークに追加していない（全てのブックマーク追加済みNoteを参照して、一致しなければ）場合の処理-->
+
+
+			<% if @bookmarks.exists?(note_id: @note.id) %><!--ユーザーがブックマーク追加済み-->
+			bookmark済み
+			<% else %><!--ブックマークに追加していない-->
 				<%= form_for(@bookmark) do |f| %>
 					<%= f.hidden_field :note_id, value: @note.id %>
 					<%= f.hidden_field :user_id, value: current_user.id %>
 					<%= f.submit "Bookmarkに追加" %>
 				<% end %>
-			<% end %>
 			<% end %>
 
 		<% end %>
