@@ -4,6 +4,9 @@ class Users::ReviewsController < ApplicationController
 	end
 
 	def show
+		@review = Review.find(params[:id])
+		@note = @review.note
+		@postscript = Postscript.new
 	end
 
 	def new
@@ -13,9 +16,8 @@ class Users::ReviewsController < ApplicationController
 		#@note = Note.find(params[:note_id])
 		#@review = @note.review.build(review_params)
 		@review = Review.new(review_params)
-		@review.user_id = current_user.id
 		if @review.save
-			render :index
+			redirect_to note_path(@review.note_id)
 		end
 	end
 

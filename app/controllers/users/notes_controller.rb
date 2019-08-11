@@ -10,7 +10,8 @@ class Users::NotesController < ApplicationController
 		@bookmark = Bookmark.new
 		@reviews = @note.reviews
 		@review = Review.new
-		#以下はブックマーク追加しいているかどうか判断で使用中
+		@postscripts = @note.postscripts
+
 		@bookmarks = Bookmark.where(user_id: current_user.id)
 	end
 
