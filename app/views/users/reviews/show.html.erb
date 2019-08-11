@@ -1,0 +1,23 @@
+review
+show
+
+<body>
+
+
+	<div>
+		<%= link_to @review.user.name, user_path(@review.user) %><br>
+		<%= @review.quality %><br>
+		<%= @review.review %><br>
+	</div>
+
+	<div>
+	<%= form_for ([@note, @postscript]) do |f| %>
+		<%= f.hidden_field :review_id, value: @review.id, require: true %>
+		<%= f.hidden_field :note_id, value: @note.id, require: true %>
+		<%= f.text_field :postscript %><br>
+  	 	<%= f.submit '追記を投稿' %>
+  	 <% end %>
+  	 </div>
+
+
+</body>

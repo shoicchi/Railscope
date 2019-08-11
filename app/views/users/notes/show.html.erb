@@ -50,19 +50,26 @@ show
 -->
 		<p><%= @note.content %></p><br><!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
 
+		<% @postscripts.each do |postscript| %>
+		<%= postscript.review.user.name %>さんのレビュー(<%= postscript.review.created_at %>)に対する追記<br>
+		<%= postscript.postscript %><br>
+		<%= postscript.created_at %><br>
+		<% end %>
+
+
 	</div>
 
 	<div>
 		レビュー<br>
 		<% @reviews.each do |review| %>
 			<%= link_to review.user.name, user_path(review.user) %><br>
-			<%= link_to review_path (review) do %>
-				<%= review.quality %><br>
-				<%= review.review %><br>
-			<% end %>
-
+			<%= review.quality %><br>
+			<%= review.review %><br>
 			<% if review.is_appending == "追記を希望する" %>
 			このレビューは追記を希望しています。<br>
+				<% if @note.user == current_user %>
+				<%= link_to "希望内容を追記する", note_review_path(review) %>
+				<% end %>
 			<% elsif review.is_appending == "希望した追記にリアクション済み" %>
 			このレビューの追記希望にリアクション済みです。<br>
 			<% else %>
@@ -86,8 +93,9 @@ show
 			<%= link_to 'Noteを削除する', notes_path, method: :delete, data: { confirm: 'Are you sure?' } %><!--論理削除-->
 		<% else %><!--閲覧中のNoteが他人の投稿である場合-->
 
-			<%= form_for (@review) do |f| %>
+			<%= form_for ([@note, @review]) do |f| %>
 				<%= f.hidden_field :note_id, value: @note.id, require: true %>
+				<%= f.hidden_field :user_id, value: current_user.id, require: true %>
 				<%= f.number_field :quality %><br>
 				<%= f.text_field :review %><br>
 				<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない

@@ -10,6 +10,11 @@ class Users::PostscriptsController < ApplicationController
 	end
 
 	def create
+		@postscript = Postscript.new(postscript_params)
+		@postscript.review.is_appending = 2
+		if @postscript.save
+		redirect_to note_path(@postscript.note_id)
+	end
 	end
 
 	def edit
