@@ -7,6 +7,8 @@ new
 		ポイントを追加購入する。
 	</div>
 
+	<%= flash[:notice] %>
+
 	<div>
 		<p>¥100 で　100Point 購入</p>
 		<%= form_for (@point) do |f| %>

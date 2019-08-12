@@ -31,6 +31,11 @@ class User < ApplicationRecord
     有料会員:1
   }
 
+  enum is_delivery: {
+    配信中:1,
+    配信停止中:0
+  }
+
 
   #以下github認証に使用
   def self.create_unique_string #ランダムにuid作成
