@@ -1,7 +1,7 @@
 class Users::PointsController < ApplicationController
 
 	def index
-		@points = Point.where(user_id: current_user.id)
+		@points = Point.where(user_id: current_user.id).order(id: "DESC")
 	end
 
 	def show
