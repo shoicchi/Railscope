@@ -15,20 +15,31 @@ class Users::MyNotesController < ApplicationController
 		@my_note = MyNote.new(my_note_params)
 		@my_note.user_id = current_user.id
 
-		if @my_note.save#条件分岐はポイントが足りているかどうかでする
-			@point = Point.new#以下Pointテーブルに使用履歴を残すため
-			@point.point = @my_note.note.view_point
-			@point.reason = 0
-			@point.user_id = current_user.id
-			@point.save
+		if current_user.holding_point >= @my_note.note.view_point
+			if @my_note.save
+				#以下Pointテーブルに使用履歴を残すため
+				@point = Point.new
+				@point.point = @my_note.note.view_point
+				@point.reason = 0
+				@point.user_id = current_user.id
+				@point.save
+				#保有ポイントから閲覧ポイント消費
+				current_user.holding_point -= @point.point
+				current_user.save
+				flash[:notice] = "このNoteを購入しました"
+				redirect_to note_path(@my_note.note_id)
+			else
+				flash[:notice] = "Noteを購入に失敗しました。やり直してください"
+				redirect_to note_path(@my_note.note_id)
+			end
 
-			current_user.holding_point -= @point.point#保有ポイントから閲覧ポイント消費
-			current_user.save
+		elsif current_user.holding_point < @my_note.note.view_point#保有ポイントが閲覧必要ポイントより少ない場合
+				flash[:notice] = "閲覧ポイントが足りません。ポイントを追加購入してください。"
+				redirect_to new_point_path
 
-			flash[:notice] = "このNoteを購入しました"
-			redirect_to note_path(@my_note.note_id)
 		else
-			redirect_to my_notes_path
+			flash[:notice] = "Noteを購入に失敗しました。やり直してください"
+			redirect_to note_path(@my_note.note_id)
 		end
 	end
 
