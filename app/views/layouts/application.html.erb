@@ -12,10 +12,7 @@
         <div>
           <div>
             <div class="links col-md-7">
-              <% if admin_user_signed_in? %>
-                <%= link_to "admin_ログアウト", destroy_admin_session_path, method: :delete %></button>
-
-              <% elsif user_signed_in? %>
+              <% if user_signed_in? %>
                 <%= link_to current_user.name, user_path(current_user),class: "btn btn-primary" %></button>
                 <%= link_to 'Notes', notes_path, class: "btn btn-primary" %></button>
                 <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %></button>

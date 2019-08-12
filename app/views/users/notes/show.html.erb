@@ -59,19 +59,20 @@ show
 
 	</div>
 
-	<div>
+	<div><br><br><br>
 		レビュー<br>
 		<% @reviews.each do |review| %>
 			<%= link_to review.user.name, user_path(review.user) %><br>
+			<%= review.created_at %>
 			<%= review.quality %><br>
 			<%= review.review %><br>
 			<% if review.is_appending == "追記を希望する" %>
 			このレビューは追記を希望しています。<br>
 				<% if @note.user == current_user %>
-				<%= link_to "希望内容を追記する", note_review_path(review) %>
+				<%= link_to "希望内容を追記する", note_review_path(@note, review) %>
 				<% end %>
 			<% elsif review.is_appending == "希望した追記にリアクション済み" %>
-			このレビューの追記希望にリアクション済みです。<br>
+				このレビューの追記希望にリアクション済みです。<br>
 			<% else %>
 			<% end %>
 			<br>

@@ -11,9 +11,11 @@ class Users::PostscriptsController < ApplicationController
 
 	def create
 		@postscript = Postscript.new(postscript_params)
-		@postscript.review.is_appending = 2
+		@review = @postscript.review
+		@review.is_appending = 2
 		if @postscript.save
-		redirect_to note_path(@postscript.note_id)
+			@review.save
+			redirect_to note_path(@postscript.note_id)
 	end
 	end
 
