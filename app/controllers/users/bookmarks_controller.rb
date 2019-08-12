@@ -25,17 +25,13 @@ class Users::BookmarksController < ApplicationController
 	def destroy
 		@bookmark = Bookmark.find(params[:id])
   		@bookmark.destroy
-  			flash[:notice] = "Bookmarkを一つ削除しました。"
-  			redirect_to bookmarks_path
-  		
-			#@bookmark = Bookmark.where(user_id: current_user.id)
-  			#render :index
-  		#end
+  		flash[:notice] = "Bookmarkを一つ削除しました。"
+  		redirect_to bookmarks_path
 	end
 
 	private
 	def bookmark_params
-		params.require(:bookmark).permit(:id, :user_id, :note_id)
+		params.require(:bookmark).permit(:user_id, :note_id)
 	end
 
 end
