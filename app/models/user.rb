@@ -26,6 +26,11 @@ class User < ApplicationRecord
   has_many :points
   #再登録があるので保持or再登録したら買い直させる=>dependent: :delete_all
 
+  enum is_member: {
+    無料会員:0,
+    有料会員:1
+  }
+
 
   #以下github認証に使用
   def self.create_unique_string #ランダムにuid作成

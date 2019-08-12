@@ -1,15 +1,24 @@
 class Users::PointsController < ApplicationController
 
 	def index
+		@points = Point.where(user_id: current_user.id)
 	end
 
 	def show
 	end
 
 	def new
+		@point = Point.new
 	end
 
 	def create
+		@point = Point.new(point_params)
+		@point.reason = 2
+		@point.user_id = current_user.id
+		@point.save
+		current_user.holding_point += @point.point
+		current_user.save
+		redirect_to points_path
 	end
 
 	def edit
@@ -25,5 +34,7 @@ class Users::PointsController < ApplicationController
 	def point_params
 		params.require(:point).permit(:user_id, :reason, :point)
 	end
+
+
 
 end

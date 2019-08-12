@@ -1,0 +1,26 @@
+user
+point
+index
+
+
+<body>
+
+	<%= current_user.name %>さんの現在の保有ポイントは、
+
+	<%= current_user.holding_point %>ポイントです
+
+	<%= link_to "Point追加", new_point_path%>
+
+	<% @points.each do |point| %>
+	<div>
+		<p><%= point.created_at.strftime("%Y-%m-%d %H:%M") %></p><br>
+		<p><%= point.point %></p><br>
+		<p><%= point.reason %></p><br><br><br>
+	</div>
+	<% end %>
+
+
+
+
+
+</body>
