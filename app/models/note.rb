@@ -23,8 +23,8 @@ class Note < ApplicationRecord
 	has_many :hashtags, through: :note_hashtags#中間テーブルを通して紐づいたhashtagsを取り出せるようにする
 
 	enum is_browsable_guest:{
-		有料会員限定記事: 0,
-		無料記事: 1
+		無料会員閲覧可能記事: 0,
+		有料会員限定記事: 1
 	}
 
 	#DBへのコミット直前に実施する

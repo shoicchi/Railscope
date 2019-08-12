@@ -9,6 +9,8 @@ show
 		<%= button_to 'Noteを削除する', note_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %><!--論理削除-->
 	<% end %>
 
+	<%= flash[:notice] %>
+	
 	<div>
 		<p><%= @note.is_browsable_guest %></p><br><!--左上にオシャレに表示、無料＝青、有料＝黄色、ポイント＝金 -->
 
@@ -19,36 +21,40 @@ show
 		<p><%= render_with_hashtags(@note.overview) %></p><br>
 
 
-		<!--- 選択したハッシュタグを表示-->
+	<% if @note.is_browsable_guest == "無料会員閲覧可能記事" %><!--無料会員閲覧可能記事-->
+		<p><%= @note.content %></p><br>
+
+	<% else %><!--有料会員限定記事(@note.is_browsable_guest == 1)-->
+		<% if @note.view_point > 1 %><!--有料記事で閲覧必要ポイントが必要な場合-->
+
+			<% if current_user.is_member == "有料会員" || @note.user == current_user %><!--有料会員または投稿者の場合-->
+				<% if  @my_notes.exists?(note_id: @note.id) || @note.user == current_user %><!--購入済みまたは投稿者の場合-->
+					<p><%= @note.content %></p><br>
+				<% else %><!--購入していない場合-->
+					<p>この記事の閲覧にはポイントが必要です。</p>
+					<%= form_for(@my_note) do |f| %>
+						<%= f.hidden_field :note_id, value: @note.id %>
+						<%= f.submit "ポイントを使って購入する", data: { confirm: 'Are you sure?' } %><br>
+					<% end %>
+				<% end %>
+			<% else %><!--無料会員の場合-->
+				<p>この記事は有料会員になった後、Noteを購入すると閲覧できます。</p>
+
+			<% end %>
 
 
+		<% else %><!--有料記事で閲覧必要ポイントが不要の場合-->
 
-<!--以下モデルに書くべき？　モデルで定義=>本文タグ内をモザイク画像に置き換え＆リンクを貼る　ビューで定義=>JSでモザイク加工あるはず
-そもそも考え方としてNoteの性質（モデル）？それとも表示条件（ビュー）？
+			<% if current_user.is_member == "有料会員" || @note.user == current_user %><!--有料会員または投稿者の場合-->
+				<p><%= @note.content %></p><br>
+			<% else %><!--無料会員の場合-->
+				<p>この記事は有料会員限定の記事です。</p>
+			<% end %>
 
-	if 無料記事
-		表示
+		<% end %>
+	<% end %>
 
-	elseif 有料記事（ポイント0に限る）
-
-		if 有料会員、投稿者、admin
-			=>表示
-		else
-			=>モザイク
-		end
-
-
-	else 有料記事（ポイント１以上）
-
-		if 有料会員で購入済、投稿者、admin
-			=>表示
-		else
-			=>モザイク
-		end
-
-	end
--->
-		<p><%= @note.content %></p><br><!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
+<!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
 
 		<% @postscripts.each do |postscript| %>
 		<%= postscript.review.user.name %>さんのレビュー(<%= postscript.review.created_at.strftime("%Y-%m-%d %H:%M") %>)に対する追記<br>
