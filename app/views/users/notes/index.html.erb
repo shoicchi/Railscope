@@ -11,14 +11,15 @@ index
 				<p><%= note.is_browsable_guest %></p><br>
 
 				<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
-					<p><%= note.view_point %></p><br>
+					<p><%= note.view_point %>ポイント</p><br>
 				<% end %>
 
 				<p><%= note.title %></p><br>
 
 				<p><%= render_with_hashtags(note.overview) %></p><br>
 
-				<p><%= note.user.name %></p>
+				<p><%= note.user.name %></p><br>
+				<p><%= note.created_at.strftime("%Y-%m-%d %H:%M") %></p><br>
 			</div>
 		<% end %>
 	<% end %>

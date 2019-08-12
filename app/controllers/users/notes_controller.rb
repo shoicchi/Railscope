@@ -1,18 +1,20 @@
 class Users::NotesController < ApplicationController
 
 	def index
-		@notes = Note.all #一旦ALL、検索なしには表示しない
+		@notes = Note.all.order(id: "DESC") #一旦ALL、検索なしには表示しない
 
 	end
 
 	def show
 		@note = Note.find(params[:id])
 		@bookmark = Bookmark.new
+		@my_note = MyNote.new
 		@reviews = @note.reviews
 		@review = Review.new
 		@postscripts = @note.postscripts
 
-		@bookmarks = Bookmark.where(user_id: current_user.id)
+		@bookmarks = Bookmark.where(user_id: current_user.id)#ユーザーがお気に入り済みか否かの判断に使用
+		@my_notes = MyNote.where(user_id: current_user.id)#ユーザーが購入済みか否かの判断に使用
 	end
 
 
