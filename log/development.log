@@ -38597,3 +38597,368 @@ Processing by Admin::MyNotesController#index as HTML
 Completed 200 OK in 365ms (Views: 358.4ms | ActiveRecord: 3.1ms)
 
 
+Started GET "/points" for 10.0.2.2 at 2019-08-12 21:45:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 1650ms (Views: 1604.2ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/notes" for 10.0.2.2 at 2019-08-12 21:45:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."id" DESC[0m
+  ↳ app/views/users/notes/index.html.erb:8
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  Rendered users/notes/index.html.erb within layouts/application (23.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 242ms (Views: 216.9ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/notes/7" for 10.0.2.2 at 2019-08-12 21:45:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNote Load (1.3ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mPostscript Load (0.7ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (1.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mBookmark Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 275ms (Views: 213.5ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/admin/my_notes" for 10.0.2.2 at 2019-08-12 21:45:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::MyNotesController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "my_notes" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (1.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (692.8ms)
+Completed 200 OK in 730ms (Views: 708.4ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/admin/users" for 10.0.2.2 at 2019-08-12 21:45:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mReview Load (1.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBookmark Load (1.2ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mMyNote Load (1.0ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPoint Load (1.0ms)[0m  [1m[34mSELECT "points".* FROM "points"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (407.1ms)
+Completed 200 OK in 428ms (Views: 411.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/admin/users/2/edit" for 10.0.2.2 at 2019-08-12 21:45:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/edit.html.arb (411.9ms)
+Completed 200 OK in 434ms (Views: 428.0ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/admin/users/2" for 10.0.2.2 at 2019-08-12 21:45:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"otCdh0MZK4q1f9SC7oPTxgpVaphmqjorB7CpzGJzOwJ4+yu9qxNmPmxM4B360jczZE37uX4ujR8wQ6QVj2wVNw==", "user"=>{"email"=>"p@p", "reset_password_token"=>"[FILTERED]", "reset_password_sent_at(1i)"=>"[FILTERED]", "reset_password_sent_at(2i)"=>"[FILTERED]", "reset_password_sent_at(3i)"=>"[FILTERED]", "reset_password_sent_at(4i)"=>"[FILTERED]", "reset_password_sent_at(5i)"=>"[FILTERED]", "remember_created_at(1i)"=>"", "remember_created_at(2i)"=>"", "remember_created_at(3i)"=>"", "remember_created_at(4i)"=>"", "remember_created_at(5i)"=>"", "current_sign_in_at(1i)"=>"2019", "current_sign_in_at(2i)"=>"8", "current_sign_in_at(3i)"=>"13", "current_sign_in_at(4i)"=>"05", "current_sign_in_at(5i)"=>"12", "last_sign_in_at(1i)"=>"2019", "last_sign_in_at(2i)"=>"8", "last_sign_in_at(3i)"=>"13", "last_sign_in_at(4i)"=>"01", "last_sign_in_at(5i)"=>"45", "current_sign_in_ip"=>"10.0.2.2", "last_sign_in_ip"=>"10.0.2.2", "name"=>"p", "profile"=>"", "grade"=>"0", "provider"=>"", "uid"=>"c048f73d-d502-4a5b-a902-ad85441fbfb5", "is_member"=>"有料会員", "holding_point"=>"1020", "is_delivery"=>"1", "fee_category"=>"0", "phone_number"=>"", "is_deleted"=>"0"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mAdminUser Load (1.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameters: :email, :reset_password_token, :reset_password_sent_at(1i), :reset_password_sent_at(2i), :reset_password_sent_at(3i), :reset_password_sent_at(4i), :reset_password_sent_at(5i), :remember_created_at(1i), :remember_created_at(2i), :remember_created_at(3i), :remember_created_at(4i), :remember_created_at(5i), :current_sign_in_at(1i), :current_sign_in_at(2i), :current_sign_in_at(3i), :current_sign_in_at(4i), :current_sign_in_at(5i), :last_sign_in_at(1i), :last_sign_in_at(2i), :last_sign_in_at(3i), :last_sign_in_at(4i), :last_sign_in_at(5i), :current_sign_in_ip, :last_sign_in_ip
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (5.0ms)[0m  [1m[33mUPDATE "users" SET "is_member" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["is_member", 1], ["updated_at", "2019-08-12 21:45:32.862266"], ["id", 2]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/admin/users/2
+Completed 302 Found in 96ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/admin/users/2" for 10.0.2.2 at 2019-08-12 21:45:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 2], ["namespace", "admin"]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveAdmin::Comment Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 2], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/show.html.arb (340.6ms)
+Completed 200 OK in 367ms (Views: 354.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/notes/7" for 10.0.2.2 at 2019-08-12 21:45:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mMyNote Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "my_notes" WHERE "my_notes"."user_id" = ? AND "my_notes"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:31
+  [1m[36mPostscript Load (0.5ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mBookmark Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 235ms (Views: 211.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/my_notes" for 10.0.2.2 at 2019-08-12 21:45:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::MyNotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8satc3wxVJMVXsu3kxoTpwAC5/Z5GA9ejVjTCn0rvXXae0HvvPOcn0CJ5fGsgoQLYXify53I3j8fzRU0EVe9DA==", "my_note"=>{"note_id"=>"7"}, "commit"=>"ポイントを使って購入する"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:18
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:18
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:18
+  [1m[36mMyNote Create (1.8ms)[0m  [1m[32mINSERT INTO "my_notes" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["note_id", 7], ["created_at", "2019-08-12 21:45:40.464681"], ["updated_at", "2019-08-12 21:45:40.464681"]]
+  ↳ app/controllers/users/my_notes_controller.rb:18
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:23
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:23
+  [1m[36mPoint Create (2.8ms)[0m  [1m[32mINSERT INTO "points" ("user_id", "reason", "point", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["reason", 0], ["point", 100], ["created_at", "2019-08-12 21:45:40.478193"], ["updated_at", "2019-08-12 21:45:40.478193"]]
+  ↳ app/controllers/users/my_notes_controller.rb:23
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:26
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "holding_point" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["holding_point", 920], ["updated_at", "2019-08-12 21:45:40.488119"], ["id", 2]]
+  ↳ app/controllers/users/my_notes_controller.rb:26
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/my_notes_controller.rb:26
+Redirected to http://localhost:3000/notes/7
+Completed 302 Found in 43ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/notes/7" for 10.0.2.2 at 2019-08-12 21:45:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mMyNote Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "my_notes" WHERE "my_notes"."user_id" = ? AND "my_notes"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:31
+  [1m[36mPostscript Load (0.6ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mBookmark Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 241ms (Views: 221.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/my_notes" for 10.0.2.2 at 2019-08-12 21:45:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::MyNotesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:4
+  Rendering users/my_notes/index.html.erb within layouts/application
+  [1m[36mMyNote Load (1.0ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes" WHERE "my_notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/my_notes/index.html.erb:9
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/my_notes/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/my_notes/index.html.erb:18
+  Rendered users/my_notes/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 198ms (Views: 177.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-12 21:45:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 245ms (Views: 223.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-12 21:46:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.9ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 212ms (Views: 195.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-12 21:46:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 201ms (Views: 186.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-12 21:47:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (1.2ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 1749ms (Views: 1702.7ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/notes" for 10.0.2.2 at 2019-08-12 21:47:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."id" DESC[0m
+  ↳ app/views/users/notes/index.html.erb:8
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:21
+  Rendered users/notes/index.html.erb within layouts/application (21.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 289ms (Views: 266.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/my_notes" for 10.0.2.2 at 2019-08-12 21:47:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::MyNotesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/my_notes_controller.rb:4
+  Rendering users/my_notes/index.html.erb within layouts/application
+  [1m[36mMyNote Load (0.7ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes" WHERE "my_notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/my_notes/index.html.erb:9
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/my_notes/index.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/my_notes/index.html.erb:18
+  Rendered users/my_notes/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 264ms (Views: 238.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/notes/7" for 10.0.2.2 at 2019-08-12 21:47:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mMyNote Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "my_notes" WHERE "my_notes"."user_id" = ? AND "my_notes"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:31
+  [1m[36mPostscript Load (0.4ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mBookmark Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 273ms (Views: 230.4ms | ActiveRecord: 11.3ms)
+
+
