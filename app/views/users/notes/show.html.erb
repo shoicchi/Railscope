@@ -51,9 +51,9 @@ show
 		<p><%= @note.content %></p><br><!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
 
 		<% @postscripts.each do |postscript| %>
-		<%= postscript.review.user.name %>さんのレビュー(<%= postscript.review.created_at %>)に対する追記<br>
+		<%= postscript.review.user.name %>さんのレビュー(<%= postscript.review.created_at.strftime("%Y-%m-%d %H:%M") %>)に対する追記<br>
 		<%= postscript.postscript %><br>
-		<%= postscript.created_at %><br>
+		<%= postscript.created_at.strftime("%Y-%m-%d %H:%M") %><br>
 		<% end %>
 
 
@@ -63,7 +63,7 @@ show
 		レビュー<br>
 		<% @reviews.each do |review| %>
 			<%= link_to review.user.name, user_path(review.user) %><br>
-			<%= review.created_at %>
+			<%= review.created_at.strftime("%Y-%m-%d %H:%M") %>
 			<%= review.quality %><br>
 			<%= review.review %><br>
 			<% if review.is_appending == "追記を希望する" %>
