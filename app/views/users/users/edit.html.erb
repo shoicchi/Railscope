@@ -1,0 +1,44 @@
+<thead>ユーザー情報編集</thead>
+<%= form_for(@user) do |f| %>
+<table>
+	<tbody>
+		<tr>
+			<%= f.label :name, "ユーザー名" %><br>
+			<%= f.text_field :name, autofocus: true, autocomplete: "name" %><br>
+		</tr>
+		<tr>
+			<%= f.label :profile, "プロフィール" %><br>
+			<%= f.text_field :profile, autocomplete: "profile" %><br>
+		</tr>
+		<tr>
+			<%= f.label :email,"メールアドレス" %><br>
+		    <%= f.email_field :email, autocomplete: "email" %><br>
+    	</tr>
+    	<tr>
+			<%= f.label :is_delivery,"メールマガジン配信状況" %><br>
+			<%= f.radio_button :is_delivery, :"配信中" %> 配信中
+  			<%= f.radio_button :is_delivery, :"配信停止中" %> 配信停止中<br>
+    	</tr>
+    	<tr>
+			<%= f.label :phone_number,"電話番号" %><br>
+		    <%= f.telephone_field :phone_number, autocomplete: "phone_number" %><br>
+    	</tr>
+    	<tr>
+			<%= f.label :is_member,"会員状況" %><br>
+	        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
+  			<%= f.radio_button :is_member, :"有料会員" %> 有料会員<br><!--有料会員と無料会員の説明pgへ-->
+    	</tr>
+    	<tr>
+			<%= f.label :fee_category,"月額料金" %><br>
+    	</tr>
+		<div>
+		<%= f.submit "編集する" %>
+		</div>
+		<% end %>
+		<tr>
+		    <td>
+		        <%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %>
+		    </td>
+		</tr>
+	</tbody>
+</table>
