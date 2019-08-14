@@ -14,9 +14,17 @@ class Users::UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
+		@user = User.find(params[:id])
+		if @user.update
+			flash[:notice] = "編集しました。"
+		else
+			flash[:notice] = "編集に失敗しました。やり直してください。"
+		end
+		redirect_to user_path(@user)
 	end
 
 	def destroy
