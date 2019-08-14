@@ -78,7 +78,7 @@ class User < ApplicationRecord
     notes = Note.where(user_id: id)
     average = 0
     notes.each do |note|
-      average += Review.where(note_id: id).average(:quality)
+      average += Review.where(note_id: id).average(:quality).to_i
     end
     notes = Note.where(user_id: id).count
     average/notes
@@ -94,7 +94,11 @@ class User < ApplicationRecord
       hope += Review.where(note_id: note.id).where(is_appending: '追記を希望する').count
       reply += Review.where(note_id: note.id).where(is_appending: '希望した追記にリアクション済み').count
     end
-    100*reply/(hope + reply)
+    if (hope + reply) == 0#reviewが０またはreviewのis_appendingが全て0または1の場合の処理
+      0
+    else
+      100*reply/(hope + reply)
+    end
   end
 
 end
