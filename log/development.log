@@ -42546,3 +42546,698 @@ Processing by Users::UsersController#show as HTML
 Completed 200 OK in 1568ms (Views: 1512.2ms | ActiveRecord: 20.4ms)
 
 
+Started GET "/notes" for 10.0.2.2 at 2019-08-14 10:32:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#index as HTML
+  Rendering users/notes/index.html.erb within layouts/application
+  [1m[36mNote Load (1.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."id" DESC[0m
+  ↳ app/views/users/notes/index.html.erb:8
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/index.html.erb:20
+  Rendered users/notes/index.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 298ms (Views: 278.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/notes/1" for 10.0.2.2 at 2019-08-14 10:32:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mPostscript Load (1.3ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (2.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mBookmark Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 286ms (Views: 236.9ms | ActiveRecord: 19.4ms)
+
+
+Started POST "/notes/1/reviews" for 10.0.2.2 at 2019-08-14 10:32:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k79I3sNCtY2TeH/vfXGPaPbE4VkuT25P6gvpKkwGiUbeM63Rzo9xE4RV+m5NOjiJPoIuCJYB/lUTXzq4V8seng==", "review"=>{"note_id"=>"1", "user_id"=>"2", "quality"=>"5", "review"=>"あ", "is_appending"=>"追記を希望する"}, "commit"=>"レビューする", "note_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/reviews_controller.rb:19
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/reviews_controller.rb:19
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/reviews_controller.rb:19
+  [1m[36mReview Create (2.4ms)[0m  [1m[32mINSERT INTO "reviews" ("user_id", "note_id", "quality", "review", "is_appending", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["note_id", 1], ["quality", 5.0], ["review", "あ"], ["is_appending", 1], ["created_at", "2019-08-14 10:32:33.048923"], ["updated_at", "2019-08-14 10:32:33.048923"]]
+  ↳ app/controllers/users/reviews_controller.rb:19
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/reviews_controller.rb:19
+Redirected to http://localhost:3000/notes/1
+Completed 302 Found in 18ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/notes/1" for 10.0.2.2 at 2019-08-14 10:32:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:9
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/notes_controller.rb:16
+  Rendering users/notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:6
+  [1m[36mPostscript Load (0.6ms)[0m  [1m[34mSELECT "postscripts".* FROM "postscripts" WHERE "postscripts"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/users/notes/show.html.erb:59
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE Review Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:60
+  [1m[36mReview Load (1.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/users/notes/show.html.erb:70
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:71
+  [1m[36mBookmark Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."note_id" = ? LIMIT ?[0m  [["user_id", 2], ["note_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/notes/show.html.erb:112
+  Rendered users/notes/show.html.erb within layouts/application (56.2ms)
+Completed 200 OK in 281ms (Views: 260.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:32:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (1.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (39.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 279ms (Views: 251.2ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:37:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (55.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 1762ms (Views: 1699.0ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:41:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  Rendered users/users/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 5.6ms)
+
+
+  
+SyntaxError (/vagrant/Railscope/app/views/users/users/show.html.erb:31: syntax error, unexpected tLABEL, expecting '='
+...ser.average_quality, precision: 2 );@output_buffer.safe_appe...
+...                     ^~~~~~~~~~):
+  
+app/views/users/users/show.html.erb:31: syntax error, unexpected tLABEL, expecting '='
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:41:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  Rendered users/users/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/vagrant/Railscope/app/views/users/users/show.html.erb:31: syntax error, unexpected tLABEL, expecting ')'
+...ser.average_quality, precision: 2) );@output_buffer.safe_app...
+...                     ^~~~~~~~~~):
+  
+app/views/users/users/show.html.erb:31: syntax error, unexpected tLABEL, expecting ')'
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:42:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (64.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 1918ms (Views: 1882.4ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:43:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (46.1ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 11.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `round' for "50.000%":ActiveSupport::SafeBuffer):
+    32:             </tr>
+    33:             <tr>
+    34:               <th>追記希望への返信率<br><!--%で表示-->
+    35:                 <%= number_to_percentage(@user.reply_rate).round(0) %></th>
+    36:             </tr>
+    37: 
+    38: 
+  
+app/views/users/users/show.html.erb:35:in `_app_views_users_users_show_html_erb__3285894421704587160_69892908906600'
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:43:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (1.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (66.9ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 17.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `round' for "50.000%":ActiveSupport::SafeBuffer):
+    32:             </tr>
+    33:             <tr>
+    34:               <th>追記希望への返信率<br><!--%で表示-->
+    35:                 <%= number_to_percentage(@user.reply_rate).round(1) %></th>
+    36:             </tr>
+    37: 
+    38: 
+  
+app/views/users/users/show.html.erb:35:in `_app_views_users_users_show_html_erb__3285894421704587160_69893049066960'
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:45:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (44.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 320ms (Views: 283.6ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-08-14 10:45:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 1], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 2], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 5], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 6], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 7], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (33.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 217ms (Views: 192.5ms | ActiveRecord: 12.5ms)
+
+

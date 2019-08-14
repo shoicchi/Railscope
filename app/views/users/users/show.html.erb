@@ -27,12 +27,12 @@
                 <%= @user.total_reviews %></th>
             </tr>
             <tr>
-              <th>レビューの平均値<br>
-                <%= @user.average_quality %></th>
+              <th>レビューの平均値<br><!--小数点以下3桁目を四捨五入-->
+                <%= @user.average_quality.round(2) %></th>
             </tr>
             <tr>
-              <th>追記希望への返信率<br>
-                <%= number_to_percentage(@user.reply_rate, precision: 0) %></th>
+              <th>追記希望への返信率<br><!--%で表示、小数点以下二桁目四捨五入-->
+                <%= number_to_percentage(@user.reply_rate, precision: 1) %></th>
             </tr>
 
 
