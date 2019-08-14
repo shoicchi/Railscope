@@ -4,7 +4,6 @@
           <thead>
              <h2>User info</h2>
           </thead>
-
              <tbody>
             <tr>
               <th>ユーザー名<br>
@@ -34,8 +33,6 @@
               <th>追記希望への返信率<br><!--%で表示、小数点以下二桁目四捨五入-->
                 <%= number_to_percentage(@user.reply_rate, precision: 1) %></th>
             </tr>
-
-
            </tbody>
         </table>
 </body>
