@@ -1,0 +1,37 @@
+
+<body>
+	<table class="table table-stryped">
+          <thead>
+             <h2>User info</h2>
+          </thead>
+
+             <tbody>
+            <tr>
+              <th>ユーザー名<br>
+              	<%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>プロフィール<br>
+              	<%= @user.profile %></th>
+            </tr>
+            <tr>
+              <th>グレード<br>
+              	<%= @user.grade %></th>
+            </tr>
+            <tr>
+              <th>投稿Note数<br>
+                <%= @user.total_notes %></th>
+            </tr>
+            <tr>
+              <th>総レビュー数<br>
+                <%= @user.total_reviews %></th>
+            </tr>
+            <tr>
+              <th>追記希望への返信率<br>
+                <%= number_to_percentage(@user.reply_rate, precision: 0) %></th>
+            </tr>
+
+
+           </tbody>
+        </table>
+</body>
