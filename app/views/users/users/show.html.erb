@@ -34,5 +34,35 @@
                 <%= number_to_percentage(@user.reply_rate, precision: 1) %></th>
             </tr>
            </tbody>
+
+           <tboody>
+            <% if @user == current_user %>
+            <tr>
+              <th>メールアドレス<br>
+                <%= @user.email %></th>
+            </tr>
+            <tr>
+              <th>会員状況<br>
+                <%= @user.is_member %></th>
+            </tr>
+            <tr>
+              <th>保有ポイント<br>
+                <%= @user.holding_point %></th>
+            </tr>
+            <tr>
+              <th>メルマガ配信状況<br>
+                <%= @user.is_delivery %></th>
+            </tr>
+            <tr>
+              <th>月額料金<br>
+                <%= @user.fee_category %></th>
+            </tr>
+            <tr>
+              <th>電話番号<br>
+                <%= @user.phone_number %></th>
+            </tr>
+            <%= link_to "ユーザー情報を変更する", edit_user_path(current_user.id) %>
+            <% end %>
+          </tboody>
         </table>
 </body>

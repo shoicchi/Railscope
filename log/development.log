@@ -44582,3 +44582,76 @@ Processing by Users::UsersController#show as HTML
 Completed 200 OK in 1641ms (Views: 1591.2ms | ActiveRecord: 13.6ms)
 
 
+Started GET "/users/2" for 10.0.2.2 at 2019-08-14 11:28:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (1.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:71
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 4]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 4], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 4], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  Rendered users/users/show.html.erb within layouts/application (12.7ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 253ms (Views: 232.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2019-08-14 11:35:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:8
+  Rendering users/users/show.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:65
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:71
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 4]]
+  ↳ app/models/user.rb:72
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:80
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."quality") FROM "reviews" WHERE "reviews"."note_id" = ?[0m  [["note_id", 2]]
+  ↳ app/models/user.rb:81
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:83
+  [1m[36mCACHE Note Load (0.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:93
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 4], ["is_appending", 1]]
+  ↳ app/models/user.rb:94
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."note_id" = ? AND "reviews"."is_appending" = ?[0m  [["note_id", 4], ["is_appending", 2]]
+  ↳ app/models/user.rb:95
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/users/show.html.erb:39
+  Rendered users/users/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 240ms (Views: 221.9ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2019-08-14 11:35:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendering users/users/edit.html.erb within layouts/application
+  Rendered users/users/edit.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+Completed 200 OK in 271ms (Views: 253.9ms | ActiveRecord: 0.6ms)
+
+
