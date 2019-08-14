@@ -6,7 +6,6 @@ index
 	<h1>Serch Notes</h1>
 
 	<% @notes.each do |note| %>
-		<%= link_to note_path(note) do %>
 			<div>
 				<p><%= note.is_browsable_guest %></p><br>
 
@@ -14,14 +13,13 @@ index
 					<p><%= note.view_point %>ポイント</p><br>
 				<% end %>
 
-				<p><%= note.title %></p><br>
+				<p><%= link_to note.title, note_path(note) %></p><br>
 
 				<p><%= render_with_hashtags(note.overview) %></p><br>
 
-				<p><%= note.user.name %></p><br>
+				<p><%= link_to note.user.name, user_path(note.user.id) %></p><br>
 				<p><%= note.created_at.strftime("%Y-%m-%d %H:%M") %></p><br>
 			</div>
-		<% end %>
 	<% end %>
 
 

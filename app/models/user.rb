@@ -61,5 +61,29 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 
+  def total_notes#投稿Note数
+    Note.where(user_id: id).count
+  end
+
+  def total_reviews#総レビュー数
+    notes = Note.where(user_id: id)
+    @total = 0
+    notes.each do |note|
+      @total += Review.where(note_id: note.id).count
+    end
+    total = @total
+  end
+
+
+  def reply_rate#追記希望レビューへのリアクション率
+    notes = Note.where(user_id: id)
+    @hope = 0
+    @reply = 0
+    notes.each do |note|
+      @hope += Review.where(note_id: note.id).where(is_appending: '追記を希望する').count
+      @reply += Review.where(note_id: note.id).where(is_appending: '希望した追記にリアクション済み').count
+    end
+    100*@reply/(@hope + @reply)
+  end
 
 end
