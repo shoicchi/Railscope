@@ -27,6 +27,10 @@
                 <%= @user.total_reviews %></th>
             </tr>
             <tr>
+              <th>レビューの平均値<br>
+                <%= @user.average_quality %></th>
+            </tr>
+            <tr>
               <th>追記希望への返信率<br>
                 <%= number_to_percentage(@user.reply_rate, precision: 0) %></th>
             </tr>
