@@ -1,4 +1,18 @@
 new
+
+<%= flash[:notice] %>	<!--カードの登録がない場合、月額定期課金のsubmitから飛んでくる（表示:カードを登録してください。）-->
+
+カードの登録は1枚まで
 <%= form_tag(action: :registration_payjp, method: :post) do %>
-   <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_932adb5c9baabfd8d99fadb3"></script>
+   <script type="text/javascript"
+    src="https://checkout.pay.jp"
+    class="payjp-button"
+    <% if current_user.payjp_id.nil? %>
+	    data-text="登録する"
+	    data-submit-text="登録する"
+    <% else %>
+	    data-text="変更する"
+	    data-submit-text="変更する"
+    <% end %>
+    data-key="pk_test_932adb5c9baabfd8d99fadb3"></script>
 <% end %>
