@@ -34,18 +34,13 @@ class Users::UsersController < ApplicationController
 	end
 
 	def registration_payjp#カード入力によって得られたトークンで顧客作成（永続的にトークンを使用可能にする）
-		respond_to do |format|
-	     	format.json {
-		        require 'payjp'
-		        Payjp.api_key = "（sk_test_a7ee466c4064bb2ae0bd4717)"#秘密鍵
-		        response_customer = Payjp::Customer.create(card: params[:token])#トークンをもとに顧客を作成
-		        current_user.update(（payjp_id）: response_customer.id)#作成した顧客をpay_jpとしてDBに保存
-		      }
-	    end
-	    redirect_to users_path
+		        Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"#秘密鍵
+		       	response_customer = Payjp::Customer.create(card: params['payjp-token'])#トークンをもとに顧客を作成
+		        current_user.payjp_id = response_customer.id#作成した顧客をpay_jpとしてDBに保存
+		        current_user.save
 	end
 
-	def pay
+	def payp
 	    Payjp.api_key = 'sk_test_a7ee466c4064bb2ae0bd4717'
 	    charge = Payjp::Charge.create(
 		    :amount => 3500,
@@ -53,23 +48,24 @@ class Users::UsersController < ApplicationController
 		    :currency => 'jpy',
 			)
 
-		@point = Point.new
+
+
+	end
+
+	def pay#支払い
+    	Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"#秘密鍵
+    	charge = Payjp::Charge.create(
+    		amount: 100,#
+    		customer: current_user.payjp_id,#顧客情報をもとに支払いを行う
+    		currency: 'jpy',
+    		)
+    			@point = Point.new
 		@point.point = 100
 		@point.reason = 1
 		@point.user_id = current_user.id
 		@point.save
 		current_user.holding_point += @point.point
 		current_user.save
-
-	end
-
-	def payp#支払い
-    	Payjp.api_key = "（sk_test_a7ee466c4064bb2ae0bd4717）"#秘密鍵
-    	charge = Payjp::Charge.create(
-    		amount: 100,#
-    		customer: current_user.payjp_id,#顧客情報をもとに支払いを行う
-    		currency: 'jpy',
-    		)
 	end
 
 	private

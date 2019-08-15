@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	get 'top' => 'top#top'
 	root :to => 'oauth_test#index'
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
+  post 'users/points' => 'users/users#registration_payjp'
   post 'users/points' => 'users/users#pay'
 
 	#github認証のため以下記載
