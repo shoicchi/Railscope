@@ -47510,3 +47510,726 @@ Processing by Admin::UsersController#index as HTML
 Completed 200 OK in 861ms (Views: 803.3ms | ActiveRecord: 32.0ms)
 
 
+Started GET "/users/new" for 10.0.2.2 at 2019-08-15 14:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#new as HTML
+  Rendering users/users/new.html.erb within layouts/application
+  Rendered users/users/new.html.erb within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"monthly_subscription", :controller=>"users/users"}):
+    5: <% end %>
+    6: 
+    7: 
+    8: <%= button_to '100円', {controller: 'users/users', action: 'monthly_subscription'}, {method: :post, class: "btn btn-default"} %>
+  
+app/views/users/users/new.html.erb:8:in `_app_views_users_users_new_html_erb__1070768642663529304_47385966359560'
+Started GET "/users/new" for 10.0.2.2 at 2019-08-15 14:59:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#new as HTML
+  Rendering users/users/new.html.erb within layouts/application
+  Rendered users/users/new.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 1865ms (Views: 1837.7ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/points" for 10.0.2.2 at 2019-08-15 14:59:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#registration_payjp as HTML
+  Parameters: {"authenticity_token"=>"mUWLHlul1dpEefcKmFrTGjvQxavP891lAqEEGuG28itYqHrklkR84xJIghwD/8zclFInyHJv7XuFr7BmBDPR0w=="}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/users_controller.rb:40
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "payjp_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["payjp_id", "cus_1c854746a578aea83fa3308644e6"], ["updated_at", "2019-08-15 14:59:10.907365"], ["id", 2]]
+  ↳ app/controllers/users/users_controller.rb:40
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/users_controller.rb:40
+No template found for Users::UsersController#registration_payjp, rendering head :no_content
+Completed 204 No Content in 1280ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2019-08-15 15:03:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#new as HTML
+  Rendering users/users/new.html.erb within layouts/application
+  Rendered users/users/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 1759ms (Views: 1727.5ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/points?method=post" for 10.0.2.2 at 2019-08-15 15:04:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::UsersController#registration_payjp as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Poe+Jn2/TEOVCQqE2mRCIeo/MgHU2A07zDNM8zDBF1CskMG1423ggEbs5wVh+hHMI+TB/NpfdeKjaNRxRz9HdQ==", "payjp-token"=>"tok_5b475ac7cf481777be2d7ecb7992", "method"=>"post"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/users_controller.rb:40
+  [1m[36mUser Update (5.0ms)[0m  [1m[33mUPDATE "users" SET "payjp_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["payjp_id", "cus_1690957e89df46439a2f4547c5f9"], ["updated_at", "2019-08-15 15:04:21.162648"], ["id", 2]]
+  ↳ app/controllers/users/users_controller.rb:40
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/users_controller.rb:40
+No template found for Users::UsersController#registration_payjp, rendering head :no_content
+Completed 204 No Content in 1520ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/admin/users" for 10.0.2.2 at 2019-08-15 15:04:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mReview Load (1.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBookmark Load (0.5ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mMyNote Load (0.5ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (1000.1ms)
+Completed 200 OK in 1051ms (Views: 997.1ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/users/pay" for 10.0.2.2 at 2019-08-15 15:12:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#show as HTML
+  Parameters: {"id"=>"pay"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users/users_controller.rb:7
+Completed 404 Not Found in 15ms (ActiveRecord: 6.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=pay):
+  
+app/controllers/users/users_controller.rb:7:in `show'
+Started GET "/users/pay" for 10.0.2.2 at 2019-08-15 15:13:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/pay" for 10.0.2.2 at 2019-08-15 15:13:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/" for 10.0.2.2 at 2019-08-15 15:28:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::UsersController#index as HTML
+  Rendering users/users/index.html.erb within layouts/application
+  Rendered users/users/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 4266ms (Views: 4239.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 15:28:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/Railscope/app/controllers/users/payments_controller.rb:59: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/users/payments_controller.rb:59: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 15:30:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (26.4ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"monthly_subscription", :controller=>"users/users"}):
+    1: monthly_fee
+    2: <%= button_to '100円', {controller: 'users/users', action: 'monthly_subscription'}, {method: :post, class: "btn btn-default"} %>
+  
+app/views/users/payments/index.html.erb:2:in `_app_views_users_payments_index_html_erb__3618883253063896926_70114704718180'
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 15:30:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 1610ms (Views: 1578.8ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/payments" for 10.0.2.2 at 2019-08-15 15:31:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"authenticity_token"=>"vZZYNxm9PKkV+2UJ8y+7qe8a+RXY4O+jIBiTohMOcuxf01VzZcw4Nfu4+Yy8ePUx1YzPVnvX81XvmzOAT4lqLw=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:53
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+Payjp::AuthenticationError (No API key provided. Set your API key using "Payjp.api_key = <API-KEY>". You can generate API keys from the Payjp web interface. See https://pay.jp/api for details, or email support@pay.jp if you have any questions.):
+  
+app/controllers/users/payments_controller.rb:52:in `monthly_subscription'
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 15:31:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 303ms (Views: 282.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/payments/new?method=post" for 10.0.2.2 at 2019-08-15 15:32:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#registration_payjp as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YeiZk7vraUB/eGR1iGu+GYWjSG5DqDQZJlH4/jDuBQTUYQl1NtmT43FCICLzTHlOCmM3EbBfz4vOGRXzzUBC6w==", "payjp-token"=>"tok_7f86a9b027ea384b93a6c776b1aa", "method"=>"post"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:29
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "payjp_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["payjp_id", "cus_576d76689efc6be43c5ba835007f"], ["updated_at", "2019-08-15 15:32:21.336863"], ["id", 2]]
+  ↳ app/controllers/users/payments_controller.rb:29
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:29
+Redirected to http://localhost:3000/payments/new
+Completed 302 Found in 713ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 15:32:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 284ms (Views: 264.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users" for 10.0.2.2 at 2019-08-15 15:32:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBookmark Load (0.7ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mMyNote Load (0.6ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (1.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (906.3ms)
+Completed 200 OK in 946ms (Views: 908.3ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/admin/users" for 10.0.2.2 at 2019-08-15 15:32:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBookmark Load (0.6ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mMyNote Load (0.6ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (443.2ms)
+Completed 200 OK in 467ms (Views: 455.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 15:33:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 243ms (Views: 227.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/payments" for 10.0.2.2 at 2019-08-15 15:33:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"authenticity_token"=>"cuEYsesvPKkRVS3gE5I1lWJ3ghNpyP5H3FTiqSx9wzGQpBX1l144Nf8WsWVcxXsNWOG0UMr/4rET10KLcPrb8g=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:53
+No template found for Users::PaymentsController#monthly_subscription, rendering head :no_content
+Completed 204 No Content in 1755ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-15 15:33:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.7ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 221ms (Views: 202.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-15 16:01:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (1.0ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 1616ms (Views: 1568.5ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-15 16:01:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.6ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 293ms (Views: 274.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/bookmarks" for 10.0.2.2 at 2019-08-15 16:01:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::BookmarksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/bookmarks_controller.rb:4
+  Rendering users/bookmarks/index.html.erb within layouts/application
+  [1m[36mBookmark Load (0.9ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/bookmarks/index.html.erb:12
+  Rendered users/bookmarks/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 266ms (Views: 243.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:01:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 219ms (Views: 202.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/payments/new?method=post" for 10.0.2.2 at 2019-08-15 16:02:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#registration_payjp as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+FGVN+8zpF26RoceHwHIQrh1hznAwvNFINFNzxnN5vtN2AXRYgFe/rR8w0lkJg8VN7X4RjM1CNfImaDC5GOhFA==", "payjp-token"=>"tok_fc43603f4bf10e0aed27a93df702", "method"=>"post"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:30
+  [1m[36mUser Update (5.7ms)[0m  [1m[33mUPDATE "users" SET "payjp_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["payjp_id", "cus_c30d60b2fe548f296612417bd569"], ["updated_at", "2019-08-15 16:02:01.115738"], ["id", 2]]
+  ↳ app/controllers/users/payments_controller.rb:30
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:30
+Redirected to http://localhost:3000/payments/new
+Completed 302 Found in 595ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:02:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 213ms (Views: 200.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users" for 10.0.2.2 at 2019-08-15 16:02:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "users" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mReview Load (1.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mBookmark Load (1.0ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mMyNote Load (0.6ms)[0m  [1m[34mSELECT "my_notes".* FROM "my_notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mNote Load (1.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPoint Load (1.7ms)[0m  [1m[34mSELECT "points".* FROM "points"[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered /var/lib/gems/2.5.0/gems/activeadmin-2.2.0/app/views/active_admin/resource/index.html.arb (851.6ms)
+Completed 200 OK in 885ms (Views: 850.8ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/payments/" for 10.0.2.2 at 2019-08-15 16:02:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/Railscope/app/views/users/payments/index.html.erb:6: syntax error, unexpected tLABEL
+...for (@point) do |f|(controller: 'users/payments', action: :m...
+...                    ^~~~~~~~~~~
+/vagrant/Railscope/app/views/users/payments/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+...|(controller: 'users/payments', action: :moonthly_subscripti...
+...                              ^
+/vagrant/Railscope/app/views/users/payments/index.html.erb:6: syntax error, unexpected ')', expecting keyword_end
+...tion: :moonthly_subscription) );@output_buffer.safe_append='
+...                              ^
+/vagrant/Railscope/app/views/users/payments/index.html.erb:9: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;  	 	 end 
+           	 	 ^~~
+/vagrant/Railscope/app/views/users/payments/index.html.erb:37: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/vagrant/Railscope/app/views/users/payments/index.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/payments/index.html.erb:6: syntax error, unexpected tLABEL
+app/views/users/payments/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+app/views/users/payments/index.html.erb:6: syntax error, unexpected ')', expecting keyword_end
+app/views/users/payments/index.html.erb:9: syntax error, unexpected keyword_end, expecting ')'
+app/views/users/payments/index.html.erb:37: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/payments/index.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/payments/" for 10.0.2.2 at 2019-08-15 16:04:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (19.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 241ms (Views: 227.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/payments?controler=users%2Fpayments" for 10.0.2.2 at 2019-08-15 16:04:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n1R9CgH8adOY2KjLjWrXDW7kpgAoacuy2pGzeNZQDx59EXBOfY1tT3abNE7CPZmVVHKQQ4te10QVEhNaitcX3Q==", "point"=>{"point"=>"100"}, "commit"=>"¥100プランにする", "controler"=>"users/payments"}
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `point_params' for #<Users::PaymentsController:0x00007f48a6023488>):
+  
+app/controllers/users/payments_controller.rb:53:in `monthly_subscription'
+Started POST "/payments?controler=users%2Fpayments" for 10.0.2.2 at 2019-08-15 16:05:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n1R9CgH8adOY2KjLjWrXDW7kpgAoacuy2pGzeNZQDx59EXBOfY1tT3abNE7CPZmVVHKQQ4te10QVEhNaitcX3Q==", "point"=>{"point"=>"100"}, "commit"=>"¥100プランにする", "controler"=>"users/payments"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mPoint Create (3.6ms)[0m  [1m[32mINSERT INTO "points" ("user_id", "reason", "point", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["reason", 1], ["point", 100], ["created_at", "2019-08-15 16:05:05.972513"], ["updated_at", "2019-08-15 16:05:05.972513"]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[36mUser Update (2.6ms)[0m  [1m[33mUPDATE "users" SET "holding_point" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["holding_point", 300], ["updated_at", "2019-08-15 16:05:05.983146"], ["id", 2]]
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 20.4ms)
+
+
+  
+Payjp::AuthenticationError (No API key provided. Set your API key using "Payjp.api_key = <API-KEY>". You can generate API keys from the Payjp web interface. See https://pay.jp/api for details, or email support@pay.jp if you have any questions.):
+  
+app/controllers/users/payments_controller.rb:60:in `monthly_subscription'
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 16:05:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 1906ms (Views: 1888.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/payments?controler=users%2Fpayments" for 10.0.2.2 at 2019-08-15 16:05:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N4TS9yCVZGyAAUhCL3qJdtxSbIW0E8ks4iAXAollZG/Vwd+zXORg8G5C1MdgLcfu5sRaxhck1doto7cg1eJ8rA==", "point"=>{"point"=>"100"}, "commit"=>"¥100プランにする", "controler"=>"users/payments"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mPoint Create (2.0ms)[0m  [1m[32mINSERT INTO "points" ("user_id", "reason", "point", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["reason", 1], ["point", 100], ["created_at", "2019-08-15 16:05:31.639423"], ["updated_at", "2019-08-15 16:05:31.639423"]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[36mUser Update (3.3ms)[0m  [1m[33mUPDATE "users" SET "holding_point" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["holding_point", 400], ["updated_at", "2019-08-15 16:05:31.648702"], ["id", 2]]
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 12.6ms)
+
+
+  
+Payjp::AuthenticationError (No API key provided. Set your API key using "Payjp.api_key = <API-KEY>". You can generate API keys from the Payjp web interface. See https://pay.jp/api for details, or email support@pay.jp if you have any questions.):
+  
+app/controllers/users/payments_controller.rb:60:in `monthly_subscription'
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 16:06:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 297ms (Views: 279.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 16:06:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 1833ms (Views: 1801.2ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/payments?controler=users%2Fpayments" for 10.0.2.2 at 2019-08-15 16:06:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#monthly_subscription as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m5V2ev9Ft23CljBNFt02Jdi7K9hexWRQiuW5ISa+1bR50Hs+gzSz8SzVrMhZini94i0dm/3yeKZFZhkDejnNdw==", "point"=>{"point"=>"100"}, "commit"=>"¥100プランにする", "controler"=>"users/payments"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:55
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[36mPoint Create (2.5ms)[0m  [1m[32mINSERT INTO "points" ("user_id", "reason", "point", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["reason", 1], ["point", 100], ["created_at", "2019-08-15 16:06:42.209670"], ["updated_at", "2019-08-15 16:06:42.209670"]]
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:56
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "holding_point" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["holding_point", 500], ["updated_at", "2019-08-15 16:06:42.218642"], ["id", 2]]
+  ↳ app/controllers/users/payments_controller.rb:58
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/payments_controller.rb:58
+No template found for Users::PaymentsController#monthly_subscription, rendering head :no_content
+Completed 204 No Content in 2569ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/points" for 10.0.2.2 at 2019-08-15 16:07:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (0.6ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 224ms (Views: 208.9ms | ActiveRecord: 1.7ms)
+
+
