@@ -48233,3 +48233,67 @@ Processing by Users::PointsController#index as HTML
 Completed 200 OK in 224ms (Views: 208.9ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/points" for 10.0.2.2 at 2019-08-15 16:24:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Users::PointsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users/points_controller.rb:4
+  Rendering users/points/index.html.erb within layouts/application
+  [1m[36mPoint Load (1.0ms)[0m  [1m[34mSELECT "points".* FROM "points" WHERE "points"."user_id" = ? ORDER BY "points"."id" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/points/index.html.erb:14
+  Rendered users/points/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 1712ms (Views: 1668.3ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/payments" for 10.0.2.2 at 2019-08-15 16:24:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#index as HTML
+  Rendering users/payments/index.html.erb within layouts/application
+  Rendered users/payments/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 272ms (Views: 260.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:24:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 244ms (Views: 226.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:25:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 271ms (Views: 253.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:29:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  Rendered users/payments/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 238ms (Views: 225.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/payments/new" for 10.0.2.2 at 2019-08-15 16:38:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::PaymentsController#new as HTML
+  Rendering users/payments/new.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/payments/new.html.erb:8
+  Rendered users/payments/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 296ms (Views: 277.2ms | ActiveRecord: 1.3ms)
+
+

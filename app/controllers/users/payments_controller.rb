@@ -50,6 +50,11 @@ class Users::PaymentsController < ApplicationController
 	end
 
 	def monthly_subscription#月額定期課金支払い
+		if current_user.ppayjp_id.nil?		#カードが未登録の場合
+			flash[:notice] = "カードを登録してください"
+			redirect_to new_payment_path
+		end
+
     	Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"#秘密鍵
 		Payjp::Subscription.create(				#pay.jpのsubscription(定期課金)にcustomerとplanを紐づける
     		customer: current_user.payjp_id,
