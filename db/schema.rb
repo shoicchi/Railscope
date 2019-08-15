@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_163056) do
     t.integer "grade", default: 0, null: false
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
+    t.string "payjp_id"
     t.integer "is_member", default: 0, null: false
     t.integer "holding_point", default: 0, null: false
     t.integer "is_delivery", default: 1, null: false

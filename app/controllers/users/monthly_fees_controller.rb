@@ -1,6 +1,7 @@
 class Users::MonthlyFeesController < ApplicationController
 
 	def index
+		@user = current_user
 	end
 
 	def show
@@ -17,6 +18,14 @@ class Users::MonthlyFeesController < ApplicationController
 
 	def update
 	end
+		def pay
+    Payjp.api_key = '秘密キー'
+    charge = Payjp::Charge.create(
+    :amount => 3500,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+)
+end
 
 	def destroy
 	end
