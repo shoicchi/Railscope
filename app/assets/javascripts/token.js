@@ -1,27 +1,34 @@
-// DOM読み込みが完了したら実行
-document.addEventListener('DOMContentLoaded', (e) => {
-  // payjp.jsの初期化
-  Payjp.setPublicKey('pk_test_932adb5c9baabfd8d99fadb3');
-  
-  // ボタンのイベントハンドリング
-  const btn = document.getElementById('token');
-  btn.addEventListener('click', (e) => {
+
+
+$(function(){
+  $(document).on('click','(登録ボタンのIDやクラス名)', function(e) {
     e.preventDefault();
-    
-    // カード情報生成
-    const card = {
-      number: document.getElementById('card_number').value,
-      cvc: document.getElementById('cvv').value,
-      exp_month: document.getElementById('exp_month').value,
-      exp_year: document.getElementById('exp_year').value
+    Payjp.setPublicKey('（Pay.jpに登録した時に取得できる公開鍵）');
+    var card = {
+      number: parseInt($("（カード番号入力欄のIDやクラス名）").val()),
+      cvc: parseInt($("（セキュリティーコード入力欄のIDやクラス名）").val()),
+      exp_month: parseInt($("（有効月入力欄のIDやクラス名）").val()),
+      exp_year: parseInt($("（有効年入力欄のIDやクラス名）").val())
     };
-    
-    // トークン生成
-    Payjp.createToken(card, (status, response) => {
-      if (status === 200) {
-        // 出力（本来はサーバへ送信）
-        document.getElementById('card_token').innerHTML = response.card.id;
+    Payjp.createToken(card, function(status, response) {
+      if (status == 200) {
+        var token = response.id;
+        $.ajax({
+          url: （動かしたいコントローラーのメソッドのurl）,
+          type: "POST",
+          data: { token: token },
+          dataType: 'json',
+        })
+        .done(function(){
+          //非同期通信失敗時の処理
+        })
+        .fail(function(){
+          //非同期通信失敗時の処理
+        })
+      }
+      else {
+        //トークン作成失敗時の処理
       }
     });
-  });
-}, false);
+  })
+})
