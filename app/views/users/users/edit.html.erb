@@ -30,6 +30,7 @@
     	</tr>
     	<tr>
 			<%= f.label :fee_category,"月額料金" %><br>
+			<%= link_to "月額料金を変更する", monthly_fees_path %>
     	</tr>
 		<div>
 		<%= f.submit "編集する" %>
@@ -37,7 +38,7 @@
 		<% end %>
 		<tr>
 		    <td>
-		        <%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %>
+		        <%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
 		    </td>
 		</tr>
 	</tbody>
