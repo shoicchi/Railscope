@@ -52,7 +52,8 @@ class Users::PaymentsController < ApplicationController
 		@point.user_id = current_user.id
 		@point.save
 		#Userテーブルの保有ポイントカラムについての処理
-		current_user.holding_point += @point.point_params	#選択したplan(PointをUserの保有ポイントに追加)
+		current_user.holding_point += @point.point	#選択したplan(PointをUserの保有ポイントに追加)
+		current_user.fee_category = @point.point
 		current_user.save
 	end
 
