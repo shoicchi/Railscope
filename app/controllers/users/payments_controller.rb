@@ -33,21 +33,7 @@ class Users::PaymentsController < ApplicationController
 
 
 
-	def pay#支払い
-    	Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"#秘密鍵
-    	charge = Payjp::Charge.create(
-    		amount:   100,#
-    		customer: current_user.payjp_id,#顧客情報をもとに支払いを行う
-    		currency: 'jpy',
-    	)
-    	@point = Point.new
-		@point.point = 100
-		@point.reason = 1
-		@point.user_id = current_user.id
-		@point.save
-		current_user.holding_point += @point.point
-		current_user.save
-	end
+
 
 	def monthly_subscription#月額定期課金支払い
 		if current_user.ppayjp_id.nil?		#カードが未登録の場合
