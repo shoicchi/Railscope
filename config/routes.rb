@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 	root :to => 'oauth_test#index'
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/payments/new' => 'users/payments#registration_payjp'
-  post 'users/points' => 'users/payments#pay'
   post '/payments' => 'users/payments#monthly_subscription'
+
 
 	#github認証のため以下記載
 	devise_for :users, controllers: {

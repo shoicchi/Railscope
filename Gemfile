@@ -74,5 +74,6 @@ gem 'omniauth-github'
 gem 'dotenv-rails' #.envに記載した環境変数を認識させるために必要
 gem 'payjp'
 gem 'activeadmin'
+gem 'pry-byebug', group: :development
 
 
