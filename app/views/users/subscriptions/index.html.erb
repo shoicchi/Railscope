@@ -1,0 +1,50 @@
+
+<%= current_user.name %>さんは<%= @subscription.plan.name %>に加入中です。
+
+	<div>
+		<p>毎月¥100 で　100Point </p>
+		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+			<%= f.hidden_field :point, value: 100 %><br>
+			<% if current_user.subscription.id.nil? %>
+				<%= f.submit '¥100プランにする' %>
+			<% else %>
+ 	 			<%= f.submit '¥100プランに変更する' %>
+ 	 		<% end %>
+  	 	<% end %>
+	</div>
+
+	<div>
+		<p>毎月¥200 で　240Point </p>
+		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+			<%= f.hidden_field :point, value: 240 %><br>
+			<% if current_user.subscription.id.nil? %>
+				<%= f.submit '¥200プランにする' %>
+			<% else %>
+ 	 			<%= f.submit '¥200プランに変更する' %>
+ 	 		<% end %>  	 	<% end %>
+	</div>
+
+
+	<div>
+		<p>毎月¥300 で　390Point </p>
+		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+			<%= f.hidden_field :point, value: 390 %><br>
+			<% if current_user.subscription.id.nil? %>
+				<%= f.submit '¥300プランにする' %>
+			<% else %>
+ 	 			<%= f.submit '¥300プランに変更する' %>
+ 	 		<% end %>
+ 	  	<% end %>
+	</div>
+
+	<div>
+		<p>毎月¥500 で　750Point </p>
+		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+			<%= f.hidden_field :point, value: 750 %><br>
+			<% if current_user.subscription.id.nil? %>
+				<%= f.submit '¥500プランにする' %>
+			<% else %>
+ 	 			<%= f.submit '¥500プランに変更する' %>
+ 	 		<% end %>
+ 	 	<% end %>
+	</div>

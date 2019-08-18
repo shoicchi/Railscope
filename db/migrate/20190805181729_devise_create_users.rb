@@ -40,7 +40,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :is_member, null: false, default:0
       t.integer :holding_point, null: false, default:0
       t.integer :is_delivery, null: false, default:1
-      t.integer :fee_category, null: false, default:0
       t.integer :phone_number#, null: false
       t.integer :is_deleted, null: false, default:0
 

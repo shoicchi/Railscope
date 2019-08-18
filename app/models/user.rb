@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :points
   #再登録があるので保持or再登録したら買い直させる=>dependent: :delete_all
 
+  has_one :subscription
+
   enum is_member: {
     無料会員:0,
     有料会員:1

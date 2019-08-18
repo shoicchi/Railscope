@@ -20,7 +20,7 @@ class Users::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.is_member == 0#無料会員へ変更すると月額料金は0にする
-			@user.fee_category = 0
+			#課金停止の記述
 		end
 		if @user.update
 			flash[:notice] = "編集しました。"
@@ -36,7 +36,7 @@ class Users::UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :profile, :grade, :provider, :uid, :e_mail, :encrypted_password, :is_member, :holding_point, :is_delivery, :fee_category, :phone_number, :is_deleted)
+		params.require(:user).permit(:name, :profile, :grade, :provider, :uid, :e_mail, :encrypted_password, :is_member, :holding_point, :is_delivery, :payjp_id, :phone_number, :is_deleted)
 	end
 
 end
