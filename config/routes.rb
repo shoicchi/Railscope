@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 	get 'top' => 'top#top'
 	root :to => 'oauth_test#index'
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
-  post '/payments/new' => 'users/payments#registration_payjp'
-  post '/payments' => 'users/payments#monthly_subscription'
+  post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
+  post '/subscriptions' => 'users/subscriptions#monthly_subscription'
 
 
 	#github認証のため以下記載
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   	scope module: :users do
-  		resources :bookmarks, :hashtags, :monthly_fees, :my_notes, :note_hashtags, :points, :users, :payments
+  		resources :bookmarks, :hashtags, :my_notes, :note_hashtags, :points, :users, :subscriptions
   	end
 
   	scope module: :users do
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
 
   	namespace :admins do
-  		resources :bookmarks, :hashtags, :monthly_fees, :my_notes, :note_hashtags, :notes, :points, :postscripts, :reviews, :users
+  		resources :bookmarks, :hashtags, :my_notes, :note_hashtags, :notes, :points, :postscripts, :reviews, :users
   	end
 
 end

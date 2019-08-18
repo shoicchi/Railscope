@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_163056) do
+ActiveRecord::Schema.define(version: 2019_08_18_195028) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,13 +50,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_163056) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tag_name"], name: "index_hashtags_on_tag_name", unique: true
-  end
-
-  create_table "monthly_fees", force: :cascade do |t|
-    t.integer "fee_category", null: false
-    t.integer "add_point", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "my_notes", force: :cascade do |t|
@@ -112,6 +105,13 @@ ActiveRecord::Schema.define(version: 2019_08_09_163056) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "payjp_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -132,7 +132,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_163056) do
     t.integer "is_member", default: 0, null: false
     t.integer "holding_point", default: 0, null: false
     t.integer "is_delivery", default: 1, null: false
-    t.integer "fee_category", default: 0, null: false
     t.integer "phone_number"
     t.integer "is_deleted", default: 0, null: false
     t.datetime "created_at", null: false
