@@ -26,10 +26,10 @@
     	<tr>
 			<%= f.label :is_member,"会員状況" %><br>
 	        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
-  			<%= f.radio_button :is_member, :"有料会員" %> 有料会員<br><!--有料会員と無料会員の説明pgへ-->
+  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path %><br><!--有料会員と無料会員の説明pgへ-->
     	</tr>
     	<tr>
-			<%= f.label :fee_category,"月額料金" %><br>
+			月額料金<br>
 			<%= link_to "月額料金を変更する", subscriptions_path %>
     	</tr>
 		<div>

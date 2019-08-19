@@ -54,10 +54,12 @@
               <th>メルマガ配信状況<br>
                 <%= @user.is_delivery %></th>
             </tr>
+            <% if @user.is_member == "有料会員" %>
             <tr>
-              <th>月額料金<br>
-                </th>
+              <th>加入プラン<br>
+                  <!--<%= @subscription %></th>-->
             </tr>
+            <% end %>
             <tr>
               <th>電話番号<br>
                 <%= @user.phone_number %></th>
