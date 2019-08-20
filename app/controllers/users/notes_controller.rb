@@ -1,7 +1,10 @@
 class Users::NotesController < ApplicationController
 
 	def index
-		@notes = Note.all.order(id: "DESC") #一旦ALL、検索なしには表示しない
+		#@notes = Note.all.order(id: "DESC") #一旦ALL、検索なしには表示しない
+		@search = Note.ransack(params[:q])
+		@notes = @search.result.distinct	#一意性
+
 
 	end
 
