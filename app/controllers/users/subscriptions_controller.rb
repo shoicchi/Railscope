@@ -16,22 +16,6 @@ class Users::SubscriptionsController < ApplicationController
 	end
 
 	def create
-		add_subscriptions = Subscription.where(updated_at: Time.zone.now.all_day)#1.month.ago.all_day
-		Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"										#秘密鍵
-		add_subscriptions.each do |add_subscription|
-		  	payjp_data = Payjp::Subscription.retrieve(add_subscription.payjp_id)  #Subscriptionsテーブルのsubscription.payjp_idから情報を取得
-
-		  	user = User.find_by(payjp_id: payjp_data.customer)
-		  	point = Point.new
-		  	point.user_id = user.id
-		  	point.reason = 1
-		  	point.point = payjp_data.plan.id
-		  	point.save
-
-
-		  	user.holding_point += point.point
-		  	user.save
-		 end
 	end
 
 	def edit
