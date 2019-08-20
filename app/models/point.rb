@@ -9,4 +9,7 @@ class Point < ApplicationRecord
 	}
 
 
+
+
+
 end

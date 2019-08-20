@@ -56,6 +56,7 @@ class Users::PointsController < ApplicationController
 
 
 
+
 	private
 	def point_params
 		params.require(:point).permit(:user_id, :reason, :point)

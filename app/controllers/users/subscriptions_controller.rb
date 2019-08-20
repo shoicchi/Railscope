@@ -16,6 +16,22 @@ class Users::SubscriptionsController < ApplicationController
 	end
 
 	def create
+		add_subscriptions = Subscription.where(updated_at: Time.zone.now.all_day)#1.month.ago.all_day
+		Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"										#秘密鍵
+		add_subscriptions.each do |add_subscription|
+		  	payjp_data = Payjp::Subscription.retrieve(add_subscription.payjp_id)  #Subscriptionsテーブルのsubscription.payjp_idから情報を取得
+
+		  	user = User.find_by(payjp_id: payjp_data.customer)
+		  	point = Point.new
+		  	point.user_id = user.id
+		  	point.reason = 1
+		  	point.point = payjp_data.plan.id
+		  	point.save
+
+
+		  	user.holding_point += point.point
+		  	user.save
+		 end
 	end
 
 	def edit
@@ -56,8 +72,8 @@ class Users::SubscriptionsController < ApplicationController
 			change_subscription.plan = @point.point 												#planを上書き
 			change_subscription.save																#更新(pay.jp上)
 			#以下user.subscriptionの処理
-			@subscription = current_user.subscription 												#user.subscriptionにも変更履歴を残す。(update_atから自動ポイント付与するため)
-	  		@subscription.save
+			@subscription = current_user.subscription
+	  		@subscription.touch
 	  		flash[:notice] = change_subscription.plan.name
 
 	  	else																#定期課金に未申し込みの場合(新規定期課金登録)
@@ -87,10 +103,10 @@ class Users::SubscriptionsController < ApplicationController
 
 	private
 	def subscription_params
-		params.require(:subscription).permit(:user_id, :payjp_id)
+		params.require(:subscription).permit(:id, :user_id, :payjp_id, :created_at, :updated_at)
 	end
 	def point_params
-		params.require(:point).permit(:user_id, :reason, :point)
+		params.require(:point).permit(:id, :user_id, :reason, :point, :created_at, :updated_at)
 	end
 
 end

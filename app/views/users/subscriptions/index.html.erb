@@ -3,7 +3,7 @@
 <% end %>
 	<div>
 		<p>毎月¥100 で　100Point </p>
-		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+		<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
 			<%= f.hidden_field :point, value: 100 %><br>
 			<% if Subscription.where(user_id: current_user.id).nil? %>
 				<%= f.submit '¥100プランにする' %>
@@ -15,7 +15,7 @@
 
 	<div>
 		<p>毎月¥200 で　240Point </p>
-		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+		<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
 			<%= f.hidden_field :point, value: 240 %><br>
 			<% if Subscription.where(user_id: current_user.id).nil? %>
 				<%= f.submit '¥200プランにする' %>
@@ -27,7 +27,7 @@
 
 	<div>
 		<p>毎月¥300 で　390Point </p>
-		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+		<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
 			<%= f.hidden_field :point, value: 390 %><br>
 			<% if Subscription.where(user_id: current_user.id).nil? %>
 				<%= f.submit '¥300プランにする' %>
@@ -39,7 +39,7 @@
 
 	<div>
 		<p>毎月¥500 で　750Point </p>
-		<%= form_for(@point,url: {controler: "users/payments", action: "monthly_subscription" }, html: { class: "form-horizontal"} ) do |f| %>
+		<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
 			<%= f.hidden_field :point, value: 750 %><br>
 			<% if Subscription.where(user_id: current_user.id).nil? %>
 				<%= f.submit '¥500プランにする' %>
