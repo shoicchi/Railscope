@@ -76,5 +76,6 @@ gem 'payjp'
 gem 'activeadmin'
 gem 'pry-byebug', group: :development
 gem 'whenever', require: false
+gem 'ransack'
 
 
