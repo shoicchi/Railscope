@@ -75,7 +75,9 @@ gem 'dotenv-rails' #.envに記載した環境変数を認識させるために�
 gem 'payjp'
 gem 'activeadmin'
 gem 'pry-byebug', group: :development
-gem 'whenever', require: false
-gem 'ransack'
+gem 'whenever', require: false  #crontabを扱いやすくする
+gem 'ransack' #検索機能
+gem 'redcarpet'  #マークダウン記法適用
+gem 'coderay'
 
 
