@@ -78,6 +78,6 @@ gem 'pry-byebug', group: :development
 gem 'whenever', require: false  #crontabを扱いやすくする
 gem 'ransack' #検索機能
 gem 'redcarpet'  #マークダウン記法適用
-gem 'coderay'
+gem 'rouge'   #シンタックスハイライト適用
 
 
