@@ -27,19 +27,37 @@ new
 		<%= f.text_field :overview %>
 	</dir>
 
-	<!-- ハッシュタグ６つまで選択可能にする -->
 
 
-	<div>
-		<label>内容</label><!--Markdown&SyntaxHighlightを適応させる-->
-						  <!--リアルタイムライブプレビューを実装する-->
-		<%= f.text_area :content %>
+	<div id='editor'>
+		<label>内容</label>
+		<%= f.text_area :content, "v-model" => "input"%>
+		<div v-html='input | marked'></div><!--markedを使用した状態でcontentをinput-->
 	</div>
 
 
 
 	<%= f.submit '投稿する' %>
 	<% end %>
+
+
+
+
+	<!-- リアルタイムプレビュー -->
+<script type="text/javascript">
+	window.onload = function() {
+		new Vue({
+			el: '#editor',<%#contentのtext_areaのid%>
+			data: {
+				input: '<%= j @note.content %>',<%#保持しているデータは@note.content%>
+				},
+			filters: {
+				marked: marked,
+				},
+		});
+	};
+</script>
+
 
 
 </body>
