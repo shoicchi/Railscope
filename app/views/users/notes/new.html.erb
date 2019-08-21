@@ -7,6 +7,17 @@ new
 	<%= form_for(@note) do |f| %>
 
 	<div>
+		<label>閲覧設定</label>
+		<%= f.radio_button :is_browsable_guest, :"無料会員閲覧可能記事" %> 無料会員閲覧可能記事
+  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
+  	</div>
+
+	<div>
+		<label>閲覧ポイント設定</label><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
+		<%= f.number_field :view_point, in:0..500 %>ポイント
+	</div>
+
+	<div>
 		<label>タイトル</label>
 		<%= f.text_field :title %>
 	</div>
@@ -25,16 +36,7 @@ new
 		<%= f.text_field :content %>
 	</div>
 
-	<div>
-		<label>閲覧設定</label>
-		<%= f.radio_button :is_browsable_guest, :"無料会員閲覧可能記事" %> 無料会員閲覧可能記事
-  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
-  	</div>
 
-	<div>
-		<label>閲覧ポイント設定</label><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
-		<%= f.number_field :view_point %>
-	</div>
 
 	<%= f.submit '投稿する' %>
 	<% end %>

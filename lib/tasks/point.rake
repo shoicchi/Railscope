@@ -7,7 +7,7 @@ namespace :point do
   		today = Date.today
   		puts today
 
-    	add_subscriptions = Subscription.where(updated_at: 1.day.ago.all_day)	#１ヶ月前に作成または更新されているsubscriptionテーブルを取り出す。#本来は1.month.ago.all_day
+    	add_subscriptions = Subscription.where(created_at: 3.day.ago.all_day)	#１ヶ月前に作成または更新されているsubscriptionテーブルを取り出す。#本来は1.month.ago.all_day
 		Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"									#秘密鍵
 		 add_subscriptions.each do |add_subscription|
 		   	payjp_data = Payjp::Subscription.retrieve(add_subscription.payjp_id)  #Subscriptionsテーブルのsubscription.payjp_idから情報を取得
