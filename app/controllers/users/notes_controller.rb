@@ -15,9 +15,10 @@ class Users::NotesController < ApplicationController
 		@reviews = @note.reviews
 		@review = Review.new
 		@postscripts = @note.postscripts
-
-		@bookmarks = Bookmark.where(user_id: current_user.id)#ユーザーがお気に入り済みか否かの判断に使用
-		@my_notes = MyNote.where(user_id: current_user.id)#ユーザーが購入済みか否かの判断に使用
+		if user_signed_in?
+			@bookmarks = Bookmark.where(user_id: current_user.id)#ユーザーがお気に入り済みか否かの判断に使用
+			@my_notes = MyNote.where(user_id: current_user.id)#ユーザーが購入済みか否かの判断に使用
+		end
 	end
 
 

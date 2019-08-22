@@ -22,7 +22,7 @@
 
 .note-one{
 	border: groove;
-	
+
 }
 
 .note-search-form{
@@ -46,6 +46,14 @@ font-size: 14;
 	font-size: 20;
 }
 
+.note-content-include-postscript{
+	border: groove;
+}
+
+.note-content{
+	
+}
+
 .note-contributor{
 	text-align: right;
 
@@ -54,4 +62,71 @@ font-size: 14;
 
 .note-create-date{
 
+}
+
+.note-contributor-only{
+	text-align: right
+}
+
+.postscript-all{
+ 	margin-top: 20px;
+	border: groove;
+}
+
+.postscript-one{
+	border: groove;
+	margin-bottom: 10px;
+}
+
+.postscript-postscript{
+	
+}
+
+.review-all{
+	margin-top: 20px;
+	border: groove;
+}
+
+.review-one{
+	border: groove;
+	margin-top: 10px;
+}
+
+.review-quality{
+	
+}
+
+.review-review{
+	
+}
+.review-user{
+	
+}
+
+.review-created-date{
+	
+}
+
+.review-form{
+	
+}
+
+.review-form-quality{
+	
+}
+
+.review-form-review{
+	
+}
+
+.review-form-is-appending{
+	
+}
+
+.review-button{
+	
+}
+
+.bookmark-button{
+	
 }
