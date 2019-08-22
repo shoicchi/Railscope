@@ -1,11 +1,15 @@
 namespace :point do
-  desc "check_state"
-  task monthly_add: :environment do
+	desc "check_state"
+	task monthly_add: :environment do
 
   		#ログの最初に日付をputs
+  		puts "[start]"
   		require"date"
   		today = Date.today
   		puts today
+  		require"time"
+  		time = Time.now
+  		puts time
 
     	add_subscriptions = Subscription.where(created_at: 3.day.ago.all_day)	#１ヶ月前に作成または更新されているsubscriptionテーブルを取り出す。#本来は1.month.ago.all_day
 		Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"									#秘密鍵
@@ -42,6 +46,9 @@ namespace :point do
 
 
 		  end
-
-  end
+	puts "[finish]"
+	require"time"
+  	time = Time.now
+  	puts time
+	end
 end
