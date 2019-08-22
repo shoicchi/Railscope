@@ -57,7 +57,7 @@
             <% if @user.is_member == "有料会員" %>
             <tr>
               <th>加入プラン<br>
-                  <!--<%= @subscription %></th>-->
+                  <%= @subscription.plan.name %></th>
             </tr>
             <% end %>
             <tr>
