@@ -9,25 +9,26 @@ index
 	<h1>Bookmarked Notes</h1>
 	<%= flash[:notice] %>
 
+<div class="note-all">
 	<% @bookmarks.each do |bookmark| %>
-		<div>
-			<%= link_to note_path(bookmark.note_id) do %>
-
-				<div>
-					<p><%= bookmark.note.title %></p><br>
-
-					<p><%= bookmark.note.overview %></p><br>
-
-					<p><%= bookmark.note.user.name %></p><br>
-
-					<p><%= bookmark.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-
+		<div class="note-one">
+				<div class="note-title">
+					<%= link_to bookmark.note.title, note_path(bookmark.note) %>
 				</div>
-			<% end %>
+				<div class="note-overview">
+					<%= bookmark.note.overview %>
+				</div>
+				<div class="note-create-information">
+					<span class="note-contributor">
+						by <%= bookmark.note.user.name %>
+					</span>
+					<span class="note-create-date">
+						created_at <%= bookmark.created_at.strftime("%Y-%m-%d %H:%M") %>
+					</span>
+				</div>
 		</div>
 			<%= button_to 'Bookmarkから削除', bookmark_path(bookmark), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-default" %>
-
 	<% end %>
-
+</div>
 
 </body>
