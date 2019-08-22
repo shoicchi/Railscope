@@ -83,7 +83,11 @@ class User < ApplicationRecord
       average += Review.where(note_id: id).average(:quality).to_i#reviewがnilの場合は0にする
     end
     notes = Note.where(user_id: id).count
-    average/notes
+    if notes == 0#投稿ノートがない場合の処理
+      0
+    else
+      average/notes
+    end
   end
 
 
