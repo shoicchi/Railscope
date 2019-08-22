@@ -27,6 +27,8 @@ class Note < ApplicationRecord
 		有料会員限定記事: 1
 	}
 
+	ransack_alias :search_words, :title_or_overview_or_content_or_reviews_review_or_postscripts_postscript_cont
+
 	#DBへのコミット直前に実施する
  	after_create do
     	note = Note.find_by(id: self.id)
