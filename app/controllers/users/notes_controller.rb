@@ -1,11 +1,16 @@
 class Users::NotesController < ApplicationController
 
 	def index
-		#@notes = Note.all.order(id: "DESC") #一旦ALL、検索なしには表示しない
-		@search = Note.ransack(params[:q])
-		@notes = @search.result.distinct	#一意性
-
-
+		words = params[:q].delete(:search_words) if params[:q].present?	#params[:q]=nilだとエラー出るのでif #.deleteしないとwordsがシンボル？として扱われてsplitできない
+		if words.present?
+			params[:q][:groupings] = [] 								#配列の生成
+		    words.split(/[ 　]/).each_with_index do |word, i|			#全角空白と半角空白で文字列を区切る。<=( /と/の間が区切る文字&[と]の間にある文字はどれか1つが選択される )
+		    															#.each_with_indexで要素の数|i|だけブロック|word|を繰り返し実行
+		    	params[:q][:groupings][i] = { title_or_overview_or_content_or_reviews_review_or_postscripts_postscript_cont: word }
+		    end 														#検索範囲にかけて格納していく
+		end
+		@q = Note.ransack(params[:q])
+		@notes = @q.result.distinct.order(id: "DESC")	#distinctで一意性を持たせる	#.order(id: "DESC")で新着順表示
 	end
 
 	def show
