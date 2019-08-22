@@ -69,6 +69,8 @@ class Users::NotesController < ApplicationController
     	tag = Hashtag.find_by(tag_name: params[:tag_name])#選択したハッシュタグのtag_nameを取り出して
     	@notes = tag.notes.all#tag_nameに基づいたnoteを変数で渡す
     	@note = tag.notes.page(params[:page])
+
+    	@search = Note.ransack(params[:q])
   	end
 
 
