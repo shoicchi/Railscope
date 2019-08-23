@@ -1,3 +1,65 @@
 // Place all the styles related to the users/Points controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.point-index-body{
+	text-align: center;
+	width: 100%;
+	border: groove;
+	padding: 5%;
+
+}
+
+.point-index-container{
+	font-size: 20px;
+	margin: 5%;
+
+}
+
+.point-charactor{
+	width:30%;
+	font-size: 40px;
+}
+
+.point-status{
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.point-status-name{
+	font-size: 20px;
+}
+
+.point-status-point{
+	font-size: 20px;
+}
+
+.point-button{
+	float: right;
+	margin-right: 15%;
+}
+
+.point-all{
+	text-align: center;
+}
+
+.point-one{
+	margin-bottom: 35px;
+	border: groove;
+}
+
+.point-created-date{
+	
+}
+
+.point-point{
+	
+}
+
+.point-reason{
+	
+}
+
+
+
