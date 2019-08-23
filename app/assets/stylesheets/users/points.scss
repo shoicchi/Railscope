@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.point-index-body{
+.point-body{
 	text-align: center;
 	width: 100%;
 	border: groove;
@@ -11,9 +11,12 @@
 
 }
 
-.point-index-container{
+.point-container{
 	font-size: 20px;
-	margin: 5%;
+	margin: 2%;
+	padding: 10%;
+	margin-bottom: 35px;
+	border: groove;
 
 }
 
@@ -60,6 +63,47 @@
 .point-reason{
 	
 }
+
+
+
+.point-new-text{
+	font-size:30px;
+	marigin-bottm: 40px
+}
+
+.point-new-get{
+	margin-top: 35px;
+	margin-bottom: 35px;
+	border: groove;
+}
+
+.point-new-get-text{
+	
+}
+
+.button-point-new{
+	
+}
+
+.link-subscriptions-path{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
