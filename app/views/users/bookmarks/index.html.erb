@@ -1,9 +1,5 @@
-users
-bookmark
-index
 
 <!--ブックマークはログイン必須-->
-<%= flash[:notice] %>
 
 <body>
 	<h1>Bookmarked Notes</h1>
@@ -13,7 +9,7 @@ index
 	<% @bookmarks.each do |bookmark| %>
 		<div class="note-one">
 				<div class="note-title">
-					<%= link_to bookmark.note.title, note_path(bookmark.note) %>
+					<%= link_to bookmark.note.title, note_path(bookmark.note_id) %>
 				</div>
 				<div class="note-overview">
 					<%= bookmark.note.overview %>
