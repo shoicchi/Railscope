@@ -36,6 +36,8 @@
 		<%= f.submit "編集する" %>
 		</div>
 		<% end %>
+		カードの新規登録、変更は
+		<%= link_to "こちら", new_subscription_path %>
 		<tr>
 		    <td>
 		        <%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
