@@ -1,28 +1,28 @@
-mynote
-index
-
 
 <body>
 	<h1>My Notes</h1>
 	<%= flash[:notice] %>
 
+<div class="note-all">
 	<% @my_notes.each do |my_note| %>
-		<div>
-			<%= link_to note_path(my_note.note_id) do %>
-
-				<div>
-					<p><%= my_note.note.title %></p><br>
-
-					<p><%= my_note.note.overview %></p><br>
-
-					<p><%= my_note.note.user.name %></p><br>
-
-					<p><%= my_note.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-
+		<div class="note-one">
+				<div class="note-title">
+					<%= link_to my_note.note.title, note_path(my_note.note_id) %>
 				</div>
-			<% end %>
+				<div class="note-overview">
+					<%= my_note.note.overview %>
+				</div>
+				<div class="note-create-information">
+					<span class="note-contributor">
+						by <%= my_note.note.user.name %>
+					</span>
+					<span class="note-create-date">
+						created_at <%= my_note.created_at.strftime("%Y-%m-%d %H:%M") %>
+					</span>
+				</div>
 		</div>
 	<% end %>
-
+</div>
 
 </body>
+
