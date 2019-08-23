@@ -21,7 +21,7 @@ set :output, "log/monthly_add.log"		#ログの出力先
 
 # Learn more: http://github.com/javan/whenever
 
- every 1.day, at: '2:10 am' do 	#JPtime=> 11:20	#毎日11時にタスクを回す（payjpの定期課金が9:00頃実行のため）#1.day, :at => '00:00 am'
+ every 1.day, at: '2:10 am' do 	#JPtime=> 11:20	#毎日11時にタスクを回す（payjpの定期課金が9:00頃実行のため)
  	rake "point:monthly_add", :environment => "development"
  end
 
