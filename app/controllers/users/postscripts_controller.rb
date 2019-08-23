@@ -7,6 +7,7 @@ class Users::PostscriptsController < ApplicationController
 	end
 
 	def new
+
 	end
 
 	def create
@@ -16,16 +17,33 @@ class Users::PostscriptsController < ApplicationController
 		if @postscript.save
 			@review.save
 			redirect_to note_path(@postscript.note_id)
-	end
+		end
 	end
 
 	def edit
+		@postscript = Postscript.find(params[:id])
+		@review = @postscript.review
+		@note = @postscript.note
 	end
 
 	def update
+		@postscript = Postscript.new(postscript_params)
+		if @postscript.update
+			redirect_to note_path(@postscript.note_id)
+		end
 	end
 
 	def destroy
+		@postscript = Postscript.find(params[:id])
+		if @postscript.destroy
+  			flash[:notice] = "追記を一つ削除しました。"
+  			@review = @postscript.review
+			@review.is_appending = 1
+			@review.save
+	  		redirect_to note_path(@postscript.note)
+	  	else
+	  		redirect_to note_postscript_path(@postscript)
+	  	end
 	end
 
 	private
