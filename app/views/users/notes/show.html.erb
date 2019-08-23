@@ -16,7 +16,7 @@
 		<%= @note.title %>
 	</div>
 	<div class="note-overview">
-		<%= render_with_hashtags(@note.overview) %>
+		<%= render_with_hashtags(@note.overview) %><!--ハッシュタグ付きは一行目、それ以外は二行目に出力したい-->
 	</div>
 		<!--（ノート内容表示の条件分岐）投稿者の確認=> 記事種別=> 閲覧ポイントの有無=> 購入済みかの確認or会員種別の確認 -->
 	<div class="note-content-include-postscript">
