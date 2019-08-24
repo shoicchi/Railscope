@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'
+  get '/bookmarks' => 'users/bookmarks#user_index'
+  delete '/bookmarks.:id' => 'users/bookmarks#one_destroy'
+
 
 
 	#github認証のため以下記載
