@@ -10,7 +10,11 @@ class Users::NotesController < ApplicationController
 		    end 														#検索範囲にかけて格納していく
 		end
 		@q = Note.ransack(params[:q])
-		@notes = @q.result.distinct.order(id: "DESC")	#distinctで一意性を持たせる	#.order(id: "DESC")で新着順表示
+		if params[:q].nil?												#何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
+			@notes = nil
+		else
+			@notes = @q.result.distinct.order(id: "DESC")	#distinctで一意性を持たせる	#.order(id: "DESC")で新着順表示
+		end
 	end
 
 	def show
