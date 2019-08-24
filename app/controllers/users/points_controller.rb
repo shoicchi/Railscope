@@ -1,7 +1,7 @@
 class Users::PointsController < ApplicationController
 
 	def index
-		@points = Point.where(user_id: current_user.id).order(id: "DESC")	#新しい順に表示
+		@points = Point.where(user_id: current_user.id).page(params[:page]).reverse_order
 	end
 
 	def show

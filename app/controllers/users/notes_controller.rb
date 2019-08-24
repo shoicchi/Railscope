@@ -13,7 +13,7 @@ class Users::NotesController < ApplicationController
 		if params[:q].nil?												#何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
 			@notes = nil
 		else
-			@notes = @q.result.distinct.order(id: "DESC")	#distinctで一意性を持たせる	#.order(id: "DESC")で新着順表示
+			@notes = @q.result.distinct.page(params[:page]).per(10).reverse_order	#distinctで一意性を持たせる
 		end
 	end
 
@@ -25,7 +25,7 @@ class Users::NotesController < ApplicationController
 			@bookmark = Bookmark.new
 		end
 		@my_note = MyNote.new
-		@reviews = @note.reviews
+		@reviews = @note.reviews.page(params[:page]).reverse_order
 		@review = Review.new
 		@postscripts = @note.postscripts
 		if user_signed_in?
