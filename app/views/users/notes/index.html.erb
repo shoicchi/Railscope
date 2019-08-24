@@ -8,34 +8,34 @@
 				<%= f.submit "検索" %>
 				<% end %>
 			</div>
-			<div class="note-all">
-				<%if @notes != nil %>
-				<% @notes.each do |note| %>
-					<div class="note-one">
-						<div class="note-type">
-							<%= note.is_browsable_guest %>
-							<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
-								<%= note.view_point %>ポイント
-							<% end %>
+			<%if @notes != nil %><!--何も検索をかけていない時は、note.allとして表示させないようにする-->
+				<div class="note-all">
+					<% @notes.each do |note| %>
+						<div class="note-one">
+							<div class="note-type">
+								<%= note.is_browsable_guest %>
+								<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
+									<%= note.view_point %>ポイント
+								<% end %>
+							</div>
+							<div class="note-title">
+								<%= link_to note.title, note_path(note) %>
+							</div>
+							<div class="note-overview">
+								<%= render_with_hashtags(note.overview) %>
+							</div>
+							<div class="note-create-information">
+								<span class="note-contributor">
+									by <%= link_to note.user.name, user_path(note.user.id) %>
+								</span>
+								<span class="note-create-date">
+									created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+								</span>
+							</div>
 						</div>
-						<div class="note-title">
-							<%= link_to note.title, note_path(note) %>
-						</div>
-						<div class="note-overview">
-							<%= render_with_hashtags(note.overview) %>
-						</div>
-						<div class="note-create-information">
-							<span class="note-contributor">
-								by <%= link_to note.user.name, user_path(note.user.id) %>
-							</span>
-							<span class="note-create-date">
-								created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
-							</span>
-						</div>
-					</div>
-				<% end %>
-				<% end %>
-			</div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </body>
