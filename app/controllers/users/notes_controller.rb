@@ -19,7 +19,11 @@ class Users::NotesController < ApplicationController
 
 	def show
 		@note = Note.find(params[:id])
-		@bookmark = Bookmark.new
+		if 	Bookmark.where(user_id: current_user.id).where(note_id: @note.id).exists?
+			@bookmark = Bookmark.where(user_id: current_user.id).where(note_id: @note.id)
+		else
+			@bookmark = Bookmark.new
+		end
 		@my_note = MyNote.new
 		@reviews = @note.reviews
 		@review = Review.new

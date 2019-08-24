@@ -97,10 +97,8 @@
 	}
 
 .note-container{
-	text-align: center;
 	width: 90%;
-	margin-right: 5%;
-	margin-left: 5%;
+	margin: 5%;
 	
 }
 
@@ -136,10 +134,21 @@ font-size: 14;
 	font-size: 25;
 }
 
+.note-show-title{
+	text-align: center;
+	font-size: 40px;
+}
+
 .note-overview{
 
 	text-align: center;
 	
+}
+
+.note-show-overview{
+	text-align: center;
+	font-size: 30px;
+	margin: 15px;
 }
 
 .note-content-include-postscript{
@@ -186,6 +195,7 @@ font-size: 14;
 
 .review-all{
 	margin-top: 20px;
+	margin-bottom: 20px;
 	border: groove;
 }
 
@@ -210,19 +220,19 @@ font-size: 14;
 }
 
 .review-form{
-	
+	text-align: center;
 }
 
 .review-form-quality{
-	
+	margin: 7px;
 }
 
 .review-form-review{
-	
+	margin: 7px;
 }
 
 .review-form-is-appending{
-	
+	margin: 7px;
 }
 
 .review-button{
