@@ -22,7 +22,7 @@
               <% if user_signed_in? %>
                 <%= link_to current_user.name, user_path(current_user.id),class: "btn btn-primary" %></button>
                 <%= link_to 'Notes', notes_path, class: "btn btn-primary" %></button>
-                <%= link_to 'Bookmarks', bookmarks_path, class: "btn btn-primary" %></button>
+                
                 <%= link_to 'My Notes', my_notes_path, class: "btn btn-primary" %></button>
                 <%= link_to 'Point', points_path, class: "btn btn-primary" %></button>
                                 <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %>

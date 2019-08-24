@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.integer "note_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_bookmarks_on_note_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -60,8 +62,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
   end
 
   create_table "note_hashtags", force: :cascade do |t|
-    t.integer "note_id"
-    t.integer "hashtag_id"
+    t.integer "note_id", null: false
+    t.integer "hashtag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hashtag_id"], name: "index_note_hashtags_on_hashtag_id"

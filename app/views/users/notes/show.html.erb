@@ -1,4 +1,4 @@
-<body>
+<div class="note-container">
 	<%= flash[:notice] %>
 
 	<% if @note.user == current_user %>
@@ -12,10 +12,28 @@
 		<p><%= @note.is_browsable_guest %></p><br>
 		<p><%= @note.view_point %></p><br>
 	</div>
-	<div class="note-title">
+			<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
+	<% if user_signed_in? %>											<!--ユーザーがログインしているかの確認-->
+		<% if @bookmarks.exists?(note_id: @note.id) %>						<!--ユーザーがブックマーク追加済み-->
+			このNoteをbookmark済み
+			<%= button_to 'ブックマーク解除', note_bookmark_path(@bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+		<% else %>															<!--ブックマークに追加していない-->
+			<%= form_for([@note, @bookmark]) do |f| %>
+				<%= f.hidden_field :note_id, value: @note.id %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
+				<input type="submit" value="ブックマークする" class="bookmark-button">
+			<% end %>
+		<% end %>
+	<% else %>															<!--ログインしていないユーザーの処理-->
+		<% flash[:notice] = "ブックマークにはログインが必要です。" %>
+		<%= button_to "ブックマークする", new_user_session_path %>
+	<% end %>
+
+	<div class="note-show-title">
 		<%= @note.title %>
 	</div>
-	<div class="note-overview">
+	<div class="note-show-overview">
 		<%= render_with_hashtags(@note.overview) %><!--ハッシュタグ付きは一行目、それ以外は二行目に出力したい-->
 	</div>
 		<!--（ノート内容表示の条件分岐）投稿者の確認=> 記事種別=> ログインの確認=> 閲覧ポイントの有無=> 購入済みかの確認or会員種別の確認 -->
@@ -74,7 +92,7 @@
 
 	<!--レビューの表示(記事種別、会員種別に関わらず表示)-->
 	<div class="review-all">
-		<% if @reviews.nil? %>
+		<% if @reviews.empty? %>
 			まだレビューはありません。
 		<% else %>
 			レビュー　一覧
@@ -116,7 +134,7 @@
 						<%= f.hidden_field :note_id, value: @note.id, require: true %>
 						<%= f.hidden_field :user_id, value: current_user.id, require: true %>
 						<%= f.number_field :quality, class:"review-form-quality" %>
-						<%= f.text_field :review, class:"review-form-review" %>
+						<%= f.text_area :review, class:"review-form-review" %>
 						<div class="review-form-is-appending">
 							<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
 			  				<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
@@ -131,8 +149,8 @@
 							<%= form_for ([@note, @review]) do |f| %>
 								<%= f.hidden_field :note_id, value: @note.id, require: true %>
 								<%= f.hidden_field :user_id, value: current_user.id, require: true %>
-								<%= f.number_field :quality, class:"review-form-quality" %>
-								<%= f.text_field :review, class:"review-form-review" %>
+								<%= f.number_field :quality, in:0..5, class:"review-form-quality" %>
+								<%= f.text_area :review, class:"review-form-review" %>
 								<div class="review-form-is-appending">
 									<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
 			  						<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
@@ -149,17 +167,19 @@
 					<% end %>
 				<% else %>																							<!--閲覧必要ポイントが不要の場合-->
 					<% if current_user.is_member == "有料会員" %>															<!--有料会員または無料会員で購入済みの場合-->
-						<%= form_for ([@note, @review]) do |f| %>
-							<%= f.hidden_field :note_id, value: @note.id, require: true %>
-							<%= f.hidden_field :user_id, value: current_user.id, require: true %>
-							<%= f.number_field :quality, class:"review-form-quality" %>
-							<%= f.text_field :review, class:"review-form-review" %>
-							<div class="review-form-is-appending">
-								<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
-				  				<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
-				  			</div>
-			  	 			<input type="submit" value="レビューする" class="review-button">
-						<% end %>
+						<div class="review-form">
+							<%= form_for ([@note, @review]) do |f| %>
+								<%= f.hidden_field :note_id, value: @note.id, require: true %>
+								<%= f.hidden_field :user_id, value: current_user.id, require: true %>
+								<%= f.number_field :quality, class:"review-form-quality" %>
+								<%= f.text_area :review, class:"review-form-review" %>
+								<div class="review-form-is-appending">
+									<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
+					  				<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
+					  			</div>
+				  	 			<input type="submit" value="レビューする" class="review-button">
+							<% end %>
+						</div>
 					<% else %>																							<!--無料会員の場合-->
 						このNoteは有料会員になると閲覧とレビューができます。
 					<% end %>
@@ -169,21 +189,4 @@
 	<% else %>																							<!--ログインしていないユーザーの処理-->
 		<%= button_to "レビューする", new_user_session_path %>
 	<% end %>
-
-			<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
-	<% if user_signed_in? %>											<!--ユーザーがログインしているかの確認-->
-		<% if @bookmarks.exists?(note_id: @note.id) %>						<!--ユーザーがブックマーク追加済み-->
-			bookmark済み
-		<% else %>															<!--ブックマークに追加していない-->
-			<%= form_for(@bookmark) do |f| %>
-				<%= f.hidden_field :note_id, value: @note.id %>
-				<%= f.hidden_field :user_id, value: current_user.id %>
-				<input type="submit" value="ブックマークする" class="bookmark-button">
-			<% end %>
-		<% end %>
-	<% else %>															<!--ログインしていないユーザーの処理-->
-		<% flash[:notice] = "ブックマークにはログインが必要です。" %>
-		<%= button_to "ブックマークする", new_user_session_path %>
-	<% end %>
-	</div>
-</body>
+</div>
