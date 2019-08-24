@@ -4,8 +4,7 @@ Rails.application.routes.draw do
  	ActiveAdmin.routes(self)
 
  	get 'oauth_test/index'
-	get 'top' => 'top#top'
-	root :to => 'oauth_test#index'
+	root to: 'users/users#top'
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'
