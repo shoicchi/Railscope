@@ -92,11 +92,15 @@
 	margin-left: 45%;
 }
 
-.main{
+.note-main{
 	
 	}
 
-.container-fluid{
+.note-container{
+	text-align: center;
+	width: 90%;
+	margin-right: 5%;
+	margin-left: 5%;
 	
 }
 
@@ -107,6 +111,7 @@
 
 
 .note-all{
+
 	border: ridge;
 }
 
@@ -132,7 +137,7 @@ font-size: 14;
 }
 
 .note-overview{
-	width: 100%;
+
 	text-align: center;
 	
 }
