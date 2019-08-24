@@ -18,32 +18,36 @@
 	<div class="note-overview">
 		<%= render_with_hashtags(@note.overview) %><!--ハッシュタグ付きは一行目、それ以外は二行目に出力したい-->
 	</div>
-		<!--（ノート内容表示の条件分岐）投稿者の確認=> 記事種別=> 閲覧ポイントの有無=> 購入済みかの確認or会員種別の確認 -->
+		<!--（ノート内容表示の条件分岐）投稿者の確認=> 記事種別=> ログインの確認=> 閲覧ポイントの有無=> 購入済みかの確認or会員種別の確認 -->
 	<div class="note-content-include-postscript">
 		<div class="note-content">
 			<% if @note.user == current_user %>																<!--投稿者の場合-->
 				<%= markdown(@note.content) %>
 			<% else %>																						<!--投稿者ではない場合-->
-				<% if @note.is_browsable_guest == "無料会員閲覧可能記事" %>											<!--無料会員閲覧可能記事-->
+				<% if @note.is_browsable_guest == "無料記事" %>														<!--無料記事-->
 					<%= markdown(@note.content) %>		<!--マークダウン記法での読み取り-->
-				<% else %>																						<!--有料会員限定記事-->
-					<% if @note.view_point > 1 %>																	<!--閲覧必要ポイントが必要な場合-->
-						<% if @my_notes.exists?(note_id: @note.id) %>												<!--↓購入済みの場合(会員種別問わず)↓-->
-							<%= markdown(@note.content) %>	<!--マークダウン記法での読み取り-->		<!--ポイント使っている＋閲覧ポイント不要記事もあるので再度会員に戻る-->
-						<% else %>																					<!--購入していない場合-->
-							この記事の閲覧にはポイントが必要です。
-							<%= form_for(@my_note) do |f| %>
-								<%= f.hidden_field :note_id, value: @note.id %>
-								<%= f.submit "ポイントを使って購入する", data: { confirm: 'Are you sure?' } %><br>
+				<% else %>																							<!--有料会員限定記事-->
+					<% if user_signed_in? %>																			<!--ログインしているかの確認-->
+						<% if @note.view_point > 1 %>																		<!--閲覧必要ポイントが必要な場合-->
+							<% if @my_notes.exists?(note_id: @note.id) %>														<!--↓購入済みの場合(会員種別問わず)↓-->
+								<%= markdown(@note.content) %>	<!--マークダウン記法での読み取り-->		<!--ポイント使っている＋閲覧ポイント不要記事もあるので再度会員に戻る-->
+							<% else %>																							<!--購入していない場合-->
+								この記事の閲覧にはポイントが必要です。
+								<%= form_for(@my_note) do |f| %>
+									<%= f.hidden_field :note_id, value: @note.id %>
+									<%= f.submit "ポイントを使って購入する", data: { confirm: 'Are you sure?' } %><br>
+								<% end %>
 							<% end %>
-						<% end %>
-					<% else %>																					<!--閲覧必要ポイントが不要の場合-->
-						<% if current_user.is_member == "有料会員" %>													<!--有料会員の場合-->
-							<%= markdown(@note.content) %>	<!--マークダウン記法での読み取り-->
-						<% else %>																					<!--無料会員の場合-->
-							この記事は有料会員限定の記事です。
-						<% end %>
-					<% end %><!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
+						<% else %>																							<!--閲覧必要ポイントが不要の場合-->
+							<% if current_user.is_member == "有料会員" %>															<!--有料会員の場合-->
+								<%= markdown(@note.content) %>	<!--マークダウン記法での読み取り-->
+							<% else %>																							<!--無料会員の場合-->
+								この記事は有料会員限定の記事です。
+							<% end %>
+						<% end %><!--モザイク処理の上に購入かどうか書きたいのでリンクは一旦保留-->
+					<% else %>																							<!--ログインしていない場合-->
+						ログインしてください。
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>
@@ -106,7 +110,7 @@
 	<!--（レビューフォームの表示）ログインの確認=> 投稿者の確認=> 記事種別の確認=> 閲覧必要ポイントの確認=> 購入有無の確認or会員種別の確認-->
 	<% if user_signed_in? %>																			<!--ユーザーがログインしているかの確認-->
 		<% if @note.user != current_user %>																	<!--投稿者本人以外場合)-->
-			<% if @note.is_browsable_guest == "無料会員閲覧可能記事" %>												<!--無料会員閲覧可能記事-->
+			<% if @note.is_browsable_guest == "無料記事" %>														<!--無料会員閲覧可能記事-->
 				<div class="review-form">
 					<%= form_for ([@note, @review]) do |f| %>
 						<%= f.hidden_field :note_id, value: @note.id, require: true %>
@@ -163,7 +167,7 @@
 			<% end %>
 		<% end %>
 	<% else %>																							<!--ログインしていないユーザーの処理-->
-		<%= link_to "ログインしてください", new_user_session_path %>
+		<%= button_to "レビューする", new_user_session_path %>
 	<% end %>
 
 			<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
@@ -178,7 +182,8 @@
 			<% end %>
 		<% end %>
 	<% else %>															<!--ログインしていないユーザーの処理-->
-		<%= link_to "ログインしてください", new_user_session_path %>
+		<% flash[:notice] = "ブックマークにはログインが必要です。" %>
+		<%= button_to "ブックマークする", new_user_session_path %>
 	<% end %>
 	</div>
 </body>
