@@ -1,47 +1,49 @@
-<thead>ユーザー情報編集</thead>
-<%= form_for(@user) do |f| %>
-<table>
-	<tbody>
-		<tr>
-			<%= f.label :name, "ユーザー名" %><br>
-			<%= f.text_field :name, autofocus: true, autocomplete: "name" %><br>
-		</tr>
-		<tr>
-			<%= f.label :profile, "プロフィール" %><br>
-			<%= f.text_field :profile, autocomplete: "profile" %><br>
-		</tr>
-		<tr>
-			<%= f.label :email,"メールアドレス" %><br>
-		    <%= f.email_field :email, autocomplete: "email" %><br>
-    	</tr>
-    	<tr>
-			<%= f.label :is_delivery,"メールマガジン配信状況" %><br>
-			<%= f.radio_button :is_delivery, :"配信中" %> 配信中
-  			<%= f.radio_button :is_delivery, :"配信停止中" %> 配信停止中<br>
-    	</tr>
-    	<tr>
-			<%= f.label :phone_number,"電話番号" %><br>
-		    <%= f.telephone_field :phone_number, autocomplete: "phone_number" %><br>
-    	</tr>
-    	<tr>
-			<%= f.label :is_member,"会員状況" %><br>
-	        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
-  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path %><br><!--有料会員と無料会員の説明pgへ-->
-    	</tr>
-    	<tr>
-			月額料金<br>
-			<%= link_to "月額料金を変更する", subscriptions_path %>
-    	</tr>
-		<div>
-		<%= f.submit "編集する" %>
+<div class="user-body">
+	<div class="user-container">
+		<div class="user-edit-container">
+			ユーザー情報編集
+			<%= form_for(@user) do |f| %>
+				<div class="user-edit-name">
+					<%= f.label :name, "ユーザー名" %><br>
+					<%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-user-name" %>
+				</div>
+				<div class="user-edit-plofile">
+					<%= f.label :profile, "プロフィール" %><br>
+					<%= f.text_field :profile, autocomplete: "profile", class:"form-user-plofile" %>
+				</div>
+				<div class="user-edit-email">
+					<%= f.label :email,"メールアドレス" %><br>
+				    <%= f.email_field :email, autocomplete: "email", class:"form-user-email" %>
+		    	</div>
+		    	<div class="user-edit-is-delivery">
+					<%= f.label :is_delivery,"メールマガジン配信状況" %><br>
+					<%= f.radio_button :is_delivery, :"配信中" %> 配信中
+		  			<%= f.radio_button :is_delivery, :"配信停止中" %> 配信停止中
+		    	</div>
+		    	<div class="user-edit-phonenumber">
+					<%= f.label :phone_number,"電話番号" %><br>
+				    <%= f.telephone_field :phone_number, autocomplete: "phone_number", class:"form-user-phonenumber" %>
+				</div>
+		    	<div class="user-edit-is-member">
+					<%= f.label :is_member,"会員状況" %><br>
+			        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
+		  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path %><!--有料会員と無料会員の説明pgへ-->
+		    	</div>
+		    	<div class="user-edit-subscription">
+		    		月額料金<br>
+					<%= link_to "月額料金を変更する", subscriptions_path %>
+				</div>
+				<div class="edit-button-area">
+					<input type="submit" value="更新する" class="edit-button">
+				</div>
+			<% end %>
+			<div class="user-new-subscription">
+				カードの新規登録、変更は
+				<%= link_to "こちら", new_subscription_path %>
+			</div>
+			<div class="user-delete">
+				<%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
+			</div>
 		</div>
-		<% end %>
-		カードの新規登録、変更は
-		<%= link_to "こちら", new_subscription_path %>
-		<tr>
-		    <td>
-		        <%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
-		    </td>
-		</tr>
-	</tbody>
-</table>
+	</div>
+</div>
