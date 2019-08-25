@@ -1,6 +1,6 @@
 class Users::BookmarksController < ApplicationController
 
-	def user_index
+	def index
 		@bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
 	end
 
@@ -23,20 +23,12 @@ class Users::BookmarksController < ApplicationController
 	def update
 	end
 
-	def destroy#show/noteからの削除
-		@note = Note.find(params[:id])
-		@bookmark = Bookmark.find_by(note_id: @note.id, user_id: current_user.id)
-  		@bookmark.destroy
-  			flash[:notice] = "Bookmarkを一つ削除しました。"
-	  		redirect_to bookmarks_path
-	end
-
-	def one_destroy#bookmarks_pathからの削除
+	def destroy
 		@bookmark = Bookmark.find(params[:id])
   		@bookmark.destroy
   			flash[:notice] = "Bookmarkを一つ削除しました。"
 	  		redirect_to bookmarks_path
-	  end
+	end
 
 	private
 	def bookmark_params
