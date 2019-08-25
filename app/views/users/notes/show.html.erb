@@ -16,10 +16,10 @@
 	<% if user_signed_in? %>											<!--ユーザーがログインしているかの確認-->
 		<% if @bookmarks.exists?(note_id: @note.id) %>						<!--ユーザーがブックマーク追加済み-->
 			このNoteをbookmark済み
-			<%= button_to 'ブックマーク解除', note_bookmark_path(@bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<%= button_to 'ブックマーク解除', bookmark_path(@bookmark.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 		<% else %>															<!--ブックマークに追加していない-->
-			<%= form_for([@note, @bookmark]) do |f| %>
+			<%= form_for(@bookmark) do |f| %>
 				<%= f.hidden_field :note_id, value: @note.id %>
 				<%= f.hidden_field :user_id, value: current_user.id %>
 				<input type="submit" value="ブックマークする" class="bookmark-button">

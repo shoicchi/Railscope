@@ -1,6 +1,3 @@
-
-<!--ブックマークはログイン必須-->
-
 <body>
 	<h1>Bookmarked Notes</h1>
 	<%= flash[:notice] %>
@@ -23,7 +20,7 @@
 					</span>
 				</div>
 		</div>
-			<%= button_to 'Bookmarkから削除', bookmarks_path(bookmark), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-default" %>
+			<%= button_to 'Bookmarkから削除', bookmark_path(bookmark.id), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-default" %>
 	<% end %>
 </div>
 

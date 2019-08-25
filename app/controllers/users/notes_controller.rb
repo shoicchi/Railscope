@@ -19,15 +19,15 @@ class Users::NotesController < ApplicationController
 
 	def show
 		@note = Note.find(params[:id])
-		if 	Bookmark.where(user_id: current_user.id).where(note_id: @note.id).exists?
-			@bookmark = Bookmark.where(user_id: current_user.id).where(note_id: @note.id)
+		if 	Bookmark.find_by(user_id: current_user.id, note_id: @note.id).present?
+			@bookmark = Bookmark.find_by(user_id: current_user.id, note_id: @note.id)
 		else
 			@bookmark = Bookmark.new
 		end
 		@my_note = MyNote.new
 		@reviews = @note.reviews.page(params[:page]).reverse_order
 		@review = Review.new
-		@postscripts = @note.postscripts
+		@postscripts = Postscript.where(note_id: @note.id)
 		if user_signed_in?
 			@bookmarks = Bookmark.where(user_id: current_user.id)#ユーザーがお気に入り済みか否かの判断に使用
 			@my_notes = MyNote.where(user_id: current_user.id)#ユーザーが購入済みか否かの判断に使用

@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'
-  get '/bookmarks' => 'users/bookmarks#user_index'
-  delete '/bookmarks.:id' => 'users/bookmarks#one_destroy'
+
 
 
 
@@ -22,12 +21,12 @@ Rails.application.routes.draw do
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   	scope module: :users do
-  		resources :hashtags, :my_notes, :note_hashtags, :points, :users, :subscriptions
+  		resources :hashtags, :my_notes, :note_hashtags, :points, :users, :subscriptions, :bookmarks
   	end
 
   	scope module: :users do
   		resources :notes do
-  			resources :reviews, :postscripts, :bookmarks
+  			resources :reviews, :postscripts
   		end
   	end
 
