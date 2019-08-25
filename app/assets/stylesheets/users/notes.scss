@@ -105,6 +105,7 @@
 	height: 800px;
 	background-image: url(/images/shahadat-shemul-O2MdroNurVw-unsplash.jpg);
 	background-size: cover;
+	
 	margin-top: -70px;
 	
 	}
@@ -116,8 +117,14 @@
 	
 }
 
+.search-button{
+	text-align:center;
+	margin-top: 5%;
+}
+
 .note-search{
-padding: 50px;
+
+padding: 20%;
 
 	text-align: center;
 }
@@ -136,6 +143,14 @@ padding: 50px;
 
 .note-search-form{
 	width: 50%;
+	border-radius: 25%;
+}
+#q_search_words{
+	  border:none;
+  border-radius:10px;
+  box-shadow: none;
+  padding: 2px 8px;
+  font-size: 30px;
 }
 
 
