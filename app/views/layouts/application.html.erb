@@ -5,46 +5,43 @@
 
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <title>Railscope</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
-    <body>
-      <header class="nav navbar-inverse row">
-        <div><h1><%= link_to 'Railscope', notes_path %></h1></div>
-        <div>
-          <div>
-            <div class="links col-md-7">
-              <% if user_signed_in? %>
-                <%= link_to current_user.name, user_path(current_user.id),class: "btn btn-primary" %></button>
-                <%= link_to 'Notes', notes_path, class: "btn btn-primary" %></button>
-                
-                <%= link_to 'My Notes', my_notes_path, class: "btn btn-primary" %></button>
-                <%= link_to 'Point', points_path, class: "btn btn-primary" %></button>
-                                <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
-              <% else %>
-                <%= link_to "sign in", new_user_session_path, class: "btn btn-primary" %></button>
-                <%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %></button>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <%= yield %>
-    <footer style="margin-top:5em;">
-      <div class='container1'>
-        <div class='row'>
-          <div class='col-xs-3 col-xs-offset-9'>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+  </head>
+  <body>
+<header>
+  <div id="nav-drawer">
+      <input id="nav-input" type="checkbox" class="nav-unshown">
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <div><%= link_to 'Railscope', notes_path %></div>
+      <% if user_signed_in? %>
+        <div><%= link_to current_user.name, user_path(current_user.id) %> 様</div>
+        <div><%= link_to 'Notes', notes_path %></div>
+        <div><%= link_to 'bookmarks', bookmarks_path %></div>
+        <div><%= link_to 'My Notes', my_notes_path %></div>
+        <div><%= link_to 'Points', points_path %></div>
+        <div><%= link_to 'Sign-out', destroy_user_session_path %></div>
+      <% else %>
+        <div><%= link_to 'Notes', notes_path %></div>
+        <div><%= link_to 'Sign-up', new_user_registration_path %></div>
+        <div><%= link_to 'Sign-in', new_user_session_path %></div>
+        <div><%= link_to 'Sign-out', destroy_user_session_path %></div>
+      <% end %>
+    </div>
+  </div>
+
+</header>
+<%= yield %>
+</body>
 </html>
+

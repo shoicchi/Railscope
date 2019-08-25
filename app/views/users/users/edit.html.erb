@@ -42,6 +42,8 @@
 				<%= link_to "こちら", new_subscription_path %>
 			</div>
 			<div class="user-delete">
+				<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+				<%= link_to 'githubでサインアップしてください', user_github_omniauth_authorize_path %>
 				<%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
 			</div>
 		</div>
