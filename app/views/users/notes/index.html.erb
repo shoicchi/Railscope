@@ -2,10 +2,9 @@
 	<div class="note-main">
 		<%#div class="note-container"%>
 			<div class="note-search">
-				<h1>Serch Notes</h1>
 				<%= search_form_for @q, url: notes_path do |f| %>	<!--ransack使用-->
-					<%= f.text_field :search_words,class:"note-search-form" %><!--search_wordsはnote.rbに記載-->
-				<input type="submit" value="Search">
+					<%= f.text_field :search_words, class:"note-search-form" %><br><!--search_wordsはnote.rbに記載-->
+				<input type="submit" value="Search", class="search-button">
 				<% end %>
 			</div>
 			<%if @notes != nil %><!--何も検索をかけていない時は、note.allとして表示させないようにする-->
