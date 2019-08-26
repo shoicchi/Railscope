@@ -1,18 +1,20 @@
 
-<div class="point-body">
+<div class="main">
 	<div class="point-container">
 		<div class="point-charactor">
-			ポイント履歴
+			
 		</div>
 		<div class="point-status">
 			<div class="point-status-name">
-				<%= current_user.name %>さんの現在の保有ポイントは
+				@points = Points.where(user_name: <%= link_to current_user.name, user_path(current_user.id),id:"user-name-name" %>
 			</div>
 			<div class="point-status-point">
-				<%= current_user.holding_point %>ポイントです
+				あなたの保有Pointは<%= current_user.holding_point %>Pointです
 			</div>
 			<div class="point-button">
-				<%= link_to "Point追加", new_point_path%>
+				&lt;%= link_to
+        		<%= link_to '"Add_Point"', new_point_path, id:"points"%>
+        		%&gt;
 			</div>
 		</div>
 		<div class="point-all">
@@ -22,10 +24,10 @@
 						<%= point.created_at.strftime("%Y-%m-%d %H:%M") %>
 					</div>
 					<div class="point-point">
-						<%= point.point %>
+						@points += <%= point.point %>
 					</div>
 					<div class="point-reason">
-						<%= point.reason %>
+						reason:<%= point.reason %>
 					</div>
 				</div>
 			<% end %>

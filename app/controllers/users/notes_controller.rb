@@ -11,7 +11,7 @@ class Users::NotesController < ApplicationController
 		end
 		@q = Note.ransack(params[:q])
 		if params[:q].nil?												#何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
-			@notes = nil
+			@notes = Note.page(params[:page]).per(10).reverse_order
 		else
 			@notes = @q.result.distinct.page(params[:page]).per(10).reverse_order	#distinctで一意性を持たせる
 		end

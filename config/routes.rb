@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+
  	devise_for :admin_users, ActiveAdmin::Devise.config
  	ActiveAdmin.routes(self)
 
  	get 'oauth_test/index'
-	root to: 'users/users#top'
+  root 'top#index'
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'

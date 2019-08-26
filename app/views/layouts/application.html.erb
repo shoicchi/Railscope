@@ -23,19 +23,54 @@
       <label id="nav-open" for="nav-input"><span></span></label>
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
-        <div><%= link_to 'Railscope', notes_path %></div>
+        <div id="railscope">
+          <%= link_to 'Railscope', root_path, id:"railscope" %>
+        </div>
       <% if user_signed_in? %>
-        <div><%= link_to current_user.name, user_path(current_user.id) %> 様</div>
-        <div><%= link_to 'Notes', notes_path %></div>
-        <div><%= link_to 'bookmarks', bookmarks_path %></div>
-        <div><%= link_to 'My Notes', my_notes_path %></div>
-        <div><%= link_to 'Points', points_path %></div>
-        <div><%= link_to 'Sign-out', destroy_user_session_path %></div>
+        <div id="around">
+          @user = <%= link_to current_user.name, user_path(current_user.id), id:"user-name"%>
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Notes"', notes_path, id:"notes"%>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Bookmarks"', bookmarks_path, id:"bookmarks"%>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"My Notes"', my_notes_path, id:"my-notes" %>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Points"', points_path, id:"points" %>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Sign-out"', destroy_user_session_path, id:"sign-out" %>
+          %&gt;
+        </div>
       <% else %>
-        <div><%= link_to 'Notes', notes_path %></div>
-        <div><%= link_to 'Sign-up', new_user_registration_path %></div>
-        <div><%= link_to 'Sign-in', new_user_session_path %></div>
-        <div><%= link_to 'Sign-out', destroy_user_session_path %></div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Notes"', notes_path, id:"notes" %>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Sign-up"', new_user_registration_path, id:"sign-out" %>
+          %&gt;
+        </div>
+        <div id="around">
+          &lt;%= link_to
+          <%= link_to '"Sign-in"', new_user_session_path, id:"sign-in" %>
+          %&gt;
+        </div>
       <% end %>
     </div>
   </div>
