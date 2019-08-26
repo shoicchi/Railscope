@@ -25,6 +25,19 @@ header {
   background: skyblue;
 }
 
+.main{
+	text-align: center;
+	width: 100%;
+	background-repeat: repeat-y;
+
+	padding: 5%;
+	color: white;
+	background-image: url(/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+	background-size: cover;
+	margin-top: -70px;
+
+}
+
 #nav-drawer {
   position: relative;
 }
@@ -82,13 +95,56 @@ header {
   left: 0;
   z-index: 9999;/*最前面に*/
   width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
-  max-width: 330px;/*最大幅（調整してください）*/
+  max-width: 250px;/*最大幅（調整してください）*/
   height: 100%;
-  background: #fff;/*背景色*/
+  background: black;
   transition: .3s ease-in-out;/*滑らかに表示*/
   -webkit-transform: translateX(-105%);
   transform: translateX(-105%);/*左に隠しておく*/
   margin: 5px;
+}
+
+#railscope{
+	text-align: center;
+	font-size: 30px;
+	color: white;
+}
+
+#around{
+	font-size: 15px;
+	color: white;
+	padding-top: 7px;
+}
+
+#user-name{
+	font-size: 20px;
+	color: #00CCFF;
+}
+
+
+#notes{
+	font-size: 20px;
+	color: #FFFF66;
+}
+
+#bookmarks{
+	font-size: 20px;
+	color: #FFFF66;
+}
+
+#my-notes{
+	font-size: 20px;
+	color: #FFFF66;
+}
+
+#points{
+	font-size: 20px;
+	color: #FFFF66;
+}
+
+#sign-out{
+	font-size: 20px;
+	color: #FFFF66;
 }
 
 

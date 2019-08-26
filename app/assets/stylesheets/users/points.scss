@@ -3,20 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.point-body{
-	text-align: center;
-	width: 100%;
-	border: groove;
-	padding: 5%;
 
-}
 
 .point-container{
 	font-size: 20px;
 	margin: 2%;
 	padding: 10%;
 	margin-bottom: 35px;
-	border: groove;
+
 
 }
 
@@ -28,10 +22,16 @@
 .point-status{
 	width: 100%;
 	margin-bottom: 30px;
+	border: groove;
+	background-color: black;
 }
 
 .point-status-name{
-	font-size: 20px;
+	font-size: 40px;
+}
+#user-name-name{
+	font-size: 40px;
+	color: #00CCFF;
 }
 
 .point-status-point{
@@ -39,8 +39,8 @@
 }
 
 .point-button{
-	float: right;
-	margin-right: 15%;
+	
+	
 }
 
 .point-all{
@@ -50,6 +50,7 @@
 .point-one{
 	margin-bottom: 35px;
 	border: groove;
+	background-color: black;
 }
 
 .point-created-date{
