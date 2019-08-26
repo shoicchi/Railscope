@@ -13,14 +13,25 @@
 .user-body{
 	
 }
+.show-main {
+    text-align: center;
+    /* height: 100%; */
+    /* background-repeat: repeat-y; */
+    padding: 5%;
+    color: white;
+    background-image: url(/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    background-size: cover;
+    margin-top: -40px;
+}
+
 
 .user-container{
 	width: 90%;
 	display: flex;
+}
 
-	margin: 5%;
-
-
+.black{
+	color: black;
 }
 
 .user-info{
@@ -30,7 +41,7 @@
 	border: groove;
 	margin-right: 2%;
 	margin-left: 2%;
-	margin-top: 5%;
+
 	margin-bottom: 5%;
 	background-color: white;
 	color: black;
@@ -101,7 +112,7 @@
 	float:right;
 	width: 76%;
 	margin-right: 2%;
-	margin-top: 5%;
+
 	margin-bottom: 5%;
 }
 

@@ -1,19 +1,19 @@
 
-<div class="main">
+<div class="show-main">
 	<div class="point-container">
 		<div class="point-charactor">
 			
 		</div>
 		<div class="point-status">
 			<div class="point-status-name">
-				@points = Points.where(user_name: <%= link_to current_user.name, user_path(current_user.id),id:"user-name-name" %>
+				ポイント履歴一覧
 			</div>
 			<div class="point-status-point">
-				あなたの保有Pointは<%= current_user.holding_point %>Pointです
+				<%= link_to current_user.name, user_path(current_user.id),id:"user-name-name" %>さんの保有Pointは<%= current_user.holding_point %>Pointです
 			</div>
 			<div class="point-button">
 				&lt;%= link_to
-        		<%= link_to '"Add_Point"', new_point_path, id:"points"%>
+        		<%= link_to '"Add_Point"', new_point_path, id:"user-name-name"%>
         		%&gt;
 			</div>
 		</div>
