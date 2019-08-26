@@ -14,6 +14,7 @@
 			<p><%= @note.view_point %></p><br>
 		</div>
 		<div><%= image_tag('star-on.png') %><%= @note.note_quality.round(2) %>
+			<%= image_tag('my_note_index.png') %><%= @note.purchace_quantity %>
 		</div>
 		<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
 		<% if user_signed_in? %>											<!--ユーザーがログインしているかの確認-->

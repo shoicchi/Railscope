@@ -58,6 +58,10 @@ class Note < ApplicationRecord
     	end
     end
 
+    def purchace_quantity
+    	MyNote.where(note_id: id).count
+    end
+
 
 
 
