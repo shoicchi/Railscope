@@ -50,6 +50,14 @@ class Note < ApplicationRecord
     	end
  	end
 
+ 	def note_quality#noteに対してのreviewのqualityの平均値
+ 		if Review.where(note_id: id).exists?
+	    	Review.where(note_id: id).average(:quality)#reviewがnilの場合は0にする
+    	else
+    		0
+    	end
+    end
+
 
 
 

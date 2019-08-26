@@ -13,6 +13,8 @@
 			<p><%= @note.is_browsable_guest %></p><br>
 			<p><%= @note.view_point %></p><br>
 		</div>
+		<div><%= image_tag('star-on.png') %><%= @note.note_quality.round(2) %>
+		</div>
 				<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
 		<% if user_signed_in? %>											<!--ユーザーがログインしているかの確認-->
 			<% if @bookmark.id.present? %>						<!--ユーザーがブックマーク追加済み-->
@@ -97,12 +99,26 @@
 		<div class="review-all">
 			<% if @reviews.nil? %>
 				まだレビューはありません。
+
+          </script>
 			<% else %>
 				レビュー　一覧
 				<% @reviews.each do |review| %>
 					<div class="review-one">
 						<div class="review-quality">
-							<%= review.quality %>
+							<div id="star-rate-<%= review.id %>"></div>
+							<script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.quality %>,
+          });
+      </script>
+
 						</div>
 						<div class="review-review">
 							<%= review.review %>
@@ -137,7 +153,10 @@
 						<%= form_for ([@note, @review]) do |f| %>
 							<%= f.hidden_field :note_id, value: @note.id, require: true %>
 							<%= f.hidden_field :user_id, value: current_user.id, require: true %>
-							<%= f.number_field :quality, in:0..5, class:"review-form-quality", id:"form" %>
+							<%= f.label :quality %>
+            							<div class="field" id="star">
+            							<%= f.hidden_field :quality, id: :review_star %>
+         							</div>
 							<%= f.text_area :review, class:"review-form-review", id:"form" %>
 							<div class="review-form-is-appending">
 								<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
@@ -153,7 +172,10 @@
 								<%= form_for ([@note, @review]) do |f| %>
 									<%= f.hidden_field :note_id, value: @note.id, require: true %>
 									<%= f.hidden_field :user_id, value: current_user.id, require: true %>
-									<%= f.number_field :quality, in:0..5, class:"review-form-quality", id:"form" %>
+									<%= f.label :quality %>
+            							<div class="field" id="star">
+            							<%= f.hidden_field :quality, id: :review_star %>
+         							</div>
 									<%= f.text_area :review, class:"review-form-review", id:"form" %>
 									<div class="review-form-is-appending">
 										<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
@@ -175,7 +197,10 @@
 								<%= form_for ([@note, @review]) do |f| %>
 									<%= f.hidden_field :note_id, value: @note.id, require: true %>
 									<%= f.hidden_field :user_id, value: current_user.id, require: true %>
-									<%= f.number_field :quality, in:0..5, class:"review-form-quality", id:"form" %>
+            							<%= f.label :quality %>
+            							<div class="field" id="star">
+            							<%= f.hidden_field :quality, id: :review_star %>
+         							</div>
 									<%= f.text_area :review, class:"review-form-review", id:"form" %>
 									<div class="review-form-is-appending">
 										<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
@@ -195,3 +220,19 @@
 		<% end %>
 	</div>
 </div>
+
+
+<%#review入力用%>
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[quality]',
+  half: true,
+});
+</script>
+
+<%#review表示用%>
+
