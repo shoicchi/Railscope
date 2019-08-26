@@ -1,29 +1,29 @@
+<div class="main">
+	<body>
+		<h1>My Notes</h1>
+		<%= flash[:notice] %>
 
-<body>
-	<h1>My Notes</h1>
-	<%= flash[:notice] %>
+	<div class="note-all">
+		<% @my_notes.each do |my_note| %>
+			<div class="note-one">
+					<div class="note-title">
+						<%= link_to my_note.note.title, note_path(my_note.note_id) %>
+					</div>
+					<div class="note-overview">
+						<%= my_note.note.overview %>
+					</div>
+					<div class="note-create-information">
+						<span class="note-contributor">
+							by <%= my_note.note.user.name %>
+						</span>
+						<span class="note-create-date">
+							created_at <%= my_note.created_at.strftime("%Y-%m-%d %H:%M") %>
+						</span>
+					</div>
+			</div>
+		<% end %>
+	</div>
+	<%= paginate @my_notes, class: "paginate" %>
 
-<div class="note-all">
-	<% @my_notes.each do |my_note| %>
-		<div class="note-one">
-				<div class="note-title">
-					<%= link_to my_note.note.title, note_path(my_note.note_id) %>
-				</div>
-				<div class="note-overview">
-					<%= my_note.note.overview %>
-				</div>
-				<div class="note-create-information">
-					<span class="note-contributor">
-						by <%= my_note.note.user.name %>
-					</span>
-					<span class="note-create-date">
-						created_at <%= my_note.created_at.strftime("%Y-%m-%d %H:%M") %>
-					</span>
-				</div>
-		</div>
-	<% end %>
+	</body>
 </div>
-<%= paginate @my_notes, class: "paginate" %>
-
-</body>
-

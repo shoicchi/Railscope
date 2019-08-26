@@ -17,8 +17,9 @@
 .user-container{
 	width: 90%;
 	display: flex;
-	border: groove;
+
 	margin: 5%;
+
 
 }
 
@@ -31,6 +32,8 @@
 	margin-left: 2%;
 	margin-top: 5%;
 	margin-bottom: 5%;
+	background-color: white;
+	color: black;
 }
 
 .user-name{
@@ -171,6 +174,10 @@
 	float:right;
 }
 
+
+#yellow{
+	color: yellow;
+}
 
 
 

@@ -20,6 +20,23 @@
 @import 'rouge';
 
 
+#github{
+  font-size:20px;
+  color:yellow;
+
+}
+.top-main{
+  text-align: center;
+  width: 100%;
+  background-repeat: repeat-y;
+
+  padding: 5%;
+  color: white;
+  background-image: url(/images/jonnelle-yankovich-VY3c6CfZNSY-unsplash.jpg);
+  background-size: cover;
+  margin-top: -70px;
+}
+
 header {
   padding:10px;
   background: skyblue;
@@ -53,6 +70,7 @@ header {
   width: 30px;
   height: 22px;
   vertical-align: middle;
+  position: fixed;
 }
 
 /*ハンバーガーアイコンをCSSだけで表現*/
@@ -145,6 +163,11 @@ header {
 #sign-out{
 	font-size: 20px;
 	color: #FFFF66;
+}
+
+#sign-in{
+  font-size: 20px;
+  color: #FFFF66;
 }
 
 

@@ -1,58 +1,59 @@
-
-<body>
-	<div>Note編集</div>
-	<div class="note-form">
-		<%= form_for(@note) do |f| %>
-			<div class="note-form-browsable">
-				<h5>閲覧設定</h5>
-				<%= f.radio_button :is_browsable_guest, :"無料記事",  {:checked => true} %> 無料記事<br>
-		  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
-  			</div>
-  			<div  class="note-view-point">
-				<h5>閲覧ポイント設定</h5><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
-				<%= f.number_field :view_point, in:0..500, class:"note-form-view-point" %>
-				<div>ポイント</div>
-			</div>
-			<div class="note-title">
-				<h5>タイトル</h5>
-				<%= f.text_field :title, class:"note-form-title"%>
-			</div>
-			<div class="note-overview">
-				<h5>ハッシュタグと概要</h5>
-				<%= f.text_field :overview, class:"note-form-overview" %>
-			</div>
-			<div class="note-preview-container">
-				<div class="left"> 内容 </div>
-				<div class="right">プレビュー</div>
-				<div class="note-content-post">
-					<div id='editor'><!--id=editorはマークダウン記法適用に使用-->
-						<%= f.text_area :content, "v-model" => "input", class:"note-form-content"%>
-						<div class="preview" v-html='input | marked'><!--ここにプレビュー表示-->
+<div class="main">
+	<body>
+		<div>Note編集</div>
+		<div class="note-form">
+			<%= form_for(@note) do |f| %>
+				<div class="note-form-browsable">
+					<h5>閲覧設定</h5>
+					<%= f.radio_button :is_browsable_guest, :"無料記事",  {:checked => true} %> 無料記事<br>
+			  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
+	  			</div>
+	  			<div  class="note-view-point">
+					<h5>閲覧ポイント設定</h5><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
+					<%= f.number_field :view_point, in:0..500, class:"note-form-view-point" %>
+					<div>ポイント</div>
+				</div>
+				<div class="note-title">
+					<h5>タイトル</h5>
+					<%= f.text_field :title, class:"note-form-title"%>
+				</div>
+				<div class="note-overview">
+					<h5>ハッシュタグと概要</h5>
+					<%= f.text_field :overview, class:"note-form-overview" %>
+				</div>
+				<div class="note-preview-container">
+					<div class="left"> 内容 </div>
+					<div class="right">プレビュー</div>
+					<div class="note-content-post">
+						<div id='editor'><!--id=editorはマークダウン記法適用に使用-->
+							<%= f.text_area :content, "v-model" => "input", class:"note-form-content"%>
+							<div class="preview" v-html='input | marked'><!--ここにプレビュー表示-->
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<input type="submit" value="投稿する" class="note-button">
-		<% end %>
-	</div>
+				<input type="submit" value="投稿する" class="note-button">
+			<% end %>
+		</div>
 
 
 
-	<!-- リアルタイムプレビュー -->
+		<!-- リアルタイムプレビュー -->
 
-		<script type="text/javascript">
-		window.onload = function() {
-			new Vue({
-				el: '#editor',<%#contentのtext_areaのid%>
-				data: {
-					input: '<%= j @note.content %>',<%#保持しているデータは@note.content%>
-					},
-				filters: {
-					marked: marked,
-					},
-			});
-		};
-		</script>
+			<script type="text/javascript">
+			window.onload = function() {
+				new Vue({
+					el: '#editor',<%#contentのtext_areaのid%>
+					data: {
+						input: '<%= j @note.content %>',<%#保持しているデータは@note.content%>
+						},
+					filters: {
+						marked: marked,
+						},
+				});
+			};
+			</script>
 
-</body>
+	</body>
+</div>
 

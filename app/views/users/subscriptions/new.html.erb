@@ -1,20 +1,21 @@
-
-<%= flash[:notice] %>	<!--カードの登録がない場合、月額定期課金のsubmitから飛んでくる（表示:カードを登録してください。）-->
-<div class="subscription-body">
-    <div class="subscription-container">
-        <div class="subscription-new-text">
-            カードの登録は一枚のみです。
-            すでに登録済みの場合は上書きされます。
-            <%= form_tag(action: :registration_payjp, method: :post) do %>
-                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button"
-                    <% if current_user.payjp_id.nil? %>
-                	    data-text="登録する" data-submit-text="登録する"
-                    <% else %>
-                	    data-text="変更する" data-submit-text="変更する"
-                    <% end %>
-                    data-key="pk_test_932adb5c9baabfd8d99fadb3">
-                </script>
-            <% end %>
+<div class="main">
+    <%= flash[:notice] %>	<!--カードの登録がない場合、月額定期課金のsubmitから飛んでくる（表示:カードを登録してください。）-->
+    <div class="subscription-body">
+        <div class="subscription-container">
+            <div class="subscription-new-text">
+                カードの登録は一枚のみです。
+                すでに登録済みの場合は上書きされます。
+                <%= form_tag(action: :registration_payjp, method: :post) do %>
+                    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button"
+                        <% if current_user.payjp_id.nil? %>
+                    	    data-text="登録する" data-submit-text="登録する"
+                        <% else %>
+                    	    data-text="変更する" data-submit-text="変更する"
+                        <% end %>
+                        data-key="pk_test_932adb5c9baabfd8d99fadb3">
+                    </script>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
