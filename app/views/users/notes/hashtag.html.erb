@@ -1,38 +1,54 @@
-<body>
-  <div class="main">
-    <div class="container-fluid">
-      <div class="note-search">
-        <h1>Serch Notes</h1>
-        <%= search_form_for @q, url: notes_path do |f| %> <!--ransack使用-->
-          <%= f.text_field :search_words, class:"note-search-form" %><!--search_wordsはnote.rbに記載-->
-        <%= f.submit "検索" %>
-        <% end %>
-      </div>
-      <div class="note-all">
-      <% @notes.each do |note| %>
-        <div class="note-one">
-          <div class="note-type">
-            <%= note.is_browsable_guest %>
-            <% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
-              <%= note.view_point %>ポイント
+
+  <div class="note-main">
+
+      <%if @notes != nil %><!--何も検索をかけていない時は、note.allとして表示させないようにする-->
+        <div class="note-index">
+          <div class="r-note-search">
+            <%= search_form_for @q, url: notes_path do |f| %> <!--ransack使用-->
+              <%= f.text_field :search_words, class:"r-note-search-form" %><br><!--search_wordsはnote.rbに記載-->
+              <input type="submit" value="Search", class="r-search-button">
             <% end %>
           </div>
-          <div class="note-title">
-            <%= link_to note.title, note_path(note) %>
+          <div class="note-all">
+            <% @notes.each do |note| %>
+              <div class="note-one">
+                <div class="note-type">
+                  <%= note.is_browsable_guest %>
+                  <% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
+                    <%= note.view_point %>ポイント
+                  <% end %>
+                  <div>
+                    <%= image_tag('star-on.png') %><%= note.note_quality.round(2) %>
+                  </div>
+                </div>
+                <div class="note-title">
+                  <%= link_to note.title, note_path(note) %>
+                </div>
+                <div class="note-overview">
+                  <%= render_with_hashtags(note.overview) %>
+                </div>
+                <div class="note-create-information">
+                  <span class="note-contributor">
+                    by <%= link_to note.user.name, user_path(note.user.id) %>
+                  </span>
+                  <span class="note-create-date">
+                    created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+                  </span>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <div class="note-overview">
-            <%= render_with_hashtags(note.overview) %>
-          </div>
-          <div class="note-create-information">
-            <span class="note-contributor">
-              by <%= link_to note.user.name, user_path(note.user.id) %>
-            </span>
-            <span class="note-create-date">
-              created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
-            </span>
+        <%= paginate @notes, class: "paginate" %>
+        </div>
+      <% else %>
+        <div class="note-index">
+          <div class="note-search">
+            <%= search_form_for @q, url: notes_path do |f| %> <!--ransack使用-->
+              <%= f.text_field :search_words, class:"note-search-form" %><br><!--search_wordsはnote.rbに記載-->
+              <input type="submit" value="Search", class="search-button">
+            <% end %>
           </div>
         </div>
       <% end %>
-    </div>
   </div>
-</body>
+

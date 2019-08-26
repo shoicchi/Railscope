@@ -34,7 +34,7 @@ class Users::NotesController < ApplicationController
 		else
 
 		end
-				@reviews = @note.reviews.page(params[:page]).reverse_order
+		@reviews = @note.reviews.page(params[:page]).reverse_order
 		@postscripts = @note.postscripts
 
 	end
@@ -85,10 +85,19 @@ class Users::NotesController < ApplicationController
 
 	def hashtag
     	tag = Hashtag.find_by(tag_name: params[:tag_name])#選択したハッシュタグのtag_nameを取り出して
-    	@notes = tag.notes.all#tag_nameに基づいたnoteを変数で渡す
+    	@notes = tag.notes.all.page(params[:page]).per(10).reverse_order#tag_nameに基づいたnoteを変数で渡す
     	@note = tag.notes.page(params[:page])
 
-    	@search = Note.ransack(params[:q])
+    	words = params[:q].delete(:search_words) if params[:q].present?	#params[:q]=nilだとエラー出るのでif #.deleteしないとwordsがシンボル？として扱われてsplitできない
+		if words.present?
+			params[:q][:groupings] = [] 								#配列の生成
+		    words.split(/[ 　]/).each_with_index do |word, i|			#全角空白と半角空白で文字列を区切る。<=( /と/の間が区切る文字&[と]の間にある文字はどれか1つが選択される )
+		    															#.each_with_indexで要素の数|i|だけブロック|word|を繰り返し実行
+		    	params[:q][:groupings][i] = { title_or_overview_or_content_or_reviews_review_or_postscripts_postscript_cont: word }
+		    end 														#検索範囲にかけて格納していく
+		end
+		@q = Note.ransack(params[:q])
+
   	end
 
 
