@@ -1,47 +1,49 @@
-<div class="point-body">
-	<div class="point-container">
-		<%= flash[:notice] %>
-		<div class="point-new-text">
-			あなたに必要なNoteのためにポイントをgetしましょう！
-		</div>
-		<div class="point-new-get">
-			<div class="point-new-get-text">
-				¥100 で　100Point 購入
+<div class="main">
+	<div class="point-body">
+		<div class="point-container">
+			<%= flash[:notice] %>
+			<div class="point-new-text">
+				あなたに必要なNoteのためにポイントをgetしましょう！
 			</div>
-			<div class="button-point-new">
-				<%= form_for @point do |f| %>
-					<%= f.hidden_field :point, value: 100 %>
-		  			<%= f.submit '100Point購入する' %>
-	  		 	<% end %>
-	  		</div>
-		</div>
-		<div class="point-new-get">
-			<div class="point-new-get-text">
-				¥200 で　220Point 購入
+			<div class="point-new-get">
+				<div class="point-new-get-text">
+					¥100 で　100Point 購入
+				</div>
+				<div class="button-point-new">
+					<%= form_for @point do |f| %>
+						<%= f.hidden_field :point, value: 100 %>
+			  			<%= f.submit '100Point購入する' %>
+		  		 	<% end %>
+		  		</div>
 			</div>
-			<div class="button-point-new">
-				<%= form_for @point do |f| %>
-					<%= f.hidden_field :point, value: 220 %>
-		  			<%= f.submit '220Point購入する' %>
-	  		 	<% end %>
-	  		 </div>
-		</div>
-		<div class="point-new-get">
-			<div class="point-new-get-text">
-				¥300 で　360Point 購入
+			<div class="point-new-get">
+				<div class="point-new-get-text">
+					¥200 で　220Point 購入
+				</div>
+				<div class="button-point-new">
+					<%= form_for @point do |f| %>
+						<%= f.hidden_field :point, value: 220 %>
+			  			<%= f.submit '220Point購入する' %>
+		  		 	<% end %>
+		  		 </div>
 			</div>
-			<div class="button-point-new">
-				<%= form_for @point do |f| %>
-					<%= f.hidden_field :point, value: 360 %>
-		  			<%= f.submit '360Point購入する' %>
-	  		 	<% end %>
-	  		 </div>
-		</div>
-		<div class="link-subscriptions-path">
-			有料会員の登録や
-			月額料金の変更は
-			<%= link_to "こちら", subscriptions_path %>
-			へ
+			<div class="point-new-get">
+				<div class="point-new-get-text">
+					¥300 で　360Point 購入
+				</div>
+				<div class="button-point-new">
+					<%= form_for @point do |f| %>
+						<%= f.hidden_field :point, value: 360 %>
+			  			<%= f.submit '360Point購入する' %>
+		  		 	<% end %>
+		  		 </div>
+			</div>
+			<div class="link-subscriptions-path">
+				有料会員の登録や
+				月額料金の変更は
+				<%= link_to "こちら", subscriptions_path %>
+				へ
+			</div>
 		</div>
 	</div>
 </div>

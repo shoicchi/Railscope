@@ -13,10 +13,12 @@ Rails.application.routes.draw do
 
 
 
+
 	#github認証のため以下記載
 	devise_for :users, controllers: {
 		registrations: "users/registrations",
-		omniauth_callbacks: "users/omniauth_callbacks"
+		omniauth_callbacks: "users/omniauth_callbacks",
+    sessions: "users/sessions"
 	}
 
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

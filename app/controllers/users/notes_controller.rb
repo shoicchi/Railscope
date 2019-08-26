@@ -11,7 +11,7 @@ class Users::NotesController < ApplicationController
 		end
 		@q = Note.ransack(params[:q])
 		if params[:q].nil?												#何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
-			@notes = Note.page(params[:page]).per(10).reverse_order
+			@notes = nil
 		else
 			@notes = @q.result.distinct.page(params[:page]).per(10).reverse_order	#distinctで一意性を持たせる
 		end
@@ -19,19 +19,23 @@ class Users::NotesController < ApplicationController
 
 	def show
 		@note = Note.find(params[:id])
-		if 	Bookmark.find_by(user_id: current_user.id, note_id: @note.id).present?
-			@bookmark = Bookmark.find_by(user_id: current_user.id, note_id: @note.id)
-		else
-			@bookmark = Bookmark.new
-		end
-		@my_note = MyNote.new
-		@reviews = @note.reviews.page(params[:page]).reverse_order
-		@review = Review.new
-		@postscripts = Postscript.where(note_id: @note.id)
 		if user_signed_in?
-			@bookmarks = Bookmark.where(user_id: current_user.id)#ユーザーがお気に入り済みか否かの判断に使用
-			@my_notes = MyNote.where(user_id: current_user.id)#ユーザーが購入済みか否かの判断に使用
+			if 	Bookmark.find_by(user_id: current_user.id, note_id: @note.id).present?
+				@bookmark = Bookmark.find_by(user_id: current_user.id, note_id: @note.id)
+			else
+				@bookmark = Bookmark.new
+			end
+			if MyNote.find_by(user_id: current_user.id, note_id: @note_id).present?
+				@my_note = MyNote.find_by(user_id: current_user.id, note_id: @note_id).present?
+			else
+				@my_note = MyNote.new
+			end
+			@review = Review.new
+		else
+		@reviews = @note.reviews.page(params[:page]).reverse_order
+		@postscripts = @note.postscripts
 		end
+		
 	end
 
 

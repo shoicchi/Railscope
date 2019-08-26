@@ -11,6 +11,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+    
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -52,9 +53,10 @@
         </div>
         <div id="around">
           &lt;%= link_to
-          <%= link_to '"Sign-out"', destroy_user_session_path, id:"sign-out" %>
+          <%= link_to '"Sign-out"', destroy_user_session_path,method: :delete, id:"sign-out" %>
           %&gt;
         </div>
+        <%= link_to  %>
       <% else %>
         <div id="around">
           &lt;%= link_to

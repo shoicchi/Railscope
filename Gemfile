@@ -81,3 +81,4 @@ gem 'redcarpet'  #マークダウン記法適用
 gem 'rouge'   #シンタックスハイライト適用
 
 
+
