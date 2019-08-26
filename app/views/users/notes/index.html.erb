@@ -17,6 +17,9 @@
 									<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
 										<%= note.view_point %>ポイント
 									<% end %>
+									<div>
+										<%= image_tag('star-on.png') %><%= note.note_quality.round(2) %>
+									</div>
 								</div>
 								<div class="note-title">
 									<%= link_to note.title, note_path(note) %>

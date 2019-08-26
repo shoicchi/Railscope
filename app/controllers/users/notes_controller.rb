@@ -32,10 +32,11 @@ class Users::NotesController < ApplicationController
 			end
 			@review = Review.new
 		else
-		@reviews = @note.reviews.page(params[:page]).reverse_order
-		@postscripts = @note.postscripts
+
 		end
-		
+				@reviews = @note.reviews.page(params[:page]).reverse_order
+		@postscripts = @note.postscripts
+
 	end
 
 
