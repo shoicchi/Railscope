@@ -5,15 +5,15 @@
 
 
 .top-main{
-	text-align: center;
-	width: 100%;
-	background-repeat: repeat-y;
+  text-align: center;
+  width: 100%;
+  background-repeat: repeat-y;
 
-	padding: 5%;
-	color: white;
-	background-image: url(/images/jonnelle-yankovich-VY3c6CfZNSY-unsplash.jpg);
-	background-size: cover;
-	margin-top: -70px;
+  padding: 5%;
+  color: white;
+  background-image: url(/images/jonnelle-yankovich-VY3c6CfZNSY-unsplash.jpg);
+  background-size: cover;
+  margin-top: -20px;
 }
 
 
@@ -28,4 +28,10 @@
     padding-left: 24%;
 
 
+}
+#railscope-top{
+	text-align: center;
+	font-size: 50px;
+	color: yellow;
+	
 }
