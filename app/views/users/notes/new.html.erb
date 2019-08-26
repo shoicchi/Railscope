@@ -5,15 +5,21 @@
 		<div class="note-form">
 			<%= form_for(@note) do |f| %>
 				<div class="note-form-browsable">
-					<h5>閲覧設定</h5>
-					<%= f.radio_button :is_browsable_guest, :"無料記事",  {:checked => true} %> 無料記事<br>
-			  		<%= f.radio_button :is_browsable_guest, :"有料会員限定記事" %> 有料会員限定記事
+					<div class="radio">
+			            <label>
+			               <input type="radio" name="view_point" id="optionsRadios1" value="無料記事"> 無料記事
+			            </label>
+			         </div>
+			         <div class="radio">
+			            <label>
+			               <input type="radio" name="view_point" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
+			            </label>
+			         </div>
+			         <div class="form-group">
+			               <label for="other" class="other_label disabled">有料会員限定記事の場合は閲覧ポイントを設定してください</label>
+			               <input type="number"  id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
+			         </div>
 	  			</div>
-	  			<div  class="note-view-point">
-					<h5>閲覧ポイント設定</h5><!-- 閲覧設定が1(無料記事)の場合は0が入るようにする -->
-					<%= f.number_field :view_point, in:0..500, class:"note-form-view-point", id:"form" %>
-					<div>ポイント</div>
-				</div>
 				<div class="note-title">
 					<h5>タイトル</h5>
 					<%= f.text_field :title, class:"note-form-title", id:"form" %>
@@ -54,6 +60,21 @@
 				});
 			};
 			</script>
+
+			<script>
+$(function(){
+   $( 'input[name="view_point"]:radio' ).change( function() {
+      var radioval = $(this).val();
+      if(radioval == '有料会員限定記事'){
+         $('#inputother').removeAttr('disabled');
+         $('.other_label').removeClass('disabled');
+      }else{
+         $('#inputother').attr('disabled','disabled');
+         $('.other_label').addClass('disabled');
+      }
+   }); 
+});
+</script>
 
 	</body>
 </div>
