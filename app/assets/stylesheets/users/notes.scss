@@ -119,12 +119,16 @@
 }
 
 .note-main{
-background-repeat: repeat-y;
-	background-image: url(/images/shahadat-shemul-O2MdroNurVw-unsplash.jpg);
-	background-size: cover;
-	
-	margin-top: -30px;
-	
+
+
+	    text-align: center;
+    height: 100%;
+    /* background-repeat: repeat-y; */
+    /* padding: 5%; */
+    color: white;
+    background-image: url(/images/shahadat-shemul-O2MdroNurVw-unsplash.jpg);
+    background-size: cover;
+    margin-top: -20px;
 	}
 
 
@@ -165,17 +169,18 @@ background-repeat: repeat-y;
 }
 
 .note-index{
-	padding: 3%;
+	
 
 	text-align: center;
 }
 
 .r-note-search{
-	margin-top:3%;
+color: black;
 }
 
 .note-search{
 padding: 10%;
+color: black;
 
 
 }
@@ -186,8 +191,9 @@ padding: 10%;
 }
 
 .note-all{
-	width:70%;
-	margin:3% 0% 15% 15%;
+    text-align: center;
+    /* width: 70%; */
+    padding: 0% 15%;
 
 }
 
@@ -311,6 +317,13 @@ font-size: 14;
 .review-one{
 	border: groove;
 	margin-top: 10px;
+}
+
+.postscript-review{
+	border: groove;
+	margin-top: 10px;
+	color: black;
+	background-color: white;
 }
 
 .review-quality{

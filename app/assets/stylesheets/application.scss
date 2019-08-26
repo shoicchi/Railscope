@@ -37,17 +37,25 @@ header {
 }
 
 .main{
-	text-align: center;
-	width: 100%;
-	background-repeat: repeat-y;
 
-	padding: 5%;
-	color: white;
-	background-image: url(/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
-	background-size: cover;
-	margin-top: -70px;
+      text-align: center;
+    height: 110%;
+    /* background-repeat: repeat-y; */
+     padding: 5%;
+    color: white;
+    background-image: url(/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    background-size: cover;
+    margin-top: -40px;
+
 
 }
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: -10px 0;
+    border-radius: 4px;
+}
+
 
 #nav-drawer {
   position: relative;

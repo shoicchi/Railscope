@@ -9,7 +9,7 @@ class Users::UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@notes = Note.where(user_id: @user).page(params[:page]).reverse_order
-		if Subscription.where(user_id: current_user.id).exists?											#current_userがsubscriptionテーブルを保持しているかどうか（定期課金申し込み済みかどうかの判断）
+		if @user == current_user && Subscription.where(user_id: current_user.id).exists?											#current_userがsubscriptionテーブルを保持しているかどうか（定期課金申し込み済みかどうかの判断）
 			Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"											#秘密鍵
 			@subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)			#current_userの定期課金情報をpayjpから持ってくる
 		else
