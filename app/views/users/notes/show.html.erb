@@ -13,7 +13,9 @@
 			<p><%= @note.is_browsable_guest %></p><br>
 			<p><%= @note.view_point %></p><br>
 		</div>
-		<div><%= image_tag('star-on.png') %><%= @note.note_quality.round(2) %>
+		<div>
+			<span class="buttons_<%= @note.id %>"><%= render partial: 'users/likes/like' %></span>
+			<%= image_tag('star-on.png') %><%= @note.note_quality.round(2) %>
 			<%= image_tag('my_note_index.png') %><%= @note.purchace_quantity %>
 		</div>
 		<!--(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認-->
@@ -233,5 +235,4 @@
 		});
 	</script>
 
-	<%#review表示用%>
 

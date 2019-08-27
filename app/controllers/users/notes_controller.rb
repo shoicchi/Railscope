@@ -30,6 +30,7 @@ class Users::NotesController < ApplicationController
 			else
 				@my_note = MyNote.new
 			end
+			@like_count = @note.total_like
 			@review = Review.new
 		else
 

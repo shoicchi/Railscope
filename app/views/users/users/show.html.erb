@@ -23,6 +23,10 @@
         総レビュー数<br>
         <%= @user.total_reviews %>
       </div>
+      <div class="user-total-review">
+        総いいね数<br>
+        <%= @user.all_likes %>
+      </div>
       <div class="user-average-quantity">
         レビューの平均値<br><!--小数点以下3桁目を四捨五入-->
         <%= @user.average_quality.round(2) %>

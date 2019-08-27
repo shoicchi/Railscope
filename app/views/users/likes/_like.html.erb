@@ -1,0 +1,11 @@
+<% if current_user.likes.find_by(note_id: @note.id).blank? %>
+	<span class="like_button_on">
+	    <%= link_to image_tag('like.png'), likes_delete_path(note_id: @note.id), {method: "post", remote: true} %>
+	    <%= @like_count %>
+	</span>
+<% else %>
+	<span class="like_button">
+	    <%= link_to image_tag('unlike.png'), likes_create_path(note_id: @note.id), {method: "post", remote: true} %>
+	    <%= @like_count %>
+	</span>
+<% end %>
