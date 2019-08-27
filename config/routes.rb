@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	get '/notes/hashtag/:tag_name', to: "users/notes#hashtag"#リンクをつけたハッシュタグへのrouting
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'
+  post "likes/:note_id/create", to: "users/likes#create", constraints: {note_id: /\d+/}, as: :likes_create
+post "likes/:note_id/delete", to: "users/likes#delete", constraints: {note_id: /\d+/}, as: :likes_delete
 
 
 

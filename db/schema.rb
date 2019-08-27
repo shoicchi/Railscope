@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_195028) do
+ActiveRecord::Schema.define(version: 2019_08_26_224658) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -54,11 +54,22 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.index ["tag_name"], name: "index_hashtags_on_tag_name", unique: true
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_likes_on_note_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "my_notes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "note_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_my_notes_on_note_id"
+    t.index ["user_id"], name: "index_my_notes_on_user_id"
   end
 
   create_table "note_hashtags", force: :cascade do |t|
@@ -79,6 +90,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.integer "view_point", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "points", force: :cascade do |t|
@@ -87,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.integer "point", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_points_on_user_id"
   end
 
   create_table "postscripts", force: :cascade do |t|
@@ -95,6 +108,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.text "postscript", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_postscripts_on_note_id"
+    t.index ["review_id"], name: "index_postscripts_on_review_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -105,6 +120,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.integer "is_appending", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_reviews_on_note_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -112,6 +129,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_195028) do
     t.string "payjp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

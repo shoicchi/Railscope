@@ -2,8 +2,8 @@ class CreatePostscripts < ActiveRecord::Migration[5.2]
   def change
     create_table :postscripts do |t|
 
-    	t.integer :review_id, null:false
-    	t.integer :note_id, null:false
+    	t.references :review, foreign_key: true, null:false
+    	t.references :note, foreign_key: true, null:false
     	t.text :postscript, null:false
 
 

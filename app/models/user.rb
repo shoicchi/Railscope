@@ -28,6 +28,9 @@ class User < ApplicationRecord
 
   has_one :subscription
 
+  has_many :likes
+  has_many :users, through: :likes
+
   enum is_member: {
     無料会員:0,
     有料会員:1
@@ -72,6 +75,15 @@ class User < ApplicationRecord
     total = 0
     notes.each do |note|
       total += Review.where(note_id: note.id).count
+    end
+    total
+  end
+
+  def all_likes#総いいね数
+    notes = Note.where(user_id: id)
+    total = 0
+    notes.each do |note|
+      total += Like.where(note_id: note.id).count
     end
     total
   end
