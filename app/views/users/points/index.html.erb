@@ -1,10 +1,7 @@
 
 <div class="show-main">
-	<div class="point-container">
-		<div class="point-charactor">
-			
-		</div>
-		<div class="point-status">
+
+		
 			<div class="point-status-name">
 				ポイント履歴一覧
 			</div>
@@ -16,10 +13,10 @@
         		<%= link_to '"Add_Point"', new_point_path, id:"user-name-name"%>
         		%&gt;
 			</div>
-		</div>
-		<div class="point-all">
+
+		<div class="note-all">
 			<% @points.each do |point| %>
-				<div class="point-one">
+				<div class="note-one">
 					<div class="point-created-date">
 						<%= point.created_at.strftime("%Y-%m-%d %H:%M") %>
 					</div>
@@ -32,6 +29,6 @@
 				</div>
 			<% end %>
 		</div>
-	</div>
+
 	<%= paginate @points, class: "paginate" %>
 </div>
