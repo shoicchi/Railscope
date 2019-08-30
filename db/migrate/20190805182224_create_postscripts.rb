@@ -1,6 +1,6 @@
 class CreatePostscripts < ActiveRecord::Migration[5.2]
   def change
-    create_table :postscripts do |t|
+    create_table :postscripts, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
 
     	t.references :review, foreign_key: true, null:false
     	t.references :note, foreign_key: true, null:false

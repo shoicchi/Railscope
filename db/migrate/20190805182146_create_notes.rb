@@ -1,6 +1,6 @@
 class CreateNotes < ActiveRecord::Migration[5.2]
   def change
-    create_table :notes do |t|
+    create_table :notes, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
 
     	t.references :user, foreign_key: true, null:false
     	t.string :title, null:false

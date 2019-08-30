@@ -1,0 +1,24 @@
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/bcrypt-3.1.13/ext/mri
+/usr/bin/ruby2.4 -r ./siteconf20190828-8953-1f8em4r.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" clean
+rm -f 
+rm -f bcrypt_ext.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -D__SKIP_GNU    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o bcrypt_ext.o -c bcrypt_ext.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -D__SKIP_GNU    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o crypt_blowfish.o -c crypt_blowfish.c
+gcc  -D__SKIP_GNU     -c -o x86.o x86.S
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -D__SKIP_GNU    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o crypt_gensalt.o -c crypt_gensalt.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -D__SKIP_GNU    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o wrapper.o -c wrapper.c
+rm -f bcrypt_ext.so
+gcc -shared -o bcrypt_ext.so bcrypt_ext.o crypt_blowfish.o x86.o crypt_gensalt.o wrapper.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic -m64  -m64  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20190828-8953-wggbob
+exit > .sitearchdir.time
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20190828-8953-wggbob

@@ -1,0 +1,115 @@
+have_library: checking for BIO_read() in -lcrypto... -------------------- yes
+
+"gcc -o conftest -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC conftest.c  -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64   -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby  -lpthread -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC conftest.c  -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64   -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby -lcrypto  -lpthread -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:13:57: error: ‘BIO_read’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+                                                         ^
+conftest.c:13:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC conftest.c  -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64   -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby -lcrypto  -lpthread -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void BIO_read();
+14: int t(void) { BIO_read(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for SSL_CTX_new() in -lssl... -------------------- yes
+
+"gcc -o conftest -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC conftest.c  -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -lcrypto  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby -lssl -lcrypto  -lpthread -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:13:57: error: ‘SSL_CTX_new’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_CTX_new; return !p; }
+                                                         ^
+conftest.c:13:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_CTX_new; return !p; }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC conftest.c  -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -lcrypto  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby -lssl -lcrypto  -lpthread -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void SSL_CTX_new();
+14: int t(void) { SSL_CTX_new(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for openssl/bio.h... -------------------- yes
+
+"gcc -E -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <openssl/bio.h>
+/* end */
+
+--------------------
+

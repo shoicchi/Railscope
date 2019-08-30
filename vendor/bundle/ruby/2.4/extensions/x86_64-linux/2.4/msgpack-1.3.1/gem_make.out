@@ -1,0 +1,60 @@
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/msgpack-1.3.1/ext/msgpack
+/usr/bin/ruby2.4 -r ./siteconf20190828-8953-th9cgb.rb extconf.rb
+checking for ruby/st.h... yes
+checking for st.h... yes
+checking for rb_str_replace() in ruby.h... yes
+checking for rb_intern_str() in ruby.h... yes
+checking for rb_sym2str() in ruby.h... yes
+checking for rb_str_intern() in ruby.h... yes
+checking for rb_block_lambda() in ruby.h... yes
+checking for rb_hash_dup() in ruby.h... yes
+checking for rb_hash_clear() in ruby.h... yes
+creating Makefile
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/msgpack-1.3.1/ext/msgpack
+make "DESTDIR=" clean
+rm -f 
+rm -f msgpack.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/msgpack-1.3.1/ext/msgpack
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o buffer.o -c buffer.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o buffer_class.o -c buffer_class.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o extension_value_class.o -c extension_value_class.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o factory_class.o -c factory_class.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o packer.o -c packer.c
+In file included from packer.h:21:0,
+                 from packer.c:19:
+packer.c: In function ‘msgpack_packer_write_other_value’:
+buffer.h:188:25: warning: ‘ext_type’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     (*b->tail.last++) = (char) byte;
+                         ^
+packer.c:126:9: note: ‘ext_type’ was declared here
+     int ext_type;
+         ^
+In file included from packer.h:22:0,
+                 from packer.c:19:
+packer_ext_registry.h:129:21: warning: ‘lookup_class’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         rb_hash_aset(pkrg->cache, lookup_class, superclass_type);
+                     ^
+packer_ext_registry.h:85:11: note: ‘lookup_class’ was declared here
+     VALUE lookup_class;
+           ^
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o packer_class.o -c packer_class.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o packer_ext_registry.o -c packer_ext_registry.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o rbinit.o -c rbinit.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o rmem.o -c rmem.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o unpacker.o -c unpacker.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o unpacker_class.o -c unpacker_class.c
+unpacker_class.c:219:14: warning: ‘Unpacker_peek_next_type’ defined but not used [-Wunused-function]
+ static VALUE Unpacker_peek_next_type(VALUE self)
+              ^
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_RUBY_ST_H -DHAVE_ST_H -DHAVE_RB_STR_REPLACE -DHAVE_RB_INTERN_STR -DHAVE_RB_SYM2STR -DHAVE_RB_STR_INTERN -DHAVE_RB_BLOCK_LAMBDA -DHAVE_RB_HASH_DUP -DHAVE_RB_HASH_CLEAR    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -I.. -Wall -O3 -g -std=gnu99 -m64 -o unpacker_ext_registry.o -c unpacker_ext_registry.c
+rm -f msgpack.so
+gcc -shared -o msgpack.so buffer.o buffer_class.o extension_value_class.o factory_class.o packer.o packer_class.o packer_ext_registry.o rbinit.o rmem.o unpacker.o unpacker_class.o unpacker_ext_registry.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic -m64  -m64  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/msgpack-1.3.1/ext/msgpack
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20190828-8953-9mznb8/msgpack
+exit > .sitearchdir.-.msgpack.time
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20190828-8953-9mznb8/msgpack

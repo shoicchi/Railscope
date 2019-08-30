@@ -1,0 +1,14 @@
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/json-2.2.0/ext/json
+/usr/bin/ruby2.4 -r ./siteconf20190828-8953-1kzemz1.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+rm -f   *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: `all' に対して行うべき事はありません.
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/json-2.2.0/ext/json
+make "DESTDIR=" install

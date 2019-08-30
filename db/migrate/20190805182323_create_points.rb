@@ -1,6 +1,6 @@
 class CreatePoints < ActiveRecord::Migration[5.2]
   def change
-    create_table :points do |t|
+    create_table :points, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
 
     	t.references :user, foreign_key: true, null:false
     	t.integer :reason, null:false

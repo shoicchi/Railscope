@@ -1,6 +1,6 @@
 class CreateActiveAdminComments < ActiveRecord::Migration[5.2]
   def self.up
-    create_table :active_admin_comments do |t|
+    create_table :active_admin_comments, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :namespace
       t.text   :body
       t.references :resource, polymorphic: true

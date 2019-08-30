@@ -1,0 +1,26 @@
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/puma-3.12.1/ext/puma_http11
+/usr/bin/ruby2.4 -r ./siteconf20190828-8953-vfehef.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" clean
+rm -f 
+rm -f puma_http11.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o http11_parser.o -c http11_parser.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o io_buffer.o -c io_buffer.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o mini_ssl.o -c mini_ssl.c
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o puma_http11.o -c puma_http11.c
+rm -f puma_http11.so
+gcc -shared -o puma_http11.so http11_parser.o io_buffer.o mini_ssl.o puma_http11.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic -m64  -m64  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby -lssl -lcrypto  -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20190828-8953-mwgsk4/puma
+exit > .sitearchdir.-.puma.time
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20190828-8953-mwgsk4/puma

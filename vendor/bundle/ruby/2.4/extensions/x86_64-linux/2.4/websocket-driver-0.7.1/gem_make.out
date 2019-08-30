@@ -1,0 +1,20 @@
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/websocket-driver-0.7.1/ext/websocket-driver
+/usr/bin/ruby2.4 -r ./siteconf20190828-8953-1r20gth.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+rm -f 
+rm -f websocket_mask.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.4 -I/usr/include/ruby/2.4/ruby/backward -I/usr/include/ruby/2.4 -I.   -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o websocket_mask.o -c websocket_mask.c
+rm -f websocket_mask.so
+gcc -shared -o websocket_mask.so websocket_mask.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic -m64  -m64  -L/usr/lib64/ruby/2.4/ -L/usr/lib64/ruby/2.4/ -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/Railscope/vendor/bundle/ruby/2.4/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20190828-8953-13j7ri5
+exit > .sitearchdir.time
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20190828-8953-13j7ri5
