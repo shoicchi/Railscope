@@ -17,8 +17,6 @@ class Users::BookmarksController < ApplicationController
 		redirect_to bookmarks_path
 	end
 
-	def edit
-	end
 
 	def update
 	end
