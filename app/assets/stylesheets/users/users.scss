@@ -1,0 +1,220 @@
+// Place all the styles related to the users/Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+
+
+
+
+.user-body{
+	
+}
+.show-main {
+    text-align: center;
+    /* height: 100%; */
+    /* background-repeat: repeat-y; */
+    padding: 5%;
+    color: white;
+    background-image: url(/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    background-size: cover;
+    margin-top: -40px;
+    min-height: 110%
+}
+
+
+.user-container{
+	width: 90%;
+	display: flex;
+}
+
+.black{
+	color: black;
+}
+
+.user-info{
+	float: left;
+	width: 18%;
+	padding: 15px;
+	border: groove;
+	margin-right: 2%;
+	margin-left: 2%;
+
+	margin-bottom: 5%;
+	background-color: white;
+	color: black;
+}
+
+.user-name{
+	border-top: ridge;
+
+}
+
+.user-plofile{
+	border-top: ridge;
+}
+
+.user-grade{
+	border-top: ridge;
+}
+
+.user-total-notes{
+	border-top: ridge;
+}
+
+.user-total-review{
+	border-top: ridge;
+}
+
+.user-average-quantity{
+	border-top: ridge;
+}
+
+.user-reply-rate{
+	border-top: ridge;
+}
+
+.user-only{
+	
+}
+
+.user-email{
+	border-top: ridge;
+}
+
+.user-is-member{
+	border-top: ridge;
+}
+
+.user-hoolding-point{
+	border-top: ridge;
+}
+
+.user-is-delivery{
+	border-top: ridge;
+}
+
+.user-subscription{
+	border-top: ridge;
+}
+
+.user-phonenumber{
+	border-top: ridge;
+}
+
+.button-user-edit{
+	border-top: ridge;
+}
+
+.note-info{
+	float:right;
+	width: 76%;
+	margin-right: 2%;
+
+	margin-bottom: 5%;
+}
+
+
+
+
+.user-edit-container{
+	width: 100%;
+	text-align: center;
+	padding: 10%;
+}
+
+.user-edit-name{
+	margin-bottom: 30px;
+	text-align: center;
+}
+.form-user-name{
+	text-align: center;
+}
+
+.user-edit-plofile{
+	margin-bottom: 30px;
+}
+
+.form-user-plofile{
+	text-align: center;
+}
+
+.form-user-email{
+	text-align: center;
+}
+
+.form-user-phonenumber{
+	text-align: center;
+}
+
+.user-edit-email{
+	margin-bottom: 30px;
+}
+
+.user-edit-is-delivery{
+	margin-bottom: 30px;
+}
+
+.user-edit-phonenumber{
+	margin-bottom: 30px;
+}
+
+.user-edit-is-member{
+	margin-bottom: 30px;
+}
+
+.user-edit-subscription{
+	margin-bottom: 30px;
+}
+
+.edit-button-area{
+	margin-bottom: 30px;
+}
+
+.edit-button{
+	
+}
+
+.user-new-subscription{
+	
+}
+
+.user-delete{
+	float:right;
+}
+
+
+#yellow{
+	color: yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+<div class="main">
+  <%= flash[:notice] %>
+  <div class="user-container">
+    <div class="user-info">
+      <h2>User info</h2>
+      <div class="user-name">
+        ユーザー名<br>
+        <%= @user.name %>
+      </div>
+      <div class="user-plofile">
+        プロフィール<br>
+        <%= @user.profile %>
+      </div>
+      <div class="user-grade">
+        グレード<br>
+        <%= @user.grade %>
+      </div>
+      <div class="user-total-notes">
+        投稿Note数<br>
+        <%= @user.total_notes %>
+      </div>
+      <div class="user-total-review">
+        総レビュー数<br>
+        <%= @user.total_reviews %>
+      </div>
+      <div class="user-total-review">
+        総いいね数<br>
+        <%= @user.all_likes %>
+      </div>
+      <div class="user-average-quantity">
+        レビューの平均値<br>
+        <%= @user.average_quality.round(2) %>
+      </div>
+      <div class="user-reply-rate">
+        追記希望への返信率<br>
+        <%= number_to_percentage(@user.reply_rate, precision: 1) %>
+      </div>
+      <% if @user == current_user %>
+        <div class="user-only">
+          <div class="user-email">
+            メールアドレス<br>
+            <%= @user.email %>
+            <div class="user-is-member">
+              会員状況<br>
+              <%= @user.is_member %>
+            </div>
+            <div class="user-hoolding-point">
+              保有ポイント<br>
+              <%= @user.holding_point %>
+            </div>
+            <div class="user-is-delivery">
+              メルマガ配信状況<br>
+              <%= @user.is_delivery %>
+            </div>
+            <% if @user.is_member == "有料会員" %>
+              <div class="user-subscription">
+                加入プラン<br>
+                <%= @subscription.plan.name %>
+              </div>
+            <% end %>
+            <div class="user-phonenumber">
+              電話番号<br>
+              <%= @user.phone_number %>
+            </div>
+            <div class="button-user-edit">
+              <%= link_to "ユーザー情報を変更する", edit_user_path(current_user.id) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="note-info">
+    <div class="note-all">
+      <% @notes.each do |note| %>
+        <div class="note-one">
+          <div class="note-type">
+            <%= note.is_browsable_guest %>
+            <% if note.view_point != 0 %>
+              <%= note.view_point %>ポイント
+            <% end %>
+          </div>
+          <div class="note-title">
+            <%= link_to note.title, note_path(note) %>
+          </div>
+          <div class="note-overview">
+            <%= render_with_hashtags(note.overview) %>
+          </div>
+          <div class="note-create-information">
+            <span class="note-contributor">
+              by <%= link_to note.user.name, user_path(note.user.id) %>
+            </span>
+            <span class="note-create-date">
+              created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @notes, class: "paginate" %>
+  </div>
+  </div>
+</div>

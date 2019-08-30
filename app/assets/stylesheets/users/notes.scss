@@ -1,0 +1,373 @@
+// Place all the styles related to the users/Notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#form{
+	color:black;
+}
+
+
+.note-form{
+
+}
+
+.note-form-browsable{
+	text-align: center;
+}
+
+.note-form-view-point{
+	text-align: center;
+}
+
+#inputother{
+	text-align: center;
+	width: 10%;
+	margin-right: 45%;
+	margin-left: 45%;
+}
+.note-view-point{
+	text-align: center;
+	width: 10%;
+	margin-right: 45%;
+	margin-left: 45%;
+}
+/*スライドにしたい*/
+
+.note-form-view-point-field{
+	text-align: center;
+	width: 50%;
+
+}
+
+.note-form-title{
+	text-align: left;
+}
+
+.note-form-overview{
+	text-align: left;
+}
+
+.note-preview-container{
+	width: 100%;
+	margin-top:30px;
+	height: auto;
+
+
+}
+
+
+.left{
+	float: left;
+	margin-left: 30%;
+}
+
+.right{
+	float: right;
+	margin-right: 30%;
+
+}
+
+
+
+.note-content-post{
+	width: 100%;
+
+}
+
+
+.note-form-content{
+	text-align: left;
+	width: 45%;
+	height: 100%;
+	margin-left: 2%;
+	margin-right: 2%;
+
+}
+
+
+.preview{
+	float: right;
+	width: 45%;
+	height: 100%;
+	margin-left: 2%;
+	margin-right: 2%;
+	overflow: auto;
+	border: groove;
+	background-color: white;
+	color: black;
+	text-align:left;
+}
+/* スクロールが自動で下に行かない*/
+
+.preview-search{
+
+	overflow: auto;
+	border: groove;
+}
+
+.note-new{
+	
+}
+
+
+
+
+#note-button{
+	text-align: center;
+		width: 10%;
+	margin-right: 45%;
+	margin-left: 45%;
+}
+
+.note-main{
+
+
+	    text-align: center;
+    height: 100%;
+    /* background-repeat: repeat-y; */
+    /* padding: 5%; */
+    color: white;
+    background-image: url(/images/shahadat-shemul-O2MdroNurVw-unsplash.jpg);
+    background-size: cover;
+    margin-top: -20px;
+	}
+
+
+
+.container{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px black;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.container:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box25 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.note-container{
+	width: 50%;
+	margin-top: 60%;
+	margin: 20%;
+	
+}
+
+.search-button{
+	text-align:center;
+	margin-top: 5%;
+}
+
+.note-index{
+	
+
+	text-align: center;
+}
+
+.r-note-search{
+color: black;
+}
+
+.note-search{
+padding: 10%;
+color: black;
+
+
+}
+
+
+#note-content{
+	color: white;
+
+}
+
+.note-all{
+    text-align: center;
+    /* width: 70%; */
+    padding: 0% 15%;
+
+}
+
+
+
+
+.note-one{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px black;
+    padding: 0.2em 0.5em;
+    color: #454545;
+    margin-bottom: 5%;
+}
+.note-one:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.r-note-search-form{
+	
+}
+
+.note-search-form{
+	width: 50%;
+	border-radius: 25%;
+}
+#q_search_words{
+	  border:none;
+  border-radius:10px;
+  box-shadow: none;
+  padding: 2px 8px;
+  font-size: 30px;
+}
+
+
+
+.note-type {
+
+font-size: 14;
+}
+
+.note-title{
+	text-align: center;
+	font-size: 25;
+}
+
+.note-show-title{
+	text-align: center;
+	font-size: 40px;
+}
+
+.note-overview{
+
+	text-align: center;
+}
+
+.note-show-overview{
+	text-align: center;
+	font-size: 30px;
+	margin: 15px;
+}
+
+.note-content-include-postscript{
+	border: groove;
+
+}
+
+.note-content{
+
+	
+			text-align:left;
+}
+
+.note-create-information{
+	text-align: right;
+}
+
+.note-contributor{
+	
+
+
+}
+
+.note-create-date{
+	
+
+}
+
+.note-contributor-only{
+	text-align: right
+}
+
+.postscript-all{
+ 	margin-top: 20px;
+
+}
+
+.postscript-one{
+	border: groove;
+	margin-bottom: 10px;
+}
+
+.postscript-postscript{
+	
+}
+
+.review-all{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: groove;
+}
+
+.review-one{
+	border: groove;
+	margin-top: 10px;
+}
+
+.postscript-review{
+	border: groove;
+	margin-top: 10px;
+	color: black;
+	background-color: white;
+}
+
+.review-quality{
+	
+}
+
+.review-review{
+	font-size: 25px;
+}
+.review-user{
+	
+}
+
+.review-created-date{
+	
+}
+
+.review-form{
+	text-align: center;
+}
+
+.review-form-quality{
+	margin: 7px;
+}
+
+.review-form-review{
+	margin: 7px;
+}
+
+.review-form-is-appending{
+	margin: 7px;
+}
+
+.review-button{
+	
+}
+.purchase-button{
+	
+}
+
+.bookmark-button{
+	
+}

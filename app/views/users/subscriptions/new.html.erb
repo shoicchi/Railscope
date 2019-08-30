@@ -1,0 +1,19 @@
+<div class="main">
+    <%= flash[:notice] %>
+        <div class="note-one">
+            <div class="subscription-new-text">
+                カードの登録は一枚のみです。
+                すでに登録済みの場合は上書きされます。
+                <%= form_tag(action: :registration_payjp, method: :post) do %>
+                    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button"
+                        <% if current_user.payjp_id.nil? %>
+                    	    data-text="登録する" data-submit-text="登録する"
+                        <% else %>
+                    	    data-text="変更する" data-submit-text="変更する"
+                        <% end %>
+                        data-key=ENV[PAYJP_PUBLIC]>
+                    </script>
+                <% end %>
+            </div>
+        </div>
+</div>

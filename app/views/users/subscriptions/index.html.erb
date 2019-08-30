@@ -1,0 +1,71 @@
+<div class="show-main">
+	<div class="subscription-body">
+	    <div class="subscription-container">
+			<div class="subscription-index-text">
+				<% if Subscription.where(user_id: current_user.id).exists? %>
+					<%= current_user.name %>さんは<%= @subscription.plan.name %>に加入中です。
+				<% end %>
+			</div>
+			<div class="subscription-new-get">
+				<div class="subscription-new-get-text">
+					毎月¥100 で　100Point
+				</div>
+				<div class="button-subscription-new">
+					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
+						<%= f.hidden_field :point, value: 100 %>
+						<% if Subscription.where(user_id: current_user.id).nil? %>
+							<input type="submit" value="¥100プランに申し込む" class="subscription-button">
+						<% else %>
+				 			<input type="submit" value="¥100プランに変更する" class="subscription-button">
+				 		<% end %>
+			  	 	<% end %>
+				</div>
+			</div>
+			<div class="subscription-new-get">
+				<div class="subscription-new-get-text">
+					毎月¥200 で　240Point
+				</div>
+				<div class="button-subscription-new">
+					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
+						<%= f.hidden_field :point, value: 240 %>
+						<% if Subscription.where(user_id: current_user.id).nil? %>
+							<input type="submit" value="¥200プランに申し込む" class="subscription-button">
+						<% else %>
+				 			<input type="submit" value="¥200プランに変更する" class="subscription-button">
+				 		<% end %>
+			  	 	<% end %>
+				</div>
+			</div>
+			<div class="subscription-new-get">
+				<div class="subscription-new-get-text">
+					毎月¥300 で　390Point
+				</div>
+				<div class="button-subscription-new">
+					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
+						<%= f.hidden_field :point, value: 390 %>
+						<% if Subscription.where(user_id: current_user.id).nil? %>
+							<input type="submit" value="¥300プランに申し込む" class="subscription-button">
+						<% else %>
+				 			<input type="submit" value="¥300プランに変更する" class="subscription-button">
+				 		<% end %>
+			  	 	<% end %>
+				</div>
+			</div>
+			<div class="subscription-new-get">
+				<div class="subscription-new-get-text">
+					毎月¥500 で　750Point
+				</div>
+				<div class="button-subscription-new">
+					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
+						<%= f.hidden_field :point, value: 750 %>
+						<% if Subscription.where(user_id: current_user.id).nil? %>
+							<input type="submit" value="¥500プランに申し込む" class="subscription-button">
+						<% else %>
+				 			<input type="submit" value="¥500プランに変更する" class="subscription-button">
+				 		<% end %>
+			  	 	<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

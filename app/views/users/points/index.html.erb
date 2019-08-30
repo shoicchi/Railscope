@@ -1,0 +1,29 @@
+<div class="show-main">
+	<div class="point-status-name">
+		ポイント履歴一覧
+	</div>
+	<div class="point-status-point">
+		<%= link_to current_user.name, user_path(current_user.id),id:"user-name-name" %>さんの保有Pointは<%= current_user.holding_point %>Pointです
+	</div>
+	<div class="point-button">
+		&lt;%= link_to
+		<%= link_to '"Add_Point"', new_point_path, id:"user-name-name"%>
+		%&gt;
+	</div>
+	<div class="note-all">
+		<% @points.each do |point| %>
+			<div class="note-one">
+				<div class="point-created-date">
+					<%= point.created_at.strftime("%Y-%m-%d %H:%M") %>
+				</div>
+				<div class="point-point">
+					@points += <%= point.point %>
+				</div>
+				<div class="point-reason">
+					reason:<%= point.reason %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<%= paginate @points, class: "paginate" %>
+</div>

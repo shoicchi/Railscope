@@ -1,0 +1,51 @@
+<div class="show-main">
+	<div class="user-container">
+		<div class="user-edit-container">
+			<h1>Edit User</h1>
+			<%= form_for(@user) do |f| %>
+				<div class="user-edit-name">
+					<%= f.label :name, "ユーザー名" %><br>
+					<%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-user-name", id:"form" %>
+				</div>
+				<div class="user-edit-plofile">
+					<%= f.label :profile, "プロフィール" %><br>
+					<%= f.text_field :profile, autocomplete: "profile", class:"form-user-plofile", id:"form" %>
+				</div>
+				<div class="user-edit-email">
+					<%= f.label :email,"メールアドレス" %><br>
+				    <%= f.email_field :email, autocomplete: "email", class:"form-user-email", id:"form" %>
+		    	</div>
+		    	<div class="user-edit-is-delivery">
+					<%= f.label :is_delivery,"メールマガジン配信状況" %><br>
+					<%= f.radio_button :is_delivery, :"配信中" %> 配信中
+		  			<%= f.radio_button :is_delivery, :"配信停止中" %> 配信停止中
+		    	</div>
+		    	<div class="user-edit-phonenumber">
+					<%= f.label :phone_number,"電話番号" %><br>
+				    <%= f.telephone_field :phone_number, autocomplete: "phone_number", class:"form-user-phonenumber", id:"form" %>
+				</div>
+		    	<div class="user-edit-is-member">
+					<%= f.label :is_member,"会員状況" %><br>
+			        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
+		  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path, id:"yellow" %>
+		    	</div>
+		    	<div class="user-edit-subscription">
+		    		月額料金<br>
+					<%= link_to "月額料金を変更する", subscriptions_path, id:"yellow"%>
+				</div>
+				<div class="edit-button-area">
+					<input type="submit" value="更新する" class="edit-button">
+				</div>
+			<% end %>
+			<div class="user-new-subscription">
+				カードの新規登録、変更は
+				<%= link_to "こちら", new_subscription_path, id:"yellow" %>
+			</div>
+			<div class="user-delete">
+				<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+				<%= button_to 'githubで認証する', user_github_omniauth_authorize_path, method: :get %>
+				<%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %>
+			</div>
+		</div>
+	</div>
+</div>

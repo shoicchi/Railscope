@@ -1,0 +1,258 @@
+<div class="show-main">
+	<div class="container">
+		<%= flash[:notice] %>
+		<% if @note.user == current_user %>
+			<div class="note-contributor-only">
+				これはあなたが投稿したNoteです。
+				<%= button_to 'Noteを編集する', edit_note_path(@note), method: :get %>
+				<%= button_to 'Noteを削除する', note_path(@note), method: :delete, data: { confirm: '本当にNoteを削除しますか?' } %>
+			</div>
+		<% end %>
+		<div class="note-type">
+			<p><%= @note.is_browsable_guest %></p><br>
+			<p><%= @note.view_point %></p><br>
+		</div>
+		<div>
+			<span class="buttons_<%= @note.id %>">
+				<%= render partial: 'users/likes/like' %>
+			</span>
+			<%= image_tag('star-on.png') %><%= @note.note_quality.round(2) %>
+			<%= image_tag('my_note_index.png') %><%= @note.purchace_quantity %>
+		</div>
+
+		<%#(Bookmarkボタンの表示設定)ログインの確認=> Bookmark追加済みかの確認ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー%>
+		<%#ユーザーがログインしているかの確認%>
+		<% if user_signed_in? %>
+			<%#ユーザーがブックマーク追加済み%>
+			<% if @bookmark.id.present? %>
+				このNoteをbookmark済み
+				<%= button_to 'ブックマーク解除', bookmark_path(@bookmark), method: :delete, data: { confirm: '本当にブックマークから削除しますか?' } %>
+			<%#ブックマークに追加していない%>
+			<% else %>
+				<%= form_for(@bookmark) do |f| %>
+					<%= f.hidden_field :note_id, value: @note.id %>
+					<%= f.hidden_field :user_id, value: current_user.id %>
+					<input type="submit" value="ブックマークする" class="bookmark-button">
+			<% end %>
+		<% end %>
+		<%#ログインしていないユーザーの処理%>
+		<% else %>
+			<% flash[:notice] = "ブックマークにはログインが必要です。" %>
+			<%= button_to "ブックマークする", new_user_session_path %>
+		<% end %>
+		<div class="note-show-title">
+			<%= @note.title %>
+		</div>
+		<div class="note-show-overview">
+			<%= render_with_hashtags(@note.overview) %>
+		</div>
+
+		<%#（ノート内容表示の条件分岐）投稿者の確認=> 記事種別=> ログインの確認=> 閲覧ポイントの有無=> 購入済みかの確認or会員種別の確認ーーーーーーーーー%>
+		<div class="note-content-include-postscript">
+			<div class="note-content">
+				<%#投稿者の場合%>
+				<% if @note.user == current_user %>
+					<%= markdown(@note.content) %>
+				<%#投稿者ではない場合%>
+				<% else %>
+					<% if @note.is_browsable_guest == "無料記事" %>
+						<%#マークダウン記法での読み取り%>
+						<%= markdown(@note.content) %>
+					<% else %>
+						<%#ログインの確認%>
+						<% if user_signed_in? %>
+							<%#閲覧必要ポイントが必要な場合%>
+							<% if @note.view_point > 1 %>
+								<%#購入済みの場合(会員種別問わず)%>
+								<% if @my_note.id.present? %>
+									<%= markdown(@note.content) %>
+								<%#購入していない場合%>
+								<% else %>
+									この記事の閲覧にはポイントが必要です。
+									<%= form_for(@my_note) do |f| %>
+										<%= f.hidden_field :note_id, value: @note.id %>
+										<%= f.submit "ポイントを使って購入する", data: { confirm: 'ポイントを消費します。本当に購入しますか?' } %><br>
+									<% end %>
+								<% end %>
+							<%#閲覧必要ポイントが不要の場合%>
+							<% else %>
+								<% if current_user.is_member == "有料会員" %>
+									<%= markdown(@note.content) %>
+								<% else %>
+									この記事は有料会員限定の記事です。
+								<% end %>
+							<% end %>
+						<% else %>
+							ログインしてください。
+						<% end %>
+					<% end %>
+				<% end %>
+			</div>
+
+			<%#追記の表示(記事種別、会員種別に関わらず表示)ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー%>
+			<div class="postscript-all">
+				<% if @postscripts.present? %>
+					<% @postscripts.each do |postscript| %>
+						<div class="postscript-one">
+							<%= postscript.review.user.name %>さんのレビュー(<%= postscript.review.created_at.strftime("%Y-%m-%d %H:%M") %>)に対する追記
+							<div class="postscript-postscript">
+								<%= postscript.postscript %>
+							</div>
+							<%= postscript.created_at.strftime("%Y-%m-%d %H:%M") %>
+							<% if @note.user == current_user %>
+								<div class="note-contributor-only">
+								<%= button_to '追記を編集する', edit_note_postscript_path(@note, postscript), method: :get %>
+								<%= button_to '追記を削除する', note_postscript_path(@note, postscript), method: :delete, data: { confirm: 'Are you sure?' } %>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+
+		<%#レビューの表示(記事種別、会員種別に関わらず表示)%>
+		<div class="review-all">
+			<% if @reviews.blank? %>
+				まだレビューはありません。
+			<% else %>
+				レビュー　一覧
+				<% @reviews.each do |review| %>
+					<div class="review-one">
+						<div class="review-quality">
+							<div id="star-rate-<%= review.id %>"></div>
+							<%#評価星%>
+							<script>
+							$('#star-rate-<%= review.id %>').raty({
+								size: 36,
+								starOff:  '<%= asset_path('star-off.png') %>',
+								starOn : '<%= asset_path('star-on.png') %>',
+								starHalf: '<%= asset_path('star-half.png') %>',
+								half: true,
+								readOnly: true,
+								score: <%= review.quality %>,
+							});
+							</script>
+						</div>
+						<div class="review-review">
+							<%= review.review %>
+						</div>
+						<% if review.is_appending == "追記を希望する" %>
+							このレビューは追記を希望しています。
+							<%#投稿者の場合、レビューに対して追記ができる%>
+							<% if @note.user == current_user %>
+								<%= link_to "希望内容を追記する", note_review_path(@note, review) %>
+							<% end %>
+						<% elsif review.is_appending == "希望した追記にリアクション済み" %>
+							このレビューの追記希望にリアクション済みです。
+						<% else %>
+						<% end %>
+						<div class="review-user">
+							<%= link_to review.user.name, user_path(review.user) %>
+						</div>
+						<span class="review-created-date">
+							<%= review.created_at.strftime("%Y-%m-%d %H:%M") %>
+						</span>
+					</div>
+				<% end %>
+				<%= paginate @reviews, class: "paginate" %>
+			<% end %>
+		</div>
+		<div>
+
+		<!--（レビューフォームの表示）ログインの確認=> 投稿者の確認=> 記事種別の確認=> 閲覧必要ポイントの確認=> 購入有無の確認or会員種別の確認-->
+		<% if user_signed_in? %>
+			<% if @note.user != current_user %>
+				<% if @note.is_browsable_guest == "無料記事" %>
+					<div class="review-form">
+						<%= form_for ([@note, @review]) do |f| %>
+							<%= f.hidden_field :note_id, value: @note.id, require: true %>
+							<%= f.hidden_field :user_id, value: current_user.id, require: true %>
+							<%= f.label :quality %>
+							<div class="field" id="star">
+								<%= f.hidden_field :quality, id: :review_star %>
+							</div>
+								<%= f.text_area :review, class:"review-form-review", id:"form" %>
+							<div class="review-form-is-appending">
+								<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
+								<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
+							</div>
+							<input type="submit" value="レビューする" class="review-button">
+						<% end %>
+					</div>
+				<%#有料会員限定記事%>
+				<% else %>
+					<%#閲覧ポイントが必要%>
+					<% if @note.view_point > 1 %>
+						<%#購入済みの場合（会員種別に関わらず)%>
+						<% if @my_note.id.present? %>
+							<div class="review-form">
+								<%= form_for ([@note, @review]) do |f| %>
+									<%= f.hidden_field :note_id, value: @note.id, require: true %>
+									<%= f.hidden_field :user_id, value: current_user.id, require: true %>
+									<%= f.label :quality %>
+									<div class="field" id="star">
+										<%= f.hidden_field :quality, id: :review_star %>
+									</div>
+									<%= f.text_area :review, class:"review-form-review", id:"form" %>
+									<div class="review-form-is-appending">
+										<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
+										<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
+									</div>
+									<input type="submit" value="レビューする" class="review-button">
+								<% end %>
+							</div>
+							<%#未購入場合（会員種別に関わらず)%>
+						<% else %>
+							Noteの購入者のみ閲覧とレビューができます。
+							<%= form_for(@my_note) do |f| %>
+								<%= f.hidden_field :note_id, value: @note.id %>
+								<input type="submit" value="ポイントを使って購入する" class="purchase-button">
+							<% end %>
+						<% end %>
+						<%#閲覧ポイントが不要%>
+					<% else %>
+						<% if current_user.is_member == "有料会員" %>
+							<div class="review-form">
+								<%= form_for ([@note, @review]) do |f| %>
+									<%= f.hidden_field :note_id, value: @note.id, require: true %>
+									<%= f.hidden_field :user_id, value: current_user.id, require: true %>
+									<%= f.label :quality %>
+									<div class="field" id="star">
+										<%= f.hidden_field :quality, id: :review_star %>
+									</div>
+									<%= f.text_area :review, class:"review-form-review", id:"form" %>
+								<div class="review-form-is-appending">
+									<%= f.radio_button :is_appending, :"追記を希望しない" %> 追記を希望しない
+									<%= f.radio_button :is_appending, :"追記を希望する" %> 追記を希望する
+								</div>
+								<input type="submit" value="レビューする" class="review-button">
+								<% end %>
+							</div>
+							<%#無料会員の場合%>
+						<% else %>
+							このNoteは有料会員になると閲覧とレビューができます。
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+			<%#ログインしていない場合%>
+		<% else %>
+			<%= button_to "レビューする", new_user_session_path %>
+		<% end %>
+		</div>
+	</div>
+</div>
+<%#review入力用%>
+<script>
+	$('#star').raty({
+		size     : 36,
+		starOff:  '<%= asset_path('star-off.png') %>',
+		starHalf: '<%= asset_path('star-half.png') %>',
+		starOn : '<%= asset_path('star-on.png') %>',
+		scoreName: 'review[quality]',
+		half: true,
+		});
+</script>
+
+

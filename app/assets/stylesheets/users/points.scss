@@ -1,0 +1,134 @@
+// Place all the styles related to the users/Points controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.point-container{
+	font-size: 20px;
+	margin: 2%;
+	padding: 10%;
+	margin-bottom: 35px;
+color: black;
+
+
+}
+
+.point-charactor{
+	width:30%;
+	font-size: 40px;
+
+}
+
+.point-status{
+	width: 100%;
+	margin-bottom: 30px;
+	border: groove;
+	background-color: white;
+
+}
+
+.point-status-name{
+	font-size: 40px;
+}
+#user-name-name{
+	font-size: 40px;
+	color: #00CCFF;
+}
+
+.point-status-point{
+	font-size: 20px;
+}
+
+.point-button{
+	
+	
+}
+
+.point-all{
+	text-align: center;
+}
+
+.point-one{
+	margin-bottom: 35px;
+	border: groove;
+	background-color: white;
+	color: black;
+}
+
+.point-created-date{
+	
+}
+
+.point-point{
+	
+}
+
+.point-reason{
+	
+}
+
+
+
+.point-new-text{
+	font-size:30px;
+	marigin-bottm: 40px
+}
+
+.point-new-get{
+	margin-top: 35px;
+	margin-bottom: 35px;
+	border: groove;
+}
+
+.point-new-text{
+
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px black;
+    padding: 0.2em 0.5em;
+    color: #454545;
+    margin-bottom: 5%;
+}
+.point-new-text:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.button-point-new{
+	
+}
+
+.link-subscriptions-path{
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

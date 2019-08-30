@@ -1,0 +1,9 @@
+<h1>OauthTest#index</h1>
+<p>Find me in app/views/oauth_test/index.html.erb</p>
+
+ <p><%= notice %><%= alert %></p>
+ <% if user_signed_in? %>
+   <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+ <% else %>
+   <%= link_to 'githubでサインアップしてください', user_github_omniauth_authorize_path %>
+ <% end %>

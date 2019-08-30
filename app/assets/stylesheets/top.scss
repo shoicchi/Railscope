@@ -1,0 +1,36 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.top-main{
+    text-align: center;
+    height: 100%;
+    /* background-repeat: repeat-y; */
+    /* padding: 5%; */
+    color: white;
+    background-image: url(/images/jonnelle-yankovich-VY3c6CfZNSY-unsplash.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+
+
+.top-text{
+	padding: 10%;
+
+	text-align: center;
+	font-size: 30px;
+	color: white;
+    padding-top: 27%;
+    padding-left: 24%;
+
+
+}
+#railscope-top{
+	text-align: center;
+	font-size: 50px;
+	color: yellow;
+	
+}
