@@ -28,11 +28,11 @@
         <%= @user.all_likes %>
       </div>
       <div class="user-average-quantity">
-        レビューの平均値<br><!--小数点以下3桁目を四捨五入-->
+        レビューの平均値<br>
         <%= @user.average_quality.round(2) %>
       </div>
       <div class="user-reply-rate">
-        追記希望への返信率<br><!--%で表示、小数点以下二桁目四捨五入-->
+        追記希望への返信率<br>
         <%= number_to_percentage(@user.reply_rate, precision: 1) %>
       </div>
       <% if @user == current_user %>
@@ -75,7 +75,7 @@
         <div class="note-one">
           <div class="note-type">
             <%= note.is_browsable_guest %>
-            <% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
+            <% if note.view_point != 0 %>
               <%= note.view_point %>ポイント
             <% end %>
           </div>

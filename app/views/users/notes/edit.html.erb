@@ -1,82 +1,88 @@
 <div class="show-main">
 	<div class="note-new">
-	<body>
-		<h1>Post Note</h1>
-		<div class="note-form">
-			<%= form_for(@note) do |f| %>
-				<div class="note-form-browsable">
-					<div class="radio">
-			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios1" value="無料記事"> 無料記事
-			            </label>
-			         </div>
-			         <div class="radio">
-			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
-			            </label>
-			         </div>
-			         <div class="form-group">
-			               <label for="other" class="other_label disabled">有料会員限定記事の場合は閲覧ポイントを設定してください</label>
-			               <input type="number"  id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
-			         </div>
-	  			</div>
-				<div class="note-title">
-					<h5>タイトル</h5>
-					<%= f.text_field :title, class:"note-form-title", id:"form" %>
-				</div>
-				<div class="note-overview">
-					<h5>ハッシュタグと概要</h5>
-					<%= f.text_field :overview, class:"note-form-overview", id:"form" %>
-				</div>
-				<div class="note-preview-container">
-					<div class="left"> 内容 </div>
-					<div class="right">プレビュー</div>
-					<div class="note-content-post">
-						<div id='editor'><!--id=editorはマークダウン記法適用に使用-->
-							<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
-							<div class="preview" v-html='input | marked'><!--ここにプレビュー表示-->
+		<body>
+			<h1>Post Note</h1>
+			<div class="note-form">
+				<%= form_for(@note) do |f| %>
+					<div class="note-form-browsable">
+						<div class="radio">
+				            <label>
+				               <input type="radio" name="view_point" id="optionsRadios1" value="無料記事"> 無料記事
+				            </label>
+				         </div>
+				         <div class="radio">
+				            <label>
+				               <input type="radio" name="view_point" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
+				            </label>
+				         </div>
+				         <div class="form-group">
+				               <label for="other" class="other_label disabled">有料会員限定記事の場合は閲覧ポイントを設定してください</label>
+				               <input type="number"  id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
+				         </div>
+		  			</div>
+					<div class="note-title">
+						<h5>タイトル</h5>
+						<%= f.text_field :title, class:"note-form-title", id:"form" %>
+					</div>
+					<div class="note-overview">
+						<h5>ハッシュタグと概要</h5>
+						<%= f.text_field :overview, class:"note-form-overview", id:"form" %>
+					</div>
+					<div class="note-preview-container">
+						<div class="left">
+							内容
+						</div>
+						<div class="right">
+							プレビュー
+						</div>
+						<div class="note-content-post">
+							<%#id=editorはマークダウン記法適用に使用%>
+							<div id='editor'>
+								<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
+								<%#ここにプレビュー表示%>
+								<div class="preview" v-html='input | marked'>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<input type="submit" value="投稿する" id="note-button">
-			<% end %>
-		</div>
+					<input type="submit" value="投稿する" id="note-button">
+				<% end %>
+			</div>
 
-
-
-		<!-- リアルタイムプレビュー -->
-
-			<script type="text/javascript">
-			window.onload = function() {
-				new Vue({
-					el: '#editor',<%#contentのtext_areaのid%>
-					data: {
-						input: '<%= j @note.content %>',<%#保持しているデータは@note.content%>
-						},
-					filters: {
-						marked: marked,
-						},
-				});
-			};
-			</script>
-
-			<script>
-$(function(){
-   $( 'input[name="view_point"]:radio' ).change( function() {
-      var radioval = $(this).val();
-      if(radioval == '有料会員限定記事'){
-         $('#inputother').removeAttr('disabled');
-         $('.other_label').removeClass('disabled');
-      }else{
-         $('#inputother').attr('disabled','disabled');
-         $('.other_label').addClass('disabled');
-      }
-   }); 
-});
+<%# リアルタイムプレビュー %>
+<script type="text/javascript">
+	window.onload = function() {
+		new Vue({
+			<%#contentのtext_areaのid%>
+			el: '#editor',
+			data: {
+				<%#保持しているデータは@note.content%>
+				input: '<%= j @note.content %>',
+				},
+			filters: {
+				<%#Markdownで表示%>
+				marked: marked,
+				},
+		});
+	};
 </script>
 
-	</body>
-</div>
+<script>
+	$(function(){
+		$( 'input[name="view_point"]:radio' ).change( function() {
+	    	var radioval = $(this).val();
+	    	if(radioval == '有料会員限定記事'){
+	        	$('#inputother').removeAttr('disabled');
+	       		$('.other_label').removeClass('disabled');
+	      	}else{
+	        	$('#inputother').attr('disabled','disabled');
+	       		$('.other_label').addClass('disabled');
+	      	}
+	   	});
+	});
+</script>
+
+		</body>
+	</div>
 </div>
 

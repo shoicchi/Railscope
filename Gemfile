@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -38,13 +40,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -59,26 +61,24 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'devise'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick" #activestrage
+gem 'activeadmin'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'cocoon'
+gem 'devise'
+gem 'dotenv-rails' # .envに記載した環境変数を認識させるために必要
 gem 'jquery-rails'
-gem "cocoon"
-gem 'paranoia', '~>2.2'
 gem 'kaminari', '~> 1.1.1'
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'dotenv-rails' #.envに記載した環境変数を認識させるために必要
+gem 'paranoia', '~>2.2'
 gem 'payjp'
-gem 'activeadmin'
 gem 'pry-byebug', group: :development
-gem 'whenever', require: false  #crontabを扱いやすくする
-gem 'ransack' #検索機能
-gem 'redcarpet'  #マークダウン記法適用
-gem 'rouge'   #シンタックスハイライト適用
-
-
-
+gem 'ransack' # 検索機能
+gem 'redcarpet' # マークダウン記法適用
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick' # activestrage
+gem 'rouge' # シンタックスハイライト適用
+gem 'rubocop'
+gem 'whenever', require: false # crontabを扱いやすくする

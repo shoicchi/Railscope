@@ -15,33 +15,41 @@
 			</span>
 		</div>
 		<div class="note-preview-container">
-			<div class="left"> 追記 </div>
-			<div class="right">プレビュー</div>
-				<%= form_for ([@note, @postscript]) do |f| %>
-					<%= f.hidden_field :review_id, value: @review.id, require: true %>
-					<%= f.hidden_field :note_id, value: @note.id, require: true %>
-					<div class="note-content-post">
-						<div id='editor'><!--id=editorはマークダウン記法適用に使用-->
-							<%= f.text_area :postscript, "v-model" => "input", class:"note-form-content"%>
-							<div class="preview" v-html='input | marked'><!--ここにプレビュー表示-->
-							</div>
+			<div class="left">
+				追記
+			</div>
+			<div class="right">
+				プレビュー
+			</div>
+			<%= form_for ([@note, @postscript]) do |f| %>
+				<%= f.hidden_field :review_id, value: @review.id, require: true %>
+				<%= f.hidden_field :note_id, value: @note.id, require: true %>
+				<div class="note-content-post">
+					<%#id=editorはマークダウン記法適用に使用%>
+					<div id='editor'>
+						<%= f.text_area :postscript, "v-model" => "input", class:"note-form-content"%>
+						<%#ここにプレビュー表示%>
+						<div class="preview" v-html='input | marked'>
 						</div>
 					</div>
-					<input type="submit" value="追記を投稿する" class="note-button">
-				<% end %>
+				</div>
+				<input type="submit" value="追記を投稿する" class="note-button">
+			<% end %>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-		window.onload = function() {
-			new Vue({
-				el: '#editor',<%#contentのtext_areaのid%>
-				data: {
-					input: '<%= j @postscript.postscript %>',<%#保持しているデータは@note.content%>
-					},
-				filters: {
-					marked: marked,
-					},
-			});
-		};
-		</script>
+	window.onload = function() {
+		new Vue({
+			<%#contentのtext_areaのid%>
+			el: '#editor',
+			data: {
+				<%#保持しているデータは@note.content%>
+				input: '<%= j @postscript.postscript %>',
+				},
+			filters: {
+				marked: marked,
+				},
+		});
+	};
+</script>

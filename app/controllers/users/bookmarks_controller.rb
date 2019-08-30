@@ -1,37 +1,27 @@
+# frozen_string_literal: true
+
 class Users::BookmarksController < ApplicationController
+  def index
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
+  end
 
-	def index
-		@bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
-	end
+  def create
+    @bookmark = Bookmark.new(bookmark_params) # users/note/showから
 
-	def show
-	end
+    @bookmark.save
+    redirect_to bookmarks_path
+  end
 
-	def new
-	end
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    flash[:notice] = 'Bookmarkを一つ削除しました。'
+    redirect_to bookmarks_path
+  end
 
-	def create
-		@bookmark = Bookmark.new(bookmark_params) #users/note/showから
+  private
 
-		@bookmark.save
-		redirect_to bookmarks_path
-	end
-
-
-	def update
-	end
-
-	def destroy
-		@bookmark = Bookmark.find(params[:id])
-  		@bookmark.destroy
-  			flash[:notice] = "Bookmarkを一つ削除しました。"
-	  		redirect_to bookmarks_path
-	end
-
-	private
-	def bookmark_params
-		params.require(:bookmark).permit(:id, :user_id, :note_id)
-	end
-
-
+  def bookmark_params
+    params.require(:bookmark).permit(:id, :user_id, :note_id)
+  end
 end

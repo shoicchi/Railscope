@@ -1,6 +1,5 @@
 <div class="main">
-    <%= flash[:notice] %>	<!--カードの登録がない場合、月額定期課金のsubmitから飛んでくる（表示:カードを登録してください。）-->
-
+    <%= flash[:notice] %>
         <div class="note-one">
             <div class="subscription-new-text">
                 カードの登録は一枚のみです。
@@ -12,7 +11,7 @@
                         <% else %>
                     	    data-text="変更する" data-submit-text="変更する"
                         <% end %>
-                        data-key="pk_test_932adb5c9baabfd8d99fadb3">
+                        data-key=ENV[PAYJP_PUBLIC]>
                     </script>
                 <% end %>
             </div>

@@ -27,7 +27,7 @@
 		    	<div class="user-edit-is-member">
 					<%= f.label :is_member,"会員状況" %><br>
 			        <%= f.radio_button :is_member, :"無料会員" %> 無料会員
-		  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path, id:"yellow" %><!--有料会員と無料会員の説明pgへ-->
+		  			<%= f.radio_button :is_member, :"有料会員" %> <%= link_to "有料会員", subscriptions_path, id:"yellow" %>
 		    	</div>
 		    	<div class="user-edit-subscription">
 		    		月額料金<br>
@@ -44,7 +44,7 @@
 			<div class="user-delete">
 				<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
 				<%= button_to 'githubで認証する', user_github_omniauth_authorize_path, method: :get %>
-				<%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %><!--退会確認ページへ-->
+				<%= link_to "退会する", user_path(@user), method: :delete, class:"btn btn-danger" %>
 			</div>
 		</div>
 	</div>

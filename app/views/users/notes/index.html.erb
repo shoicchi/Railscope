@@ -1,56 +1,59 @@
-
-	<div class="note-main">
-
-			<%if @notes != nil %><!--何も検索をかけていない時は、note.allとして表示させないようにする-->
-				<div class="note-index">
-					<div class="r-note-search">
-						<%= search_form_for @q, url: notes_path do |f| %>	<!--ransack使用-->
-							<%= f.text_field :search_words, class:"r-note-search-form" %><br><!--search_wordsはnote.rbに記載-->
-							<input type="submit" value="Search", class="r-search-button">
-						<% end %>
-					</div>
-					<div class="note-all">
-						<% @notes.each do |note| %>
-							<div class="note-one">
-								<div class="note-type">
-									<%= note.is_browsable_guest %>
-									<% if note.view_point != 0 %><!--ポイントが必要なら表示、無料記事はdefault0が投稿時に入る-->
-										<%= note.view_point %>ポイント
-									<% end %>
-									<div>
-										<%= image_tag('star-on.png') %><%= note.note_quality.round(2) %>
-										<%= image_tag('my_note_index.png') %><%= note.purchace_quantity %>
-										<%= image_tag('like.png') %><%= note.total_like %>
-									</div>
-								</div>
-								<div class="note-title">
-									<%= link_to note.title, note_path(note) %>
-								</div>
-								<div class="note-overview">
-									<%= render_with_hashtags(note.overview) %>
-								</div>
-								<div class="note-create-information">
-									<span class="note-contributor">
-										by <%= link_to note.user.name, user_path(note.user.id)%>
-									</span>
-									<span class="note-create-date">
-										created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
-									</span>
-								</div>
-							</div>
-						<% end %>
-					</div>
-				<%= paginate @notes, class: "paginate" %>
-				</div>
-			<% else %>
-				<div class="note-index">
-					<div class="note-search">
-						<%= search_form_for @q, url: notes_path do |f| %>	<!--ransack使用-->
-							<%= f.text_field :search_words, class:"note-search-form" %><br><!--search_wordsはnote.rbに記載-->
-							<input type="submit" value="Search", class="search-button">
-						<% end %>
-					</div>
-				</div>
-			<% end %>
-	</div>
+<div class="note-main">
+  <%#検索をかけた状態%>
+  <%if @notes != nil %>
+    <div class="note-index">
+      <div class="r-note-search">
+        <%#ransack使用%>
+        <%= search_form_for @q, url: notes_path do |f| %>
+          <%#search_wordsはnote.rbに記載%>
+          <%= f.text_field :search_words, class:"r-note-search-form" %><br>
+          <input type="submit" value="Search", class="r-search-button">
+        <% end %>
+      </div>
+      <div class="note-all">
+        <% @notes.each do |note| %>
+          <div class="note-one">
+            <div class="note-type">
+              <%= note.is_browsable_guest %>
+              <%#ポイントが必要なら表示、無料記事はdefault0が投稿時に入る%>
+              <% if note.view_point != 0 %>
+                <%= note.view_point %>ポイント
+              <% end %>
+              <div>
+                <%= image_tag('star-on.png') %><%= note.note_quality.round(2) %>
+              </div>
+            </div>
+            <div class="note-title">
+              <%= link_to note.title, note_path(note) %>
+            </div>
+            <div class="note-overview">
+              <%= render_with_hashtags(note.overview) %>
+            </div>
+            <div class="note-create-information">
+              <span class="note-contributor">
+                by <%= link_to note.user.name, user_path(note.user.id) %>
+              </span>
+              <span class="note-create-date">
+                created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+        <%= paginate @notes, class: "paginate" %>
+    </div>
+  <%#何も検索をかけていない時は、note.allとして表示させないようにする%>
+  <% else %>
+    <div class="note-index">
+      <div class="note-search">
+        <%#ransack使用%>
+        <%= search_form_for @q, url: notes_path do |f| %>
+          <%#search_wordsはnote.rbに記載%>
+          <%= f.text_field :search_words, class:"note-search-form" %><br>
+          <input type="submit" value="Search", class="search-button">
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 

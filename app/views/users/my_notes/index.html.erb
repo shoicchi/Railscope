@@ -2,10 +2,9 @@
 	<body>
 		<h1>My Notes</h1>
 		<%= flash[:notice] %>
-
-	<div class="note-all">
-		<% @my_notes.each do |my_note| %>
-			<div class="note-one">
+		<div class="note-all">
+			<% @my_notes.each do |my_note| %>
+				<div class="note-one">
 					<div class="note-title">
 						<%= link_to my_note.note.title, note_path(my_note.note_id) %>
 					</div>
@@ -20,10 +19,9 @@
 							created_at <%= my_note.created_at.strftime("%Y-%m-%d %H:%M") %>
 						</span>
 					</div>
-			</div>
-		<% end %>
-	</div>
-	<%= paginate @my_notes, class: "paginate" %>
-
+				</div>
+			<% end %>
+		</div>
+		<%= paginate @my_notes, class: "paginate" %>
 	</body>
 </div>
