@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-
   skip_before_action :verify_authenticity_token, only: :create
-  #InvalidAuthenticityTokenのCSRFトークンをスルー。omniauth導入でサインアップはgithub経由になっていたため？無理矢理外部からの認証をOKにした。
-
+  # InvalidAuthenticityTokenのCSRFトークンをスルー。omniauth導入でサインアップはgithub経由になっていたため？無理矢理外部からの認証をOKにした。
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  #github認証のため以下記載、build_resource(hash={})メソッドは継承元の同メソッドをオーバーライド。(uidにランダムで値を代入)
-  def build_resource(hash={})
+  # github認証のため以下記載、build_resource(hash={})メソッドは継承元の同メソッドをオーバーライド。(uidにランダムで値を代入)
+  def build_resource(hash = {})
     hash[:uid] = User.create_unique_string
     super
   end
