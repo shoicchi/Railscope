@@ -1,31 +1,26 @@
 <div class="main">
-	<body>
-		<h1>Bookmarked Notes</h1>
-		<%= flash[:notice] %>
-
+	<h1>Bookmarked Notes</h1>
+	<%= flash[:notice] %>
 	<div class="note-all">
 		<% @bookmarks.each do |bookmark| %>
 			<div class="note-one">
-					<div class="note-title">
-						<%= link_to bookmark.note.title, note_path(bookmark.note_id) %>
-					</div>
-					<div class="note-overview">
-						<%= bookmark.note.overview %>
-					</div>
-					<div class="note-create-information">
-						<span class="note-contributor">
-							by <%= bookmark.note.user.name %>
-						</span>
-						<span class="note-create-date">
-							created_at <%= bookmark.created_at.strftime("%Y-%m-%d %H:%M") %>
-						</span>
-					</div>
+				<div class="note-title">
+					<%= link_to bookmark.note.title, note_path(bookmark.note_id) %>
+				</div>
+				<div class="note-overview">
+					<%= bookmark.note.overview %>
+				</div>
+				<div class="note-create-information">
+					<span class="note-contributor">
+						by <%= bookmark.note.user.name %>
+					</span>
+					<span class="note-create-date">
+						created_at <%= bookmark.created_at.strftime("%Y-%m-%d %H:%M") %>
+					</span>
+				</div>
 			</div>
 				<%= button_to 'Bookmarkから削除', bookmark_path(bookmark.id), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-default" %>
 		<% end %>
 	</div>
-
-	</body>
-
 	<%= paginate @bookmarks, class: "paginate" %>
 </div>

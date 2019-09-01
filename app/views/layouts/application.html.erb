@@ -11,78 +11,75 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-    
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
   </head>
   <body>
-<header>
-  <div id="nav-drawer">
-      <input id="nav-input" type="checkbox" class="nav-unshown">
-      <label id="nav-open" for="nav-input"><span></span></label>
-      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-      <div id="nav-content">
-        <div id="railscope">
-          <%= link_to 'Railscope', root_path, id:"railscope" %>
+    <header>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <div id="railscope">
+            <%= link_to 'Railscope', root_path, id:"railscope" %>
+          </div>
+          <% if user_signed_in? %>
+            <div id="around">
+              @user = <%= link_to current_user.name, user_path(current_user.id), id:"user-name"%>
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Notes"', notes_path, id:"notes"%>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Post"', new_note_path, id:"post"%>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Bookmarks"', bookmarks_path, id:"bookmarks"%>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"My Notes"', my_notes_path, id:"my-notes" %>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Points"', points_path, id:"points" %>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Sign-out"', destroy_user_session_path,method: :delete, id:"sign-out" %>
+              %&gt;
+            </div>
+          <% else %>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Notes"', notes_path, id:"notes" %>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Sign-up"', new_user_registration_path, id:"sign-out" %>
+              %&gt;
+            </div>
+            <div id="around">
+              &lt;%= link_to
+              <%= link_to '"Sign-in"', new_user_session_path, id:"sign-in" %>
+              %&gt;
+            </div>
+          <% end %>
         </div>
-      <% if user_signed_in? %>
-        <div id="around">
-          @user = <%= link_to current_user.name, user_path(current_user.id), id:"user-name"%>
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Notes"', notes_path, id:"notes"%>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Post"', new_note_path, id:"post"%>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Bookmarks"', bookmarks_path, id:"bookmarks"%>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"My Notes"', my_notes_path, id:"my-notes" %>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Points"', points_path, id:"points" %>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Sign-out"', destroy_user_session_path,method: :delete, id:"sign-out" %>
-          %&gt;
-        </div>
-      <% else %>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Notes"', notes_path, id:"notes" %>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Sign-up"', new_user_registration_path, id:"sign-out" %>
-          %&gt;
-        </div>
-        <div id="around">
-          &lt;%= link_to
-          <%= link_to '"Sign-in"', new_user_session_path, id:"sign-in" %>
-          %&gt;
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-</header>
-<%= yield %>
-</body>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
 </html>
 

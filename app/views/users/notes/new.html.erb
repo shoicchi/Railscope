@@ -32,9 +32,11 @@
 					<div class="left"> 内容 </div>
 					<div class="right">プレビュー</div>
 					<div class="note-content-post">
-						<div id='editor'><!--id=editorはマークダウン記法適用に使用-->
+						<%#id=editorはマークダウン記法適用に使用%>
+						<div id='editor'>
 							<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
-							<div class="preview" v-html='input | marked'><!--ここにプレビュー表示-->
+							<%#ここにプレビュー表示-%>
+							<div class="preview" v-html='input | marked'>
 							</div>
 						</div>
 					</div>
@@ -42,41 +44,44 @@
 				<input type="submit" value="投稿する" id="note-button">
 			<% end %>
 		</div>
+	</div>
+</div>
 
 
 
-		<!-- リアルタイムプレビュー -->
+<!-- リアルタイムプレビュー -->
 
-			<script type="text/javascript">
-			window.onload = function() {
-				new Vue({
-					el: '#editor',<%#contentのtext_areaのid%>
-					data: {
-						input: '<%= j @note.content %>',<%#保持しているデータは@note.content%>
-						},
-					filters: {
-						marked: marked,
-						},
-				});
-			};
-			</script>
+<script type="text/javascript">
+	window.onload = function() {
+		new Vue({
+			<%#contentのtext_areaのid%>
+			el: '#editor',
+			data: {
+				<%#保持しているデータは@note.content%>
+				input: '<%= j @note.content %>',
+				},
+			filters: {
+				marked: marked,
+				},
+		});
+	};
+</script>
 
-			<script>
-$(function(){
-   $( 'input[name="view_point"]:radio' ).change( function() {
-      var radioval = $(this).val();
-      if(radioval == '有料会員限定記事'){
-         $('#inputother').removeAttr('disabled');
-         $('.other_label').removeClass('disabled');
-      }else{
-         $('#inputother').attr('disabled','disabled');
-         $('.other_label').addClass('disabled');
-      }
-   }); 
+<script>
+	$(function(){
+	   $( 'input[name="view_point"]:radio' ).change( function() {
+	      var radioval = $(this).val();
+	      if(radioval == '有料会員限定記事'){
+	         $('#inputother').removeAttr('disabled');
+	         $('.other_label').removeClass('disabled');
+	      }else{
+	         $('#inputother').attr('disabled','disabled');
+	         $('.other_label').addClass('disabled');
+	      }
+	   });
 });
 </script>
 
 	</body>
-</div>
-</div>
+
 

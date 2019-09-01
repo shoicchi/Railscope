@@ -1,25 +1,17 @@
+# frozen_string_literal: true
+
 class Admins::NoteHashtagsController < ApplicationController
+  def index; end
 
+  def show; end
 
-	def index
-	end
+  def new; end
 
-	def show
-	end
+  def create; end
 
-	def new
-	end
+  def edit; end
 
-	def create
-	end
+  def update; end
 
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
-	end
-
+  def destroy; end
 end
