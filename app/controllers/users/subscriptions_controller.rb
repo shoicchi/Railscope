@@ -3,7 +3,7 @@ class Users::SubscriptionsController < ApplicationController
 	def index
 		@point = Point.new
 		if Subscription.where(user_id: current_user.id).exists?											#current_userがsubscriptionテーブルを保持しているかどうか（定期課金申し込み済みかどうかの判断）
-			Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"											#秘密鍵
+			Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"
 			@subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)			#current_userの定期課金情報をpayjpから持ってくる
 		else
 		end
@@ -29,7 +29,7 @@ class Users::SubscriptionsController < ApplicationController
 
 
 	def registration_payjp#カード入力によって得られたトークンで顧客作成（永続的にトークンを使用可能にする）
-	    Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"							#秘密鍵
+	    Payjp.api_key = "sk_test_a7ee466c4064bb2ae0bd4717"
 	   	response_customer = Payjp::Customer.create(card: params['payjp-token'])		#トークンをもとに顧客を作成
 	    current_user.payjp_id = response_customer.id 								#作成した顧客のidををuserテーブルのpayjp_id(string)としてDBに保存
 	    current_user.save
