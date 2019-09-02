@@ -1,87 +1,60 @@
-<div class="show-main">
-	<div class="note-new">
-		<h1>Post Note</h1>
-		<div class="note-form">
-			<%= form_for(@note) do |f| %>
-				<div class="note-form-browsable">
-					<div class="radio">
-			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios1" value="無料記事"> 無料記事
-			            </label>
-			        </div>
-			        <div class="radio">
-			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
-			            </label>
-			        </div>
-			        <div class="form-group">
-			            <label for="other" class="other_label disabled">
-			            	有料会員限定記事の場合は閲覧ポイントを設定してください
-			           	</label>
-			            <input type="number"  id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
-			        </div>
-	  			</div>
-				<div class="note-title">
-					<h5>タイトル</h5>
-					<%= f.text_field :title, class:"note-form-title", id:"form" %>
-				</div>
-				<div class="note-overview">
-					<h5>ハッシュタグと概要</h5>
-					<%= f.text_field :overview, class:"note-form-overview", id:"form" %>
-				</div>
-				<div class="note-preview-container">
-					<div class="left">
-						内容
-					</div>
-					<div class="right">
-						プレビュー
-					</div>
-					<div class="note-content-post">
-						<%#id=editorはマークダウン記法適用に使用%>
-						<div id='editor'>
-							<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
-							<%#ここにプレビュー表示%>
-							<div class="preview" v-html='input | marked'>
-							</div>
-						</div>
-					</div>
-				</div>
-				<input type="submit" value="投稿する" id="note-button">
-			<% end %>
-		</div>
-	</div>
+<div class="note-main">
+  <%#検索をかけた状態%>
+  <%if @notes != nil %>
+    <div class="note-index">
+      <div class="r-note-search">
+        <%#ransack使用%>
+        <%= search_form_for @q, url: notes_path do |f| %>
+          <%#search_wordsはnote.rbに記載%>
+          <%= f.text_field :search_words, class:"r-note-search-form" %><br>
+          <input type="submit" value="Search", class="r-search-button">
+        <% end %>
+      </div>
+      <div class="note-all">
+        <% @notes.each do |note| %>
+          <div class="note-one">
+            <div class="note-type">
+              <%= note.is_browsable_guest %>
+              <%#ポイントが必要なら表示、無料記事はdefault0が投稿時に入る%>
+              <% if note.view_point != 0 %>
+                <%= note.view_point %>ポイント
+              <% end %>
+              <div>
+              	<%= image_tag('like.png') %><%= note.total_like %>
+                <%= image_tag('star-on.png') %><%= note.note_quality.round(2) %>
+                <%= image_tag('my_note_index.png') %><%= note.purchace_quantity %>
+              </div>
+            </div>
+            <div class="note-title">
+              <%= link_to note.title, note_path(note) %>
+            </div>
+            <div class="note-overview">
+              <%= render_with_hashtags(note.overview) %>
+            </div>
+            <div class="note-create-information">
+              <span class="note-contributor">
+                by <%= link_to note.user.name, user_path(note.user.id) %>
+              </span>
+              <span class="note-create-date">
+                created_at <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+        <%= paginate @notes, class: "paginate" %>
+    </div>
+  <%#何も検索をかけていない時は、note.allとして表示させないようにする%>
+  <% else %>
+    <div class="note-index">
+      <div class="note-search">
+        <%#ransack使用%>
+        <%= search_form_for @q, url: notes_path do |f| %>
+          <%#search_wordsはnote.rbに記載%>
+          <%= f.text_field :search_words, class:"note-search-form" %><br>
+          <input type="submit" value="Search", class="search-button">
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-<%# リアルタイムプレビュー %>
-<script type="text/javascript">
-	window.onload = function() {
-		new Vue({
-			<%#contentのtext_areaのid%>
-			el: '#editor',
-			data: {
-				<%#保持しているデータは@note.content%>
-				input: '<%= j @note.content %>',
-				},
-			filters: {
-				marked: marked,
-				},
-		});
-	};
-</script>
-
-<%#有料会員限定記事を選択しなければ、閲覧ポイントを設定できない%>
-<script>
-	$(function(){
-		$( 'input[name="view_point"]:radio' ).change( function() {
-	    	var radioval = $(this).val();
-	    	if(radioval == '有料会員限定記事'){
-	        	$('#inputother').removeAttr('disabled');
-	        	$('.other_label').removeClass('disabled');
-	    	}else{
-	        	$('#inputother').attr('disabled','disabled');
-	        	$('.other_label').addClass('disabled');
-	    	}
-		});
-	});
-	</script>
-
