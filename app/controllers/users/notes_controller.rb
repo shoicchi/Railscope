@@ -17,13 +17,22 @@ class Users::NotesController < ApplicationController
     end
     @q = Note.ransack(params[:q])
     # 何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
-    if params[:q].nil?
+    if params[:q].blank?
       @notes = nil
     else
       # distinctで一意性を持たせないと複数の検索範囲でヒットした記事が別々に出てくる。
       @notes = @q.result.distinct.page(params[:page]).per(4).reverse_order
     end
   end
+
+  def hashtag
+    # 選択したハッシュタグのtag_nameを取り出して
+    tag = Hashtag.find_by(tag_name: params[:tag_name])
+    # tag_nameに基づいたnoteを変数で渡す
+    @notes = tag.notes.all.page(params[:page]).per(4).reverse_order
+    @note = tag.notes.page(params[:page])
+    @q = Note.ransack(params[:q])
+   end
 
   def show
     @note = Note.find(params[:id])
@@ -81,14 +90,6 @@ class Users::NotesController < ApplicationController
     @note.destroy
     redirect_to notes_path
   end
-
-  def hashtag
-    # 選択したハッシュタグのtag_nameを取り出して
-    tag = Hashtag.find_by(tag_name: params[:tag_name])
-    # tag_nameに基づいたnoteを変数で渡す
-    @notes = tag.notes.all.page(params[:page]).per(4).reverse_order
-    @note = tag.notes.page(params[:page])
-    end
 
   private
 
