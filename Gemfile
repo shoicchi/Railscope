@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.5'
-
+#ruby '2.4.5'
+ruby '2.5.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
@@ -63,7 +63,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'activeadmin'
+gem 'activeadmin', '= 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cocoon'
 gem 'devise'
@@ -84,5 +84,5 @@ gem 'whenever', require: false # crontabを扱いやすくする
 
 gem 'json'
 gem 'listen', '>= 3.0.5', '< 3.2'
-gem 'mysql2'
-gem 'sassc', '~> 2.2'
+#gem 'mysql2'
+#gem 'sassc', '~> 2.2'

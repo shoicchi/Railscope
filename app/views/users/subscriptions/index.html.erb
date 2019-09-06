@@ -8,13 +8,13 @@
 			</div>
 			<div class="subscription-new-get">
 				<div class="subscription-new-get-text">
-					毎月¥100 で　100Point
+					毎月¥100 で　100Point Plan
 				</div>
 				<div class="button-subscription-new">
 					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
 						<%= f.hidden_field :point, value: 100 %>
 						<% if Subscription.where(user_id: current_user.id).nil? %>
-							<input type="submit" value="¥100プランに申し込む" class="subscription-button">
+							<%= link_to "¥100プランに申し込む", new_subscription_path %>
 						<% else %>
 				 			<input type="submit" value="¥100プランに変更する" class="subscription-button">
 				 		<% end %>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="subscription-new-get">
 				<div class="subscription-new-get-text">
-					毎月¥200 で　240Point
+					毎月¥200 で　240Point Plan
 				</div>
 				<div class="button-subscription-new">
 					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
@@ -38,7 +38,7 @@
 			</div>
 			<div class="subscription-new-get">
 				<div class="subscription-new-get-text">
-					毎月¥300 で　390Point
+					毎月¥300 で　390Point Plan
 				</div>
 				<div class="button-subscription-new">
 					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>
@@ -53,7 +53,7 @@
 			</div>
 			<div class="subscription-new-get">
 				<div class="subscription-new-get-text">
-					毎月¥500 で　750Point
+					毎月¥500 で　750Point Plan
 				</div>
 				<div class="button-subscription-new">
 					<%= form_for(@point, :url => {:controller => :subscriptions, :action => :monthly_subscription}) do |f| %>

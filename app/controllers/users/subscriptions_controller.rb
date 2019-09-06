@@ -75,6 +75,9 @@ class Users::SubscriptionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def new
+  end
+
   private
 
   def subscription_params

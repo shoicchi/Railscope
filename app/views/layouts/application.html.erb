@@ -29,7 +29,13 @@
             </div>
           <% if user_signed_in? %>
             <div id="around">
-              @user = <%= link_to current_user.name, user_path(current_user.id), id:"user-name"%>
+              <% if current_user.name.nil? %>
+                &lt;%= link_to
+                <%= link_to '"Your"', user_path(current_user.id), id:"user-name"%>
+                %&gt;
+              <% else %>
+                @user = <%= link_to current_user.name, user_path(current_user.id), id:"user-name"%>
+              <% end %>
             </div>
             <div id="around">
               &lt;%= link_to
