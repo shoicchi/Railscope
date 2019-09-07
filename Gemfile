@@ -85,4 +85,4 @@ gem 'whenever', require: false # crontabを扱いやすくする
 gem 'json'
 gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'mysql2'
-gem 'sassc', '~> 2.2'
+#gem 'sassc', '~> 2.2'
