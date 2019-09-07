@@ -1,4 +1,5 @@
 # [Railscope](https://www.railscope.info)
+html/css/Javascript/JQuery/Ruby/RubyonRails/
 
 2019/6〜　　　　プログラミングの勉強開始
 
