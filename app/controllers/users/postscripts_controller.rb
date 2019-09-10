@@ -4,10 +4,14 @@ class Users::PostscriptsController < ApplicationController
 
   def create
     @postscript = Postscript.new(postscript_params)
-    @review = @postscript.review
-    @review.is_appending = 2
     if @postscript.save
+      @review = @postscript.review
+      @review.is_appending = 2
       @review.save
+      flash[:notice] = 'このNoteに追記しました。'
+      redirect_to note_path(@postscript.note_id)
+    else
+      flash[:notice] = 'このNoteに追記に失敗しました。やり直してください。'
       redirect_to note_path(@postscript.note_id)
     end
   end
@@ -20,7 +24,13 @@ class Users::PostscriptsController < ApplicationController
 
   def update
     @postscript = Postscript.new(postscript_params)
-    redirect_to note_path(@postscript.note_id) if @postscript.update
+    if @postscript.update
+      flash[:notice] = '追記を編集しました。'
+      redirect_to note_path(@postscript.note_id)
+    else
+      flash[:notice] = '追記の編集に失敗しました。やり直してください。'
+      redirect_to note_path(@postscript.note_id)
+    end
   end
 
   def destroy
@@ -32,6 +42,7 @@ class Users::PostscriptsController < ApplicationController
       @review.save
       redirect_to note_path(@postscript.note)
     else
+      flash[:notice] = '追記の削除に失敗しました。やり直してください。'
       redirect_to note_postscript_path(@postscript)
       end
   end

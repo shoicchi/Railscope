@@ -7,15 +7,22 @@ class Users::BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-
-    @bookmark.save
-    redirect_to bookmarks_path
+    if @bookmark.save
+      flash[:notice] = 'Bookmarkを１つ追加しました。'
+      redirect_to bookmarks_path
+    else
+      flash[:notice] = 'Bookmarkの追加に失敗しました。再度やり直してください。'
+      redirect_to note_path(@bookmark.note_id)
+    end
   end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
-    flash[:notice] = 'Bookmarkを一つ削除しました。'
+    if @bookmark.destroy
+      flash[:notice] = 'Bookmarkを一つ削除しました。'
+    else
+      flash[:notice] = 'Bookmarkの削除に失敗しました。再度やり直してください。'
+    end
     redirect_to bookmarks_path
   end
 

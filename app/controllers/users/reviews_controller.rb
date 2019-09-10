@@ -10,10 +10,26 @@ class Users::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    redirect_to note_path(@review.note_id) if @review.save
+    if @review.save
+      flash[:notice] = 'レビューしました。'
+      redirect_to note_path(@review.note_id)
+    else
+      flash[:notice] = 'レビューに失敗しました。やり直してください。'
+      redirect_to note_path(@review.note_id)
+    end
   end
 
-  def destroy; end
+  def destroy
+    @review = Review.find(params[:id])
+    @note = @review.note
+    if @review.destroy
+      flash[:notice] = 'レビューを削除しました。'
+      redirect_to note_path(@note)
+    else
+      flash[:notice] = 'レビューの削除に失敗しました。やり直してください。'
+      redirect_to note_path(@note)
+    end
+  end
 
   private
 

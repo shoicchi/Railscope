@@ -19,22 +19,28 @@ class Users::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    flash[:notice] = if @user.update(user_params)
-                       '編集しました。'
-                     else
-                       '編集に失敗しました。やり直してください。'
-                     end
-
-    # 無料会員から有料会員へ変更するとsaveの前に月額料金申し込みページへ遷移(遷移先のupdateでis_memberのsave)
-    if @user.is_member == '有料会員' && Subscription.where(user_id: @user.id).empty?
-      redirect_to subscriptions_path
-
-    elsif @user.is_member == '無料会員' && Subscription.where(user_id: @user.id).exists?
-      Payjp.api_key = ENV['PAYJP_SECRET']
-      del_subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)
-      del_subscription.delete
-      @user.subscription.delete
-      redirect_to user_path(@user)
+    if @user.update(user_params)
+      # 無料会員から有料会員へ変更すると月額料金申し込みページへ遷移(遷移先で種別を選んだらis_member == '有料会員'にしてsave)
+      if @user.is_member == '有料会員' && Subscription.where(user_id: @user.id).empty?
+        @user.is_member = '無料会員'
+        @user.update(user_params)
+        flash[:notice] = '編集しました。有料会員なので、プランを選んでください。'
+        redirect_to subscriptions_path
+        #有料会員から無料会員に変更すると定期課金情報削除
+      elsif @user.is_member == '無料会員' && Subscription.where(user_id: @user.id).exists?
+        Payjp.api_key = ENV['PAYJP_SECRET']
+        del_subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)
+        del_subscription.delete
+        @user.subscription.delete
+        flash[:notice] = '編集しました。無料会員に変更したので申し込み中のプランを削除しました。'
+        redirect_to user_path(@user)
+      else
+        flash[:notice] = '編集しました。'
+        redirect_to user_path(@user)
+      end
+    else
+      flash[:notice] = '編集に失敗しました。やり直してください。'
+      redirect_to edit_user_path(@user)
     end
   end
 
