@@ -5,8 +5,6 @@ class Users::PointsController < ApplicationController
     @points = Point.where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
-  def show; end
-
   def new
     @point = Point.new
   end
@@ -23,7 +21,7 @@ class Users::PointsController < ApplicationController
       @amount = 300
     else
       flash[:notice] = '正常に処理が行われませんでした。もう一度やり直してください。'
-      redirect_to new_subscription_path
+      redirect_to points_path
     end
     # userがカード登録済みでない場合、登録画面へ飛ばす
     if current_user.payjp_id.nil?

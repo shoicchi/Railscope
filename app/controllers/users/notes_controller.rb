@@ -87,8 +87,13 @@ class Users::NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-    @note.destroy
-    redirect_to notes_path
+    if @note.destroy
+      flash[:notice] = 'Noteを削除しました。'
+      redirect_to notes_path
+    else
+      flash[:notice] = 'Noteの削除に失敗しました。やり直してください。'
+      redirect_to note_path(@note)
+    end
   end
 
   private
