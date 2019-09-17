@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   get 'oauth_test/index'
   root 'top#index'
-  get '/notes/hashtag/:tag_name', to: 'users/notes#hashtag' # リンクをつけたハッシュタグへのrouting
+  get '/notes/hashtag/:tag_name', to: 'users/notes#hashtag'
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
   post '/subscriptions' => 'users/subscriptions#monthly_subscription'
   post 'likes/:note_id/create', to: 'users/likes#create', constraints: { note_id: /\d+/ }, as: :likes_create
   post 'likes/:note_id/delete', to: 'users/likes#delete', constraints: { note_id: /\d+/ }, as: :likes_delete
 
-  # github認証のため以下記載
+  # NOTE: github認証のため以下記載
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks',
