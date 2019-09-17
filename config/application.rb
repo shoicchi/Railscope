@@ -18,6 +18,6 @@ module Railscope
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.time_zone = 'Tokyo' # 日本時間適用
+    config.time_zone = 'Tokyo'
   end
 end
