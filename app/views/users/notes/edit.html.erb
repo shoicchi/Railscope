@@ -35,10 +35,9 @@
 						プレビュー
 					</div>
 					<div class="note-content-post">
-						<%#id=editorはマークダウン記法適用に使用%>
+						<%# WARNING: id=editorはマークダウン記法適用に使用 %>
 						<div id='editor'>
 							<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
-							<%#ここにプレビュー表示%>
 							<div class="preview" v-html='input | marked'>
 							</div>
 						</div>
@@ -50,18 +49,18 @@
 	</div>
 </div>
 
-<%# リアルタイムプレビュー %>
+<%# NOTE: リアルタイムプレビュー %>
 <script type="text/javascript">
 	window.onload = function() {
 		new Vue({
-			<%#contentのtext_areaのid%>
+			<%# NOTE: contentのtext_areaのid %>
 			el: '#editor',
 			data: {
-				<%#保持しているデータは@note.content%>
+				<%# NOTE: 保持しているデータは@note.content %>
 				input: '<%= j @note.content %>',
 				},
 			filters: {
-				<%#Markdownで表示%>
+				<%# NOTE: Markdownで表示 %>
 				marked: marked,
 				},
 		});

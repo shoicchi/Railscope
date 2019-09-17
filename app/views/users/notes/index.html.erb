@@ -1,11 +1,8 @@
 <div class="note-main">
-  <%#検索をかけた状態%>
   <%if @notes != nil %>
     <div class="note-index">
       <div class="r-note-search">
-        <%#ransack使用%>
         <%= search_form_for @q, url: notes_path do |f| %>
-          <%#search_wordsはnote.rbに記載%>
           <%= f.text_field :search_words, class:"r-note-search-form" %><br>
           <input type="submit" value="Search", class="r-search-button">
         <% end %>
@@ -15,7 +12,6 @@
           <div class="note-one">
             <div class="note-type">
               <%= note.is_browsable_guest %>
-              <%#ポイントが必要なら表示、無料記事はdefault0が投稿時に入る%>
               <% if note.view_point != 0 %>
                 <%= note.view_point %>ポイント
               <% end %>
@@ -44,13 +40,11 @@
       </div>
         <%= paginate @notes, class: "paginate" %>
     </div>
-  <%#何も検索をかけていない時は、note.allとして表示させないようにする%>
+  <%# WARNING: 以下、検索していない場合の処理。条件分岐をしないと何も検索をかけていない時は、note.allとして表示させないようにされる　%>
   <% else %>
     <div class="note-index">
       <div class="note-search">
-        <%#ransack使用%>
         <%= search_form_for @q, url: notes_path do |f| %>
-          <%#search_wordsはnote.rbに記載%>
           <%= f.text_field :search_words, class:"note-search-form" %><br>
           <input type="submit" value="Search", class="search-button">
         <% end %>

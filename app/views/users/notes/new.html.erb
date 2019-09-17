@@ -32,10 +32,9 @@
 					<div class="left"> 内容 </div>
 					<div class="right">プレビュー</div>
 					<div class="note-content-post">
-						<%#id=editorはマークダウン記法適用に使用%>
+						<%# WARNING: id=editorはマークダウン記法適用に使用 %>
 						<div id='editor'>
 							<%= f.text_area :content, "v-model" => "input", class:"note-form-content", id:"form" %>
-							<%#ここにプレビュー表示-%>
 							<div class="preview" v-html='input | marked'>
 							</div>
 						</div>
