@@ -4,11 +4,10 @@ require 'redcarpet'
 require 'rouge'
 require 'rouge/plugins/redcarpet'
 
+# NOTE: Redcarpet::Render::HTML を継承してRougeのプラグインをインクルード。
 class HTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
 end
-# Redcarpet::Render::HTML を継承。
-# Rougeのプラグインをインクルード。
 
 module MarkdownHelper
   def markdown(content)
@@ -24,7 +23,8 @@ module MarkdownHelper
       fenced_code_blocks: true,
       tables: true
     }
-    renderer = HTML.new(options) # Redcarpet::Render::HTML.new(options)を継承させ、rougeのプラグインをした状態のHTMLを使用
+    # NOTE: Redcarpet::Render::HTML.new(options)を継承させ、rougeのプラグインをした状態のHTMLを使用
+    renderer = HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
     markdown.render(content).html_safe
   end

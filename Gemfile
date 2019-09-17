@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.5'
-#ruby '2.5.5'
+#ruby '2.4.5'
+ruby '2.5.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
@@ -90,5 +90,5 @@ gem 'whenever', require: false
 
 gem 'json'
 gem 'listen', '>= 3.0.5', '< 3.2'
-gem 'mysql2'
+#gem 'mysql2'
 #gem 'sassc', '~> 2.2'
