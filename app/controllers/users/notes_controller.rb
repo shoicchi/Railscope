@@ -2,35 +2,36 @@
 
 class Users::NotesController < ApplicationController
   def index
-    # params[:q]=nilだとエラー出るのでif
-    #.deleteしないとwordsがシンボル？として扱われてsplitできない
+    # NOTE: params[:q]=nilだとエラー出るのでif
+    # XXX: .deleteしないとwordsがシンボル？として扱われてsplitできない
     words = params[:q].delete(:search_words) if params[:q].present?
     if words.present?
-      # 検索ワードを格納していく配列の生成
+      # NOTE: 検索ワードを格納していく配列の生成
       params[:q][:groupings] = []
-      # 全角空白と半角空白で文字列を区切る。<=( /と/の間が区切る文字&[と]の間にある文字はどれか1つが選択される )
+      # NOTE: 全角空白と半角空白で文字列を区切る。<=( /と/の間が区切る文字&[と]の間にある文字はどれか1つが選択される )
       words.split(/[ 　]/).each_with_index do |word, i|
-        # .each_with_indexで要素の数|i|だけブロック|word|を繰り返し実行
-        # 右辺の検索範囲にかけて格納していく
+        # NOTE: .each_with_indexで要素の数|i|だけブロック|word|を繰り返し実行
+        # NTOE: 右辺の検索範囲にかけて格納していく
         params[:q][:groupings][i] = { title_or_overview_or_content_or_reviews_review_or_postscripts_postscript_cont: word }
       end
     end
     @q = Note.ransack(params[:q])
-    # 何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
+    # NOTE: 何も検索していない時は@notes=nilとしてview側にも条件分岐記載して、notes.allが出ないようにする
     if params[:q].blank?
       @notes = nil
     else
-      # distinctで一意性を持たせないと複数の検索範囲でヒットした記事が別々に出てくる。
+      # NOTE: distinctで一意性を持たせないと複数の検索範囲でヒットした記事が別の記事として複数出てくる。
       @notes = @q.result.distinct.page(params[:page]).per(4).reverse_order
     end
   end
 
   def hashtag
-    # 選択したハッシュタグのtag_nameを取り出して
+    # NOTE: 選択したハッシュタグのtag_nameを取り出す
     tag = Hashtag.find_by(tag_name: params[:tag_name])
-    # tag_nameに基づいたnoteを変数で渡す
+    # NOTE: tag_nameに基づいたnoteを変数で渡す
     @notes = tag.notes.all.page(params[:page]).per(4).reverse_order
     @note = tag.notes.page(params[:page])
+    # WARNING: 検索という行為をransackとハッシュタグと別々の方法で行えるようにしてあるためransackで使う@qの中身を入れておかなければいけない
     @q = Note.ransack(params[:q])
    end
 

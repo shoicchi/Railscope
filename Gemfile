@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-#ruby '2.4.5'
-ruby '2.5.5'
+ruby '2.4.5'
+#ruby '2.5.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
@@ -63,11 +63,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+# WARNING: ver2.1.0以上ではsasscが必要、ec2との環境差分でプリコンパイルできないので明示的に2.0とする
 gem 'activeadmin', '= 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cocoon'
 gem 'devise'
-gem 'dotenv-rails' # .envに記載した環境変数を認識させるために必要
+# NOTE: .envに記載した環境変数を認識させるために必要
+gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.1.1'
 gem 'omniauth'
@@ -75,14 +77,18 @@ gem 'omniauth-github'
 gem 'paranoia', '~>2.2'
 gem 'payjp'
 gem 'pry-byebug', group: :development
-gem 'ransack' # 検索機能
-gem 'redcarpet' # マークダウン記法適用
+# NOTE: 検索機能
+gem 'ransack'
+# NOTE: マークダウン記法適用
+gem 'redcarpet'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
-gem 'refile-mini_magick' # activestrage
-gem 'rouge' # シンタックスハイライト適用
-gem 'whenever', require: false # crontabを扱いやすくする
+gem 'refile-mini_magick'
+# NOTE: シンタックスハイライト適用
+gem 'rouge'
+# NOTE: crontabを扱いやすくする
+gem 'whenever', require: false
 
 gem 'json'
 gem 'listen', '>= 3.0.5', '< 3.2'
-#gem 'mysql2'
+gem 'mysql2'
 #gem 'sassc', '~> 2.2'

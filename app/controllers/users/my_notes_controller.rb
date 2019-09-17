@@ -11,13 +11,13 @@ class Users::MyNotesController < ApplicationController
 
     if current_user.holding_point >= @my_note.note.view_point
       if @my_note.save
-        # Pointテーブル処理
+        # NOTE: Pointテーブル処理
         @point = Point.new
         @point.point = @my_note.note.view_point
         @point.reason = 0
         @point.user_id = current_user.id
         @point.save
-        # Userテーブル処理
+        # NOTE: Userテーブル処理
         current_user.holding_point -= @point.point
         current_user.save
         flash[:notice] = 'このNoteを購入しました'
@@ -27,7 +27,7 @@ class Users::MyNotesController < ApplicationController
         redirect_to note_path(@my_note.note_id)
       end
 
-    # 保有ポイントが閲覧必要ポイントより少ない場合
+    # NOTE: 保有ポイントが閲覧必要ポイントより少ない場合
     elsif current_user.holding_point < @my_note.note.view_point
       flash[:notice] = '閲覧ポイントが足りません。ポイントを追加購入してください。'
       redirect_to new_point_path
