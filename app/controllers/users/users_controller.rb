@@ -6,7 +6,8 @@ class Users::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @notes = Note.where(user_id: @user).page(params[:page]).reverse_order
-    # current_userがsubscriptionテーブルを保持しているかどうか（定期課金申し込み済みかどうかの判断）
+    # NOTE: current_userがsubscriptionテーブルを保持しているかどうか（定期課金申し込み済みかどうかの判断）
+    # HACK: modelで処理できそう
     if @user == current_user && Subscription.where(user_id: current_user.id).exists?
       Payjp.api_key = ENV['PAYJP_SECRET']
       @subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)
@@ -20,13 +21,15 @@ class Users::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      # 無料会員から有料会員へ変更すると月額料金申し込みページへ遷移(遷移先で種別を選んだらis_member == '有料会員'にしてsave)
+      # NOTE: 無料会員から有料会員へ変更すると月額料金申し込みページへ遷移
       if @user.is_member == '有料会員' && Subscription.where(user_id: @user.id).empty?
+        # HACK: 現状は遷移先で種別を選んだらis_member == '有料会員'にしてsave
+        # TODO: 遷移先で「まだ有料会員に変更処理は終わっていません」等の表示による対応＋プラン選択後に正常に処理が終わった旨通知等
         @user.is_member = '無料会員'
         @user.update(user_params)
         flash[:notice] = '編集しました。有料会員なので、プランを選んでください。'
         redirect_to subscriptions_path
-        #有料会員から無料会員に変更すると定期課金情報削除
+        # NOTE: 有料会員から無料会員に変更すると定期課金情報削除
       elsif @user.is_member == '無料会員' && Subscription.where(user_id: @user.id).exists?
         Payjp.api_key = ENV['PAYJP_SECRET']
         del_subscription = Payjp::Subscription.retrieve(current_user.subscription.payjp_id)
