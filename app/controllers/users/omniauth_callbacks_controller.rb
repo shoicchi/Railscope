@@ -2,7 +2,7 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  # TODO: ドキュメント通りにやっただけなのでまだしっかりと内容を理解していない
+  # TODO: 内容を理解
   def github
     @user = User.find_for_github_oauth(request.env['omniauth.auth'], current_user)
 

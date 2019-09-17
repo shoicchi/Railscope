@@ -28,7 +28,7 @@ class Users::SubscriptionsController < ApplicationController
   end
 
   # NOTE: 月額定期課金支払い
-  # HACK: さすがに冗長。
+  # HACK: さすがに冗長。find_or_created_byが使える？
   def monthly_subscription
     # NOTE: viewからはPointのみhiddenで持ってくる。pointの値をpayjpのplanのIDに設定してある。
     # REVIEW: そもそも金銭にあたるpointをhiddenにするのは危険？

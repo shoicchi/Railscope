@@ -2,9 +2,10 @@
 
 class Review < ApplicationRecord
   belongs_to :user
+
   belongs_to :note
 
-  # dependent: :deleteはしない。postscriptはnoteの一部。
+  # NOTE: dependent: :deleteはしない。postscriptはnoteの一部。
   has_one :postscript
 
   enum is_appending: {
