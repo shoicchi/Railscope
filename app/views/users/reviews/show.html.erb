@@ -26,10 +26,9 @@
 					<%= f.hidden_field :review_id, value: @review.id, require: true %>
 					<%= f.hidden_field :note_id, value: @note.id, require: true %>
 					<div class="note-content-post">
-						<%#id=editorはマークダウン記法適用に使用%>
+						<%# WARNING: id=editorはマークダウン記法適用に使用 %>
 						<div id='editor'>
 							<%= f.text_area :postscript, "v-model" => "input", class:"note-form-content", id:"form"%>
-							<%#ここにプレビュー表示%>
 							<div class="preview" v-html='input | marked'>
 							</div>
 						</div>
@@ -43,10 +42,8 @@
 <script type="text/javascript">
 	window.onload = function() {
 		new Vue({
-			<%#contentのtext_areaのid%>
 			el: '#editor',
 			data: {
-				<%#保持しているデータは@note.content%>
 				input: '<%= j @postscript.postscript %>',
 				},
 			filters: {
