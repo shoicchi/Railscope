@@ -2,7 +2,7 @@
 
 class Users::BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
+    @bookmarks = current_user.bookmarks.page(params[:page]).reverse_order
   end
 
   def create
