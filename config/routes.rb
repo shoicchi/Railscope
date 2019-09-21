@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  get 'oauth_test/index'
   root 'top#index'
   get '/notes/hashtag/:tag_name', to: 'users/notes#hashtag'
   post '/subscriptions/new' => 'users/subscriptions#registration_payjp'
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :users do
-    resources :hashtags, :my_notes, :note_hashtags, :points, :users, :subscriptions, :bookmarks
+    resources :my_notes, :points, :users, :subscriptions, :bookmarks
   end
 
   scope module: :users do
