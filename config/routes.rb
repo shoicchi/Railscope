@@ -29,8 +29,4 @@ Rails.application.routes.draw do
       resources :reviews, :postscripts
     end
   end
-
-  namespace :admins do
-    resources :bookmarks, :hashtags, :my_notes, :note_hashtags, :notes, :points, :postscripts, :reviews, :users
-  end
 end
