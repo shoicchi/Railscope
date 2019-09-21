@@ -6,17 +6,17 @@
 				<div class="note-form-browsable">
 					<div class="radio">
 			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios1" value="無料記事"> 無料記事
+			               <input type="radio" name="note[is_browsable_guest]" id="optionsRadios1" value="無料記事"> 無料記事
 			            </label>
 			         </div>
 			         <div class="radio">
 			            <label>
-			               <input type="radio" name="view_point" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
+			               <input type="radio" name="note[is_browsable_guest]" id="optionsRadios2" value="有料会員限定記事"> 有料会員限定記事
 			            </label>
 			         </div>
 			         <div class="form-group">
 			               <label for="other" class="other_label disabled">有料会員限定記事の場合は閲覧ポイントを設定してください</label>
-			               <input type="number"  id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
+			               <input type="number" name="note[view_point]" id="inputother" placeholder="0~500" disabled="disabled"><br>ポイント
 			         </div>
 	  			</div>
 				<div class="note-title">
@@ -69,7 +69,7 @@
 
 <script>
 	$(function(){
-		$( 'input[name="view_point"]:radio' ).change( function() {
+		$( 'input[name="note[is_browsable_guest]"]:radio' ).change( function() {
 	    	var radioval = $(this).val();
 	    	if(radioval == '有料会員限定記事'){
 	        	$('#inputother').removeAttr('disabled');
