@@ -2,7 +2,7 @@
 
 class Users::MyNotesController < ApplicationController
   def index
-    @my_notes = MyNote.where(user_id: current_user.id).page(params[:page]).reverse_order
+    @my_notes = current_user.my_notes.page(params[:page]).reverse_order
   end
 
   def create

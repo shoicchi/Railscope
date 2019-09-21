@@ -2,7 +2,7 @@
 
 class Users::PointsController < ApplicationController
   def index
-    @points = Point.where(user_id: current_user.id).page(params[:page]).reverse_order
+    @points = current_user.points.page(params[:page]).reverse_order
   end
 
   def new
