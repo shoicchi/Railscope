@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # WARNING: ver2.1.0以上ではsasscが必要、ec2との環境差分でプリコンパイルできないので明示的に2.0とする
 gem 'activeadmin', '= 2.0'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'cocoon'
 gem 'devise'
 # NOTE: .envに記載した環境変数を認識させるために必要
