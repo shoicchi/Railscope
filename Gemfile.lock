@@ -192,6 +192,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustermann (1.0.3)
+    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.1)
     nokogiri (1.10.4)
@@ -225,7 +226,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.1)
-    puma (3.12.1)
+    puma (3.12.3)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -360,12 +361,13 @@ DEPENDENCIES
   json
   kaminari (~> 1.1.1)
   listen (>= 3.0.5, < 3.2)
+  mysql2
   omniauth
   omniauth-github
   paranoia (~> 2.2)
   payjp
   pry-byebug
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   ransack
   redcarpet
