@@ -71,7 +71,7 @@ gem 'devise'
 # NOTE: .envに記載した環境変数を認識させるために必要
 gem 'dotenv-rails'
 gem 'jquery-rails'
-gem 'kaminari', '~> 1.1.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'paranoia', '~>2.2'
